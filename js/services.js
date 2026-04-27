@@ -1,222 +1,257 @@
 // ========================================
 // SERVICES PAGE JS - services.js
-// Abhishek Xerox - Vejalpur, Ahmedabad
+// Abhishek Xerox - Performance Optimized
 // ========================================
 
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
+    'use strict';
 
-    // ===== PAGE BANNER ANIMATION =====
-    const pageBanner = document.querySelector('.page-banner');
-    if (pageBanner) {
-        pageBanner.style.opacity = '0';
-        pageBanner.style.transform = 'translateY(-20px)';
-        pageBanner.style.transition = 'all 0.6s ease';
-        setTimeout(function () {
-            pageBanner.style.opacity = '1';
-            pageBanner.style.transform = 'translateY(0)';
-        }, 100);
+    // =========================================
+    // UTILITY - INTERSECTION OBSERVER
+    // =========================================
+    function createObserver(callback, options) {
+        var opts = {
+            threshold: (options && options.threshold) || 0.1,
+            rootMargin: (options && options.rootMargin) ||
+                '0px 0px -30px 0px'
+        };
+
+        if (!('IntersectionObserver' in window)) {
+            return {
+                observe: function (el) {
+                    callback([{
+                        target: el,
+                        isIntersecting: true
+                    }]);
+                },
+                unobserve: function () {}
+            };
+        }
+
+        return new IntersectionObserver(callback, opts);
     }
 
-    // ===== INTRO ANIMATION =====
-    const introContent = document.querySelector('.intro-content');
-    if (introContent) {
-        introContent.style.opacity = '0';
-        introContent.style.transform = 'translateY(30px)';
-        introContent.style.transition = 'all 0.7s ease';
+    // =========================================
+    // UTILITY - ANIMATE ELEMENTS
+    // =========================================
+    function animateElements(elements, options) {
+        if (!elements || !elements.length) return;
 
-        const introObserver = new IntersectionObserver(
-            function (entries) {
+        var stagger = (options && options.stagger) || 0;
+        var delay = (options && options.delay) || 0;
+        var direction = (options && options.direction) || 'up';
+        var threshold = (options && options.threshold) || 0.1;
+
+        var initTransforms = {
+            up: 'translateY(35px)',
+            left: 'translateX(-35px)',
+            right: 'translateX(35px)',
+            scale: 'scale(0.88)',
+            fade: 'translateY(0px)'
+        };
+
+        var transform = initTransforms[direction] ||
+            initTransforms.up;
+
+        elements.forEach(function (el) {
+            el.style.opacity = '0';
+            el.style.transform = transform;
+            el.style.transition =
+                'opacity 0.52s ease, transform 0.52s ease';
+            el.style.willChange = 'opacity, transform';
+        });
+
+        var obs = createObserver(function (entries) {
+            entries.forEach(function (entry, idx) {
+                if (entry.isIntersecting) {
+                    var totalDelay = delay + (idx * stagger);
+                    setTimeout(function () {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'none';
+                        setTimeout(function () {
+                            entry.target.style.willChange =
+                                'auto';
+                        }, 580);
+                    }, totalDelay);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: threshold });
+
+        elements.forEach(function (el) {
+            obs.observe(el);
+        });
+    }
+
+    // =========================================
+    // DOM READY
+    // =========================================
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ===== PAGE BANNER =====
+        var pageBanner = document.querySelector('.page-banner');
+        if (pageBanner) {
+            pageBanner.style.opacity = '0';
+            pageBanner.style.transform = 'translateY(-18px)';
+            pageBanner.style.transition = 'all 0.55s ease';
+            setTimeout(function () {
+                pageBanner.style.opacity = '1';
+                pageBanner.style.transform = 'translateY(0)';
+            }, 80);
+        }
+
+        // ===== INTRO CONTENT =====
+        var introContent = document.querySelector('.intro-content');
+        if (introContent) {
+            introContent.style.opacity = '0';
+            introContent.style.transform = 'translateY(28px)';
+            introContent.style.transition = 'all 0.65s ease';
+
+            var introObs = createObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                        introObserver.unobserve(entry.target);
+                        entry.target.style.transform = 'none';
+                        introObs.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.2 });
 
-        introObserver.observe(introContent);
-    }
-
-    // ===== INTRO STATS ANIMATION =====
-    const introStats = document.querySelectorAll('.intro-stat');
-    introStats.forEach(function (stat) {
-        stat.style.opacity = '0';
-        stat.style.transform = 'translateY(20px)';
-        stat.style.transition = 'all 0.5s ease';
-    });
-
-    const statsObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 100);
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-    introStats.forEach(function (stat) {
-        statsObserver.observe(stat);
-    });
-
-    // ===== SERVICE ITEMS ANIMATION =====
-    const serviceItems = document.querySelectorAll('.service-item');
-    serviceItems.forEach(function (item) {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(50px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    const serviceObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 150);
-                    serviceObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-    serviceItems.forEach(function (item) {
-        serviceObserver.observe(item);
-    });
-
-    // ===== ALL SERVICE CARDS ANIMATION =====
-    const allServiceCards = document.querySelectorAll(
-        '.all-service-card'
-    );
-    allServiceCards.forEach(function (card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    const allCardObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 80);
-                    allCardObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    allServiceCards.forEach(function (card) {
-        allCardObserver.observe(card);
-        card.addEventListener('click', function () {
-            window.location.href = 'contact.html';
-        });
-    });
-
-    // ===== MORE CARDS ANIMATION =====
-    const moreCards = document.querySelectorAll('.more-card');
-    moreCards.forEach(function (card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    const moreObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 100);
-                    moreObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    moreCards.forEach(function (card) {
-        moreObserver.observe(card);
-        card.addEventListener('click', function () {
-            window.location.href = 'contact.html';
-        });
-    });
-
-    // ===== WHY BOXES ANIMATION =====
-    const whyBoxes = document.querySelectorAll('.why-box');
-    whyBoxes.forEach(function (box) {
-        box.style.opacity = '0';
-        box.style.transform = 'translateY(30px)';
-        box.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    const whyObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 150);
-                    whyObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    whyBoxes.forEach(function (box) {
-        whyObserver.observe(box);
-    });
-
-    // ===== SERVICE ICON HOVER =====
-    const iconBoxes = document.querySelectorAll('.service-icon-box');
-    iconBoxes.forEach(function (icon) {
-        icon.addEventListener('mouseenter', function () {
-            this.style.transform = 'scale(1.12) rotate(6deg)';
-            this.style.transition = 'all 0.3s ease';
-        });
-        icon.addEventListener('mouseleave', function () {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-    });
-
-    // ===== SERVICE TAGS CLICK =====
-    const tags = document.querySelectorAll('.service-tags span');
-    tags.forEach(function (tag) {
-        tag.addEventListener('click', function () {
-            this.style.background = '#FFD700';
-            this.style.transform = 'scale(1.1)';
-            this.style.transition = 'all 0.2s ease';
-            setTimeout(function () {
-                tag.style.background = '';
-                tag.style.transform = '';
-            }, 400);
-        });
-    });
-
-    // ===== NAVBAR SCROLL =====
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        if (navbar) {
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow =
-                    '0 2px 20px rgba(255,215,0,0.25)';
-            } else {
-                navbar.style.boxShadow =
-                    '0 2px 15px rgba(0,0,0,0.3)';
-            }
+            introObs.observe(introContent);
         }
-    });
 
-    console.log('✅ Services Page Loaded - Abhishek Xerox!');
+        // ===== INTRO STATS =====
+        var introStats = document.querySelectorAll('.intro-stat');
+        animateElements(Array.from(introStats), {
+            direction: 'up',
+            stagger: 90,
+            threshold: 0.3
+        });
 
-});
+        // ===== SERVICE ITEMS =====
+        var serviceItems = document.querySelectorAll('.service-item');
+        animateElements(Array.from(serviceItems), {
+            direction: 'up',
+            stagger: 130,
+            threshold: 0.12,
+            delay: 50
+        });
+
+        // ===== ALL SERVICE CARDS =====
+        var allCards = document.querySelectorAll('.all-service-card');
+        animateElements(Array.from(allCards), {
+            direction: 'up',
+            stagger: 70,
+            threshold: 0.08
+        });
+
+        // Click → contact
+        allCards.forEach(function (card) {
+            card.addEventListener('click', function (e) {
+                if (e.target.tagName === 'A') return;
+                window.location.href = 'contact.html';
+            });
+        });
+
+        // ===== MORE CARDS =====
+        var moreCards = document.querySelectorAll('.more-card');
+        animateElements(Array.from(moreCards), {
+            direction: 'up',
+            stagger: 85,
+            threshold: 0.1
+        });
+
+        moreCards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                window.location.href = 'contact.html';
+            });
+        });
+
+        // ===== WHY BOXES =====
+        var whyBoxes = document.querySelectorAll('.why-box');
+        animateElements(Array.from(whyBoxes), {
+            direction: 'up',
+            stagger: 120,
+            threshold: 0.1
+        });
+
+        // ===== SERVICE ICON HOVER =====
+        // Only on non-touch devices
+        if (!('ontouchstart' in window)) {
+            var iconBoxes = document.querySelectorAll(
+                '.service-icon-box'
+            );
+            iconBoxes.forEach(function (icon) {
+                icon.addEventListener('mouseenter', function () {
+                    if (this.closest('.service-item:hover')) return;
+                    this.style.transform =
+                        'scale(1.08) rotate(5deg)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                icon.addEventListener('mouseleave', function () {
+                    this.style.transform = '';
+                });
+            });
+        }
+
+        // ===== SERVICE TAGS =====
+        var tags = document.querySelectorAll('.service-tags span');
+        tags.forEach(function (tag) {
+            tag.addEventListener('click', function () {
+                var self = this;
+                self.style.background = '#FFD700';
+                self.style.transform = 'scale(1.08)';
+                self.style.transition = 'all 0.2s ease';
+                setTimeout(function () {
+                    self.style.background = '';
+                    self.style.transform = '';
+                }, 380);
+            });
+        });
+
+        // ===== SERVICE ITEM - CTA KEYBOARD =====
+        var serviceCtaLinks = document.querySelectorAll(
+            '.service-cta'
+        );
+        serviceCtaLinks.forEach(function (link) {
+            link.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href =
+                        this.getAttribute('href');
+                }
+            });
+        });
+
+        // ===== PERFORMANCE - PAUSE ANIMATIONS ON HIDDEN =====
+        if ('visibilityState' in document) {
+            document.addEventListener(
+                'visibilitychange',
+                function () {
+                    var cards = document.querySelectorAll(
+                        '.more-card, .all-service-card'
+                    );
+                    cards.forEach(function (card) {
+                        if (document.hidden) {
+                            card.style.animationPlayState =
+                                'paused';
+                        } else {
+                            card.style.animationPlayState =
+                                'running';
+                        }
+                    });
+                }
+            );
+        }
+
+        // ===== LOG =====
+        console.log(
+            '%c✅ Services Page - Abhishek Xerox!',
+            'color: #FFD700; background: #1a1a1a; ' +
+            'padding: 5px 10px; border-radius: 4px; ' +
+            'font-weight: bold;'
+        );
+
+    }); // END DOMContentLoaded
+
+})(); // IIFE

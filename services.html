@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Services - Abhishek Xerox | Vejalpur Ahmedabad</title>
     <meta name="description"
         content="Abhishek Xerox Services - Printing, Scanning,
@@ -10,56 +13,99 @@
         in Vejalpur, Ahmedabad. Call +91 98988 67134">
     <meta name="keywords"
         content="xerox services vejalpur, printing ahmedabad,
-        scanning lamination binding, branding xerox">
+        scanning lamination binding, branding xerox ahmedabad">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFD700">
 
-    <!-- Common CSS -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="images/Abhishek-Logo1.png">
+    <link rel="apple-touch-icon"
+        href="images/Abhishek-Logo1.png">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/common.css">
-    <!-- Services CSS -->
     <link rel="stylesheet" href="css/services.css">
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png"
-                        alt="Abhishek Xerox"
-                        class="logo-img">
-                </a>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">
-                    Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="price.html">Price List</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="logo">
+            <a href="index.html" aria-label="Abhishek Xerox Home">
+                <img src="images/Abhishek-Logo1.png" alt="Abhishek Xerox - Best Xerox Shop Vejalpur" class="logo-img" width="160" height="48" loading="eager">
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <!-- Home (Start) -->
+            <li role="none">
+                <a href="index.html" class="active" role="menuitem">Home</a>
+            </li>
+            
+            <!-- Services (What you do) -->
+            <li role="none">
+                <a href="services.html" class="active" role="menuitem">Services</a>
+            </li>
+            
+            <!-- Products (What you sell) -->
+            <li role="none">
+                <a href="products.html" role="menuitem">Products</a>
+            </li>
+            
+            <!-- Gallery (Proof of work) -->
+            <li role="none">
+                <a href="gallery.html" role="menuitem">Gallery</a>
+            </li>
+
+            <!-- Prices (Transparency) -->
+            <li role="none">
+                <a href="price.html" role="menuitem">Price List</a>
+            </li>
+
+            <!-- About Us (Trust) -->
+            <li role="none">
+                <a href="about.html" role="menuitem">About Us</a>
+            </li>
+
+            <!-- Enquiry (Lead generation) -->
+            <li role="none">
+                <a href="enquiry.html" role="menuitem">Enquiry</a>
+            </li>
+
+            <!-- Contact Us (End/Action) -->
+            <li role="none">
+                <a href="contact.html" role="menuitem">Contact Us</a>
+            </li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navLinks" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
 
     <!-- ========== PAGE BANNER ========== -->
-    <section class="page-banner">
+    <section class="page-banner" aria-label="Page Banner">
         <h2>Our <span>Services</span></h2>
         <p>Complete Printing & Documentation Solutions</p>
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> &rarr; Services
-        </div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true"> &rarr; </span>
+            <span>Services</span>
+        </nav>
     </section>
 
     <!-- ========== PROFESSIONAL INTRO ========== -->
-    <section class="professional-intro">
+    <section class="professional-intro"
+        aria-label="About Our Services">
         <div class="intro-content">
-            <div class="intro-badge">⭐ We Are Professional</div>
+            <div class="intro-badge">
+                ⭐ We Are Professional
+            </div>
             <h2>We're something other than
                 <span>duplicates…</span>
             </h2>
@@ -95,7 +141,8 @@
     </section>
 
     <!-- ========== MAIN SERVICES ========== -->
-    <section class="main-services">
+    <section class="main-services" id="main-services"
+        aria-label="Main Services">
         <h2 class="section-title">What We Offer</h2>
         <p class="section-subtitle">
             High quality services at affordable prices
@@ -103,21 +150,23 @@
 
         <div class="services-list">
 
-            <!-- Service 1 - Xerox -->
-            <div class="service-item">
+            <!-- 01 Printing -->
+            <article class="service-item">
                 <div class="service-left">
-                    <div class="service-icon-box">🖨️</div>
+                    <div class="service-icon-box"
+                        aria-hidden="true">🖨️</div>
                 </div>
                 <div class="service-right">
-                    <div class="service-number">01</div>
+                    <div class="service-number"
+                        aria-hidden="true">01</div>
                     <h3>Printing Services</h3>
                     <p>Fast print, flyer, and pamphlet printing
-                        organization. Pleased with our past.
-                        Printing for what's to come. We provide
-                        high quality black & white and color xerox
-                        services. Single side and double side copies
+                        organization. We provide high quality
+                        black & white and color xerox services.
+                        Single side and double side copies
                         available at very affordable price.</p>
-                    <div class="service-tags">
+                    <div class="service-tags"
+                        aria-label="Service features">
                         <span>✅ Black & White</span>
                         <span>✅ Color Xerox</span>
                         <span>✅ Single Side</span>
@@ -125,20 +174,21 @@
                         <span>✅ A4 Size</span>
                         <span>✅ A3 Size</span>
                     </div>
-                    <a href="contact.html"
-                        class="service-cta">
-                        Check All Services →
+                    <a href="contact.html" class="service-cta">
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Service 2 - Digital Scanning -->
-            <div class="service-item reverse">
+            <!-- 02 Scanning -->
+            <article class="service-item reverse">
                 <div class="service-left">
-                    <div class="service-icon-box">📄</div>
+                    <div class="service-icon-box"
+                        aria-hidden="true">📄</div>
                 </div>
                 <div class="service-right">
-                    <div class="service-number">02</div>
+                    <div class="service-number"
+                        aria-hidden="true">02</div>
                     <h3>Digital Scanning</h3>
                     <p>Fast and accurate scanning of all your
                         important documents, certificates, photos
@@ -153,20 +203,21 @@
                         <span>✅ WhatsApp</span>
                         <span>✅ Email Delivery</span>
                     </div>
-                    <a href="contact.html"
-                        class="service-cta">
-                        Check All Services →
+                    <a href="contact.html" class="service-cta">
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Service 3 - Design Services -->
-            <div class="service-item">
+            <!-- 03 Design -->
+            <article class="service-item">
                 <div class="service-left">
-                    <div class="service-icon-box">🎨</div>
+                    <div class="service-icon-box"
+                        aria-hidden="true">🎨</div>
                 </div>
                 <div class="service-right">
-                    <div class="service-number">03</div>
+                    <div class="service-number"
+                        aria-hidden="true">03</div>
                     <h3>Design Services</h3>
                     <p>Get your documents, photos, banners and
                         designs printed in vibrant colors with our
@@ -181,20 +232,21 @@
                         <span>✅ High Quality</span>
                         <span>✅ Fast Delivery</span>
                     </div>
-                    <a href="contact.html"
-                        class="service-cta">
-                        Check All Services →
+                    <a href="contact.html" class="service-cta">
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Service 4 - Copying Services -->
-            <div class="service-item reverse">
+            <!-- 04 Copying -->
+            <article class="service-item reverse">
                 <div class="service-left">
-                    <div class="service-icon-box">🗂️</div>
+                    <div class="service-icon-box"
+                        aria-hidden="true">🗂️</div>
                 </div>
                 <div class="service-right">
-                    <div class="service-number">04</div>
+                    <div class="service-number"
+                        aria-hidden="true">04</div>
                     <h3>Copying Services</h3>
                     <p>Protect your important documents,
                         certificates, photos and ID cards with our
@@ -209,20 +261,21 @@
                         <span>✅ A3 Size</span>
                         <span>✅ Custom Size</span>
                     </div>
-                    <a href="contact.html"
-                        class="service-cta">
-                        Check All Services →
+                    <a href="contact.html" class="service-cta">
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Service 5 - Binding -->
-            <div class="service-item">
+            <!-- 05 Stationery -->
+            <article class="service-item">
                 <div class="service-left">
-                    <div class="service-icon-box">📚</div>
+                    <div class="service-icon-box"
+                        aria-hidden="true">📚</div>
                 </div>
                 <div class="service-right">
-                    <div class="service-number">05</div>
+                    <div class="service-number"
+                        aria-hidden="true">05</div>
                     <h3>Stationery Print</h3>
                     <p>We're something other than duplicates…
                         What's more, we do it right! A full
@@ -238,20 +291,21 @@
                         <span>✅ Fast Work</span>
                         <span>✅ Best Price</span>
                     </div>
-                    <a href="contact.html"
-                        class="service-cta">
-                        Check All Services →
+                    <a href="contact.html" class="service-cta">
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Service 6 - Photo Print -->
-            <div class="service-item reverse">
+            <!-- 06 Photo -->
+            <article class="service-item reverse">
                 <div class="service-left">
-                    <div class="service-icon-box">🖼️</div>
+                    <div class="service-icon-box"
+                        aria-hidden="true">🖼️</div>
                 </div>
                 <div class="service-right">
-                    <div class="service-number">06</div>
+                    <div class="service-number"
+                        aria-hidden="true">06</div>
                     <h3>Photo Printing</h3>
                     <p>Borderless photo prints are a fantastic way
                         to bring your digital photos to life. By
@@ -267,18 +321,18 @@
                         <span>✅ Premium Paper</span>
                         <span>✅ Quick Print</span>
                     </div>
-                    <a href="contact.html"
-                        class="service-cta">
-                        Check All Services →
+                    <a href="contact.html" class="service-cta">
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
         </div>
     </section>
 
     <!-- ========== ALL SERVICES GRID ========== -->
-    <section class="all-services-section">
+    <section class="all-services-section"
+        aria-label="All Services">
         <h2 class="section-title">All Our Services</h2>
         <p class="section-subtitle">
             Complete range of printing solutions
@@ -286,282 +340,292 @@
 
         <div class="all-services-grid">
 
-            <!-- Branding -->
-            <div class="all-service-card">
-                <div class="asc-icon">🏷️</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    🏷️
+                </div>
                 <div class="asc-content">
                     <h3>Branding</h3>
                     <p>Branding is the process of creating a
-                        unique identity for a product or service
-                        in the minds of consumers. It involves
-                        developing a name, logo, and visual
-                        identity that is consistent across all
-                        marketing materials.</p>
+                        unique identity for a product or service.
+                        It involves developing a name, logo, and
+                        visual identity that is consistent across
+                        all marketing materials.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Personalized Gifts -->
-            <div class="all-service-card">
-                <div class="asc-icon">🎁</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    🎁
+                </div>
                 <div class="asc-content">
                     <h3>Personalized Gifts</h3>
-                    <p>Personalized gifts are gifts that have
-                        been customized with the recipient's name,
-                        initials, or other personal information.
-                        They can be made from a variety of
-                        materials. Often given for birthdays,
-                        anniversaries and special occasions.</p>
+                    <p>Personalized gifts customized with the
+                        recipient's name, initials, or other
+                        personal information. Made from variety
+                        of materials for birthdays, anniversaries
+                        and special occasions.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Events -->
-            <div class="all-service-card">
-                <div class="asc-icon">🎪</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    🎪
+                </div>
                 <div class="asc-content">
                     <h3>Events</h3>
-                    <p>There are many different event products
-                        available, so you can find the perfect
-                        products for your event. When choosing
-                        event products, it is important to
-                        consider the size and type of your event,
-                        your budget, and your branding goals.</p>
+                    <p>Complete event printing solutions for
+                        all types of events. Banners, invitations,
+                        programs, certificates and all event
+                        related printing materials at best
+                        prices in Ahmedabad.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Pharma Prints -->
-            <div class="all-service-card">
-                <div class="asc-icon">💊</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    💊
+                </div>
                 <div class="asc-content">
                     <h3>Pharma Prints</h3>
-                    <p>If you are looking for a reliable and
-                        experienced partner for your pharmaceutical
-                        printing needs, we can help you create
-                        high-quality products that meet your needs
-                        and exceed your expectations every time.</p>
+                    <p>Reliable and experienced pharmaceutical
+                        printing for medicine labels, prescription
+                        pads, packaging inserts and medical forms.
+                        High-quality products that meet all your
+                        needs and exceed expectations.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Sticker Print -->
-            <div class="all-service-card">
-                <div class="asc-icon">🏷️</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    🏷️
+                </div>
                 <div class="asc-content">
                     <h3>Sticker Print</h3>
-                    <p>If you are looking for a reliable and
-                        experienced partner for your sticker
-                        printing needs, we can help you create
-                        high-quality stickers that meet your needs
-                        and exceed your expectations for any
-                        purpose or occasion.</p>
+                    <p>Custom sticker printing in various shapes,
+                        sizes and materials including vinyl, paper
+                        and waterproof stickers. High-quality
+                        stickers for any purpose or occasion
+                        at best prices.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Exhibition Print -->
-            <div class="all-service-card">
-                <div class="asc-icon">🖼️</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    🖼️
+                </div>
                 <div class="asc-content">
                     <h3>Exhibition Print</h3>
-                    <p>Exhibition prints are large-format prints
-                        used to display artwork, photographs, or
-                        other visual content at exhibitions.
-                        Typically printed on high-quality paper
-                        or canvas, mounted on various substrates
-                        like wood, metal, or acrylic.</p>
+                    <p>Large-format exhibition prints for trade
+                        shows, galleries and events. Printed on
+                        high-quality paper or canvas, mounted on
+                        various substrates like wood, metal, or
+                        acrylic panels.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Plan Xerox -->
-            <div class="all-service-card">
-                <div class="asc-icon">📐</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    📐
+                </div>
                 <div class="asc-content">
                     <h3>Plan Xerox</h3>
-                    <p>We specialize in wide format color and
-                        black & white printing. We can print and
-                        scan sizes A0, A1, A2, A3 or your own
-                        custom size. Perfect for all your
-                        architectural, construction, engineering,
-                        mechanical and electrical plans.</p>
+                    <p>Wide format color and black & white
+                        printing for architectural, engineering
+                        and construction plans. Print and scan
+                        sizes A0, A1, A2, A3 and custom sizes
+                        at best quality.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Package Printing -->
-            <div class="all-service-card">
-                <div class="asc-icon">📦</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    📦
+                </div>
                 <div class="asc-content">
                     <h3>Package Printing</h3>
-                    <p>Package printing refers to the process of
-                        producing printed materials used for
-                        packaging and labeling various products.
-                        It is an essential aspect of product
-                        branding, marketing, and information
-                        dissemination to consumers.</p>
+                    <p>Custom packaging printing for products
+                        including boxes, labels, bags and wrapping.
+                        Essential for product branding, marketing,
+                        and information dissemination to consumers
+                        in Ahmedabad.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Restaurant Print -->
-            <div class="all-service-card">
-                <div class="asc-icon">🍽️</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    🍽️
+                </div>
                 <div class="asc-content">
                     <h3>Restaurant Print</h3>
-                    <p>Give hungry customers a look at all the
-                        amazing food you offer with convenient,
-                        custom-designed menus. List all your
-                        options and prices, add your logo and
-                        contact info and spice things up with
-                        appetizing photos of dishes.</p>
+                    <p>Custom-designed menus for restaurants.
+                        List all your options and prices, add
+                        your logo and contact info and spice
+                        things up with appetizing photos of
+                        dishes fresh from the kitchen.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- ID Card Making -->
-            <div class="all-service-card">
-                <div class="asc-icon">💳</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    💳
+                </div>
                 <div class="asc-content">
                     <h3>ID Card Making</h3>
                     <p>Professional ID card design and printing
                         with lamination for businesses, schools,
                         colleges and organizations. Quick and
                         affordable ID card making service
-                        available at all our branches
-                        in Ahmedabad.</p>
+                        at all our branches.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Visiting Cards -->
-            <div class="all-service-card">
-                <div class="asc-icon">📮</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    📮
+                </div>
                 <div class="asc-content">
                     <h3>Visiting Cards</h3>
                     <p>Business card design and printing in
-                        bulk quantity. Professional visiting
-                        card printing for businesses and
-                        individuals. Available in various
-                        sizes, paper quality and finishes
-                        at very affordable prices.</p>
+                        bulk quantity. Available in various sizes,
+                        paper quality and finishes at very
+                        affordable prices for businesses and
+                        individuals in Ahmedabad.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Form Filling -->
-            <div class="all-service-card">
-                <div class="asc-icon">📋</div>
+            <article class="all-service-card">
+                <div class="asc-icon" aria-hidden="true">
+                    📋
+                </div>
                 <div class="asc-content">
                     <h3>Form Filling</h3>
                     <p>Online and offline form filling service
                         for all government services, bank forms,
                         applications and official documents.
-                        Fast and accurate typing work available
-                        at all branches in Ahmedabad at
-                        affordable rates.</p>
+                        Fast and accurate typing work at all
+                        branches in Ahmedabad.</p>
                     <a href="contact.html" class="asc-link">
-                        Check All Services →
+                        Get Quote →
                     </a>
                 </div>
-            </div>
+            </article>
 
         </div>
     </section>
 
     <!-- ========== MORE SERVICES ========== -->
-    <section class="more-services">
+    <section class="more-services"
+        aria-label="Quick Services">
         <h2 class="section-title">Quick Services</h2>
         <p class="section-subtitle">
             We offer many more services for all your needs
         </p>
         <div class="more-grid">
+
             <div class="more-card">
-                <span>📝</span>
+                <span aria-hidden="true">📝</span>
                 <h3>Typing Work</h3>
                 <p>Fast and accurate typing for all
                     documents and applications.</p>
             </div>
+
             <div class="more-card">
-                <span>💳</span>
+                <span aria-hidden="true">💳</span>
                 <h3>ID Card Making</h3>
                 <p>Professional ID card design and
                     printing with lamination.</p>
             </div>
+
             <div class="more-card">
-                <span>📮</span>
+                <span aria-hidden="true">📮</span>
                 <h3>Visiting Cards</h3>
                 <p>Business card design and printing
                     in bulk quantity.</p>
             </div>
+
             <div class="more-card">
-                <span>📜</span>
+                <span aria-hidden="true">📜</span>
                 <h3>Certificate Print</h3>
                 <p>Beautiful certificate printing for
                     events and organizations.</p>
             </div>
+
             <div class="more-card">
-                <span>📋</span>
+                <span aria-hidden="true">📋</span>
                 <h3>Form Filling</h3>
                 <p>Online and offline form filling for
                     all government services.</p>
             </div>
+
             <div class="more-card">
-                <span>🖊️</span>
+                <span aria-hidden="true">🖊️</span>
                 <h3>Stationery</h3>
                 <p>All types of stationery items
                     available at our shop.</p>
             </div>
+
         </div>
     </section>
 
     <!-- ========== WHY CHOOSE US ========== -->
-    <section class="services-why">
+    <section class="services-why"
+        aria-label="Why Choose Us">
         <h2 class="section-title">Why Choose Us?</h2>
         <p class="section-subtitle">
             We are the best in Vejalpur, Ahmedabad
         </p>
         <div class="why-boxes">
             <div class="why-box">
-                <span>⚡</span>
+                <span aria-hidden="true">⚡</span>
                 <h3>Fast Service</h3>
                 <p>Your work done in minutes not hours.</p>
             </div>
             <div class="why-box">
-                <span>💰</span>
+                <span aria-hidden="true">💰</span>
                 <h3>Best Price</h3>
                 <p>Most affordable prices guaranteed.</p>
             </div>
             <div class="why-box">
-                <span>✅</span>
+                <span aria-hidden="true">✅</span>
                 <h3>Best Quality</h3>
                 <p>We never compromise on quality.</p>
             </div>
             <div class="why-box">
-                <span>😊</span>
+                <span aria-hidden="true">😊</span>
                 <h3>Satisfaction</h3>
                 <p>100% customer satisfaction assured.</p>
             </div>
@@ -581,7 +645,7 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>📠 Abhishek Xerox</h3>
@@ -590,11 +654,16 @@
                     Ahmedabad since 2014.</p>
                 <div class="footer-social">
                     <a href="https://wa.me/919898867134"
-                        target="_blank" title="WhatsApp">💬</a>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="WhatsApp"
+                        aria-label="Chat on WhatsApp">💬</a>
                     <a href="mailto:abhishekxerox01@gmail.com"
-                        title="Email">📧</a>
+                        title="Email"
+                        aria-label="Send Email">📧</a>
                     <a href="tel:+919898867134"
-                        title="Call">📞</a>
+                        title="Call"
+                        aria-label="Call Us">📞</a>
                 </div>
             </div>
             <div class="footer-col">
@@ -603,6 +672,8 @@
                     <li><a href="index.html">🏠 Home</a></li>
                     <li><a href="services.html">
                         🛠️ Services</a></li>
+                    <li><a href="products.html">
+                        📦 Products</a></li>
                     <li><a href="about.html">👤 About Us</a></li>
                     <li><a href="gallery.html">🖼️ Gallery</a></li>
                     <li><a href="price.html">💰 Price List</a></li>
@@ -633,7 +704,8 @@
                 <p>📞 <a href="tel:+919898867134"
                     style="color:#aaa;">
                     +91 98988 67134</a></p>
-                <p>📧 <a href="mailto:abhishekxerox01@gmail.com"
+                <p>📧 <a
+                    href="mailto:abhishekxerox01@gmail.com"
                     style="color:#aaa;">
                     abhishekxerox01@gmail.com</a></p>
                 <p>🕐 Mon-Sat: 9AM - 9:30PM</p>
@@ -641,22 +713,29 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 Abhishek Xerox | Vejalpur, Ahmedabad |
-                All Rights Reserved</p>
+            <p>© 2024 Abhishek Xerox | Vejalpur, Ahmedabad
+                | All Rights Reserved</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/919898867134"
         target="_blank"
+        rel="noopener noreferrer"
         class="whatsapp-float"
-        title="Chat on WhatsApp">
+        title="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp">
         💬
     </a>
 
-    <button id="scrollTop">↑</button>
+    <!-- Scroll Top -->
+    <button id="scrollTop"
+        aria-label="Scroll to top"
+        type="button">↑</button>
 
-    <script src="js/common.js"></script>
-    <script src="js/services.js"></script>
+    <!-- JS -->
+    <script src="js/common.js" defer></script>
+    <script src="js/services.js" defer></script>
 
 </body>
 </html>

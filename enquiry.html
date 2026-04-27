@@ -2,78 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Enquiry - Abhishek Xerox | Vejalpur Ahmedabad</title>
     <meta name="description"
-        content="Send enquiry to Abhishek Xerox Vejalpur Ahmedabad.
-        Call +91 98988 67134 for printing services.">
+        content="Send enquiry to Abhishek Xerox Vejalpur
+        Ahmedabad. 3 Branches. Call +91 98988 67134
+        for printing services.">
+    <meta name="keywords"
+        content="abhishek xerox enquiry, xerox enquiry
+        vejalpur, printing enquiry ahmedabad">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFD700">
 
-    <!-- Common CSS -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="images/Abhishek-Logo1.png">
+    <link rel="apple-touch-icon"
+        href="images/Abhishek-Logo1.png">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/common.css">
-    <!-- Enquiry CSS -->
     <link rel="stylesheet" href="css/enquiry.css">
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar" role="navigation"
+            aria-label="Main Navigation">
             <div class="logo">
-                <h1>📠 Abhishek <span>Xerox</span></h1>
+                <a href="index.html"
+                    aria-label="Abhishek Xerox Home">
+                    <img
+                        src="images/Abhishek-Logo1.png"
+                        alt="Abhishek Xerox Logo"
+                        class="logo-img"
+                        width="160"
+                        height="48"
+                        loading="eager">
+                </a>
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="price.html">Price List</a></li>
-                <li><a href="enquiry.html" class="active">
-                    Enquiry
-                </a></li>
-                <li><a href="contact.html">Contact</a></li>
+
+            <ul class="nav-links" id="navLinks"
+                role="menubar">
+                <li role="none">
+                    <a href="index.html"
+                        role="menuitem">Home</a>
+                </li>
+                <li role="none">
+                    <a href="services.html"
+                        role="menuitem">Services</a>
+                </li>
+                <li role="none">
+                    <a href="products.html"
+                        role="menuitem">Products</a>
+                </li>
+                <li role="none">
+                    <a href="gallery.html"
+                        role="menuitem">Gallery</a>
+                </li>
+                <li role="none">
+                    <a href="price.html"
+                        role="menuitem">Prices</a>
+                </li>
+                <li role="none">
+                    <a href="about.html"
+                        role="menuitem">About Us</a>
+                </li>
+                <li role="none">
+                    <a href="enquiry.html"
+                        class="active nav-enquiry"
+                        role="menuitem">Enquiry</a>
+                </li>
+                <li role="none">
+                    <a href="contact.html"
+                        role="menuitem">Contact Us</a>
+                </li>
             </ul>
-            <div class="hamburger" id="hamburger">
+
+            <button class="hamburger" id="hamburger"
+                aria-label="Toggle Navigation Menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+                type="button">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
     <!-- ========== PAGE BANNER ========== -->
-    <section class="page-banner">
+    <section class="page-banner"
+        aria-label="Enquiry Banner">
         <h2>Send <span>Enquiry</span></h2>
         <p>We will get back to you as soon as possible!</p>
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> &rarr; Enquiry
-        </div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true"> &rarr; </span>
+            <span>Enquiry</span>
+        </nav>
     </section>
 
     <!-- ========== ENQUIRY FORM ========== -->
-    <section class="enquiry-section">
-        <div class="section-title">
-            <h2>Enquiry Form</h2>
-            <div class="underline"></div>
-            <p>Fill the form and we will contact you shortly</p>
+    <section class="enquiry-section"
+        aria-label="Enquiry Form">
+
+        <div class="enquiry-header">
+            <h2 class="section-title">Enquiry Form</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">
+                Fill the form and we will contact you shortly
+            </p>
         </div>
 
         <div class="form-container">
-            <form id="enquiryForm" novalidate>
+            <form id="enquiryForm"
+                class="enquiry-form"
+                novalidate
+                aria-label="Enquiry Form">
 
                 <!-- Name & Phone -->
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">👤 Full Name *</label>
+                        <label for="name">
+                            👤 Full Name *
+                        </label>
                         <input
                             type="text"
                             id="name"
                             name="name"
                             placeholder="Enter your full name"
                             autocomplete="name"
-                            required>
+                            required
+                            aria-required="true"
+                            aria-describedby="nameError">
                         <span class="error-msg"
-                            id="nameError"></span>
+                            id="nameError"
+                            role="alert"></span>
                     </div>
                     <div class="form-group">
                         <label for="phone">
@@ -86,9 +155,12 @@
                             placeholder="+91 99999 99999"
                             maxlength="13"
                             autocomplete="tel"
-                            required>
+                            required
+                            aria-required="true"
+                            aria-describedby="phoneError">
                         <span class="error-msg"
-                            id="phoneError"></span>
+                            id="phoneError"
+                            role="alert"></span>
                     </div>
                 </div>
 
@@ -112,8 +184,37 @@
                             id="city"
                             name="city"
                             placeholder="Enter your city"
-                            value="Ahmedabad">
+                            value="Ahmedabad"
+                            autocomplete="address-level2">
                     </div>
+                </div>
+
+                <!-- Branch Selection -->
+                <div class="form-group">
+                    <label for="branch">
+                        🏪 Select Branch *
+                    </label>
+                    <select id="branch"
+                        name="branch"
+                        required
+                        aria-required="true"
+                        aria-describedby="branchError">
+                        <option value="">
+                            -- Select Branch --
+                        </option>
+                        <option value="vejalpur">
+                            Vejalpur Branch (Main)
+                        </option>
+                        <option value="narol">
+                            Narol Branch
+                        </option>
+                        <option value="makarba">
+                            Makarba Branch
+                        </option>
+                    </select>
+                    <span class="error-msg"
+                        id="branchError"
+                        role="alert"></span>
                 </div>
 
                 <!-- Service -->
@@ -122,7 +223,10 @@
                         🖨️ Service Required *
                     </label>
                     <select id="service"
-                        name="service" required>
+                        name="service"
+                        required
+                        aria-required="true"
+                        aria-describedby="serviceError">
                         <option value="">
                             -- Select Service --
                         </option>
@@ -149,7 +253,8 @@
                         <option>Other</option>
                     </select>
                     <span class="error-msg"
-                        id="serviceError"></span>
+                        id="serviceError"
+                        role="alert"></span>
                 </div>
 
                 <!-- Quantity & Date -->
@@ -185,23 +290,27 @@
                     <textarea
                         id="message"
                         name="message"
-                        placeholder="Describe your requirements in detail...">
+                        placeholder="Describe your requirements in detail..."
+                        aria-describedby="charCount">
                     </textarea>
                     <span class="char-count"
-                        id="charCount">0 / 500</span>
+                        id="charCount"
+                        aria-live="polite">0 / 500</span>
                 </div>
 
-                <!-- Submit Button -->
+                <!-- Submit -->
                 <button type="submit"
-                    class="submit-btn" id="submitBtn">
+                    class="submit-btn"
+                    id="submitBtn">
                     <span id="btnText">📩 Send Enquiry</span>
                     <span id="btnLoader"
-                        style="display:none;">
+                        style="display:none;"
+                        aria-hidden="true">
                         ⏳ Sending...
                     </span>
                 </button>
 
-                <!-- OR Divider -->
+                <!-- Divider -->
                 <div class="form-divider">
                     <span>OR</span>
                 </div>
@@ -209,7 +318,9 @@
                 <!-- WhatsApp Button -->
                 <a href="https://wa.me/919898867134"
                     target="_blank"
-                    class="whatsapp-enquiry-btn">
+                    rel="noopener noreferrer"
+                    class="whatsapp-enquiry-btn"
+                    aria-label="Send Enquiry on WhatsApp">
                     💬 Send Enquiry on WhatsApp
                 </a>
 
@@ -218,26 +329,34 @@
     </section>
 
     <!-- ========== INFO CARDS ========== -->
-    <section class="info-cards-section">
+    <section class="info-cards-section"
+        aria-label="Why Enquire With Us">
         <div class="info-cards-grid">
+
             <div class="info-card">
-                <span class="info-card-icon">⚡</span>
+                <span class="info-card-icon"
+                    aria-hidden="true">⚡</span>
                 <h3>Quick Response</h3>
                 <p>We respond to all enquiries within
                     1-2 hours during business hours.</p>
             </div>
+
             <div class="info-card">
-                <span class="info-card-icon">💰</span>
+                <span class="info-card-icon"
+                    aria-hidden="true">💰</span>
                 <h3>Free Quotation</h3>
                 <p>Get a free price quotation for all
                     your printing requirements.</p>
             </div>
+
             <div class="info-card">
-                <span class="info-card-icon">📦</span>
+                <span class="info-card-icon"
+                    aria-hidden="true">📦</span>
                 <h3>Bulk Orders</h3>
                 <p>Special discounts available for
                     bulk and regular orders.</p>
             </div>
+
         </div>
     </section>
 
@@ -250,27 +369,34 @@
                 📞 Call Now
             </a>
             <a href="https://wa.me/919898867134"
-                target="_blank" class="btn btn-dark">
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-dark">
                 💬 WhatsApp
             </a>
         </div>
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>📠 Abhishek Xerox</h3>
                 <p>Your trusted partner for all printing
-                    and documentation needs in Vejalpur,
-                    Ahmedabad since 2014.</p>
+                    and documentation needs. 3 Branches
+                    in Ahmedabad since 2014.</p>
                 <div class="footer-social">
                     <a href="https://wa.me/919898867134"
-                        target="_blank" title="WhatsApp">💬</a>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="WhatsApp"
+                        aria-label="Chat on WhatsApp">💬</a>
                     <a href="mailto:abhishekxerox01@gmail.com"
-                        title="Email">📧</a>
+                        title="Email"
+                        aria-label="Send Email">📧</a>
                     <a href="tel:+919898867134"
-                        title="Call">📞</a>
+                        title="Call"
+                        aria-label="Call Us">📞</a>
                 </div>
             </div>
             <div class="footer-col">
@@ -279,12 +405,13 @@
                     <li><a href="index.html">🏠 Home</a></li>
                     <li><a href="services.html">
                         🛠️ Services</a></li>
-                    <li><a href="about.html">
-                        👤 About Us</a></li>
-                    <li><a href="gallery.html">
-                        🖼️ Gallery</a></li>
-                    <li><a href="price.html">
-                        💰 Price List</a></li>
+                    <li><a href="products.html">
+                        📦 Products</a></li>
+                    <li><a href="about.html">👤 About Us</a></li>
+                    <li><a href="gallery.html">🖼️ Gallery</a></li>
+                    <li><a href="price.html">💰 Prices</a></li>
+                    <li><a href="enquiry.html">
+                        📩 Enquiry</a></li>
                     <li><a href="contact.html">
                         📞 Contact Us</a></li>
                 </ul>
@@ -312,7 +439,8 @@
                 <p>📞 <a href="tel:+919898867134"
                     style="color:#aaa;">
                     +91 98988 67134</a></p>
-                <p>📧 <a href="mailto:abhishekxerox01@gmail.com"
+                <p>📧 <a
+                    href="mailto:abhishekxerox01@gmail.com"
                     style="color:#aaa;">
                     abhishekxerox01@gmail.com</a></p>
                 <p>🕐 Mon-Sat: 9AM - 9:30PM</p>
@@ -328,18 +456,21 @@
     <!-- WhatsApp Float -->
     <a href="https://wa.me/919898867134"
         target="_blank"
+        rel="noopener noreferrer"
         class="whatsapp-float"
-        title="Chat on WhatsApp">
+        title="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp">
         💬
     </a>
 
     <!-- Scroll Top -->
-    <button id="scrollTop">↑</button>
+    <button id="scrollTop"
+        aria-label="Scroll to top"
+        type="button">↑</button>
 
-    <!-- Common JS -->
-    <script src="js/common.js"></script>
-    <!-- Enquiry JS -->
-    <script src="js/enquiry.js"></script>
+    <!-- JS -->
+    <script src="js/common.js" defer></script>
+    <script src="js/enquiry.js" defer></script>
 
 </body>
 </html>

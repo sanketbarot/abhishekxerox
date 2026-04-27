@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Products - Abhishek Xerox | Vejalpur Ahmedabad</title>
     <meta name="description"
         content="Abhishek Xerox Products - Stationery Print,
@@ -13,111 +16,182 @@
     <meta name="keywords"
         content="stationery print vejalpur, branding ahmedabad,
         photo print xerox, sticker print, pharma prints,
-        exhibition print, plan xerox, packaging print">
+        exhibition print, plan xerox, packaging print ahmedabad">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFD700">
 
-    <!-- Common CSS -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="images/Abhishek-Logo1.png">
+    <link rel="apple-touch-icon"
+        href="images/Abhishek-Logo1.png">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/common.css">
-    <!-- Products CSS -->
     <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png"
-                        alt="Abhishek Xerox"
-                        class="logo-img">
-                </a>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html" class="active">
-                    Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="price.html">Price List</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="logo">
+            <a href="index.html" aria-label="Abhishek Xerox Home">
+                <img src="images/Abhishek-Logo1.png" alt="Abhishek Xerox - Best Xerox Shop Vejalpur" class="logo-img" width="160" height="48" loading="eager">
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <!-- Home (Start) -->
+            <li role="none">
+                <a href="index.html" class="active" role="menuitem">Home</a>
+            </li>
+            
+            <!-- Services (What you do) -->
+            <li role="none">
+                <a href="services.html" role="menuitem">Services</a>
+            </li>
+            
+            <!-- Products (What you sell) -->
+            <li role="none">
+                <a href="products.html" class="active" role="menuitem">Products</a>
+            </li>
+            
+            <!-- Gallery (Proof of work) -->
+            <li role="none">
+                <a href="gallery.html" role="menuitem">Gallery</a>
+            </li>
+
+            <!-- Prices (Transparency) -->
+            <li role="none">
+                <a href="price.html" role="menuitem">Price List</a>
+            </li>
+
+            <!-- About Us (Trust) -->
+            <li role="none">
+                <a href="about.html" role="menuitem">About Us</a>
+            </li>
+
+            <!-- Enquiry (Lead generation) -->
+            <li role="none">
+                <a href="enquiry.html" role="menuitem">Enquiry</a>
+            </li>
+
+            <!-- Contact Us (End/Action) -->
+            <li role="none">
+                <a href="contact.html" role="menuitem">Contact Us</a>
+            </li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navLinks" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
 
     <!-- ========== PAGE BANNER ========== -->
-    <section class="page-banner">
+    <section class="page-banner" aria-label="Products Banner">
         <h2>Our <span>Products</span></h2>
         <p>Complete Printing & Documentation Solutions
             in Vejalpur, Ahmedabad</p>
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> &rarr; Products
-        </div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true"> &rarr; </span>
+            <span>Products</span>
+        </nav>
     </section>
 
     <!-- ========== FILTER TABS ========== -->
-    <section class="filter-section">
-        <div class="filter-tabs">
+    <section class="filter-section"
+        aria-label="Filter Products">
+        <div class="filter-tabs" role="tablist"
+            aria-label="Product Categories">
             <button class="filter-tab active"
-                data-filter="all">
+                data-filter="all"
+                role="tab"
+                aria-selected="true"
+                type="button">
                 All Products
             </button>
             <button class="filter-tab"
-                data-filter="print">
+                data-filter="print"
+                role="tab"
+                aria-selected="false"
+                type="button">
                 🖨️ Printing
             </button>
             <button class="filter-tab"
-                data-filter="design">
+                data-filter="design"
+                role="tab"
+                aria-selected="false"
+                type="button">
                 🎨 Design
             </button>
             <button class="filter-tab"
-                data-filter="photo">
+                data-filter="photo"
+                role="tab"
+                aria-selected="false"
+                type="button">
                 📷 Photo
             </button>
             <button class="filter-tab"
-                data-filter="packaging">
+                data-filter="packaging"
+                role="tab"
+                aria-selected="false"
+                type="button">
                 📦 Packaging
             </button>
             <button class="filter-tab"
-                data-filter="special">
+                data-filter="special"
+                role="tab"
+                aria-selected="false"
+                type="button">
                 ⭐ Special
             </button>
         </div>
     </section>
 
     <!-- ========== PRODUCTS GRID ========== -->
-    <section class="products-section">
+    <section class="products-section"
+        aria-label="Products Grid">
         <h2 class="section-title">All Products</h2>
         <p class="section-subtitle">
             Click on any product to know more
         </p>
 
-        <div class="products-grid" id="productsGrid">
+        <div class="products-grid" id="productsGrid"
+            role="list">
 
             <!-- 1. Stationery Print -->
-            <div class="product-card" data-category="print">
-                <div class="product-img">
+            <article class="product-card"
+                data-category="print"
+                role="listitem"
+                tabindex="0"
+                aria-label="Stationery Print - Click to know more">
+                <div class="product-img"
+                    aria-hidden="true">
                     <span>🖊️</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
                 </div>
                 <div class="product-body">
-                    <div class="product-tag print">Printing</div>
+                    <div class="product-tag print">
+                        Printing
+                    </div>
                     <h3>Stationery Print</h3>
                     <p>High quality stationery printing including
                         letterheads, envelopes, notepads, business
                         forms and all office stationery items at
                         affordable prices.</p>
-                    <div class="product-features">
+                    <div class="product-features"
+                        aria-label="Features">
                         <span>📄 Letterheads</span>
                         <span>✉️ Envelopes</span>
                         <span>📓 Notepads</span>
@@ -134,15 +208,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 2. Branding -->
-            <div class="product-card" data-category="design">
-                <div class="product-img branding">
+            <article class="product-card"
+                data-category="design"
+                role="listitem"
+                tabindex="0"
+                aria-label="Branding - Click to know more">
+                <div class="product-img branding"
+                    aria-hidden="true">
                     <span>🏷️</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -171,15 +251,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 3. Events -->
-            <div class="product-card" data-category="special">
-                <div class="product-img events">
+            <article class="product-card"
+                data-category="special"
+                role="listitem"
+                tabindex="0"
+                aria-label="Events - Click to know more">
+                <div class="product-img events"
+                    aria-hidden="true">
                     <span>🎪</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -208,15 +294,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 4. Photos Print -->
-            <div class="product-card" data-category="photo">
-                <div class="product-img photos">
+            <article class="product-card"
+                data-category="photo"
+                role="listitem"
+                tabindex="0"
+                aria-label="Photos Print - Click to know more">
+                <div class="product-img photos"
+                    aria-hidden="true">
                     <span>📷</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -245,15 +337,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 5. Sticker Print -->
-            <div class="product-card" data-category="print">
-                <div class="product-img sticker">
+            <article class="product-card"
+                data-category="print"
+                role="listitem"
+                tabindex="0"
+                aria-label="Sticker Print - Click to know more">
+                <div class="product-img sticker"
+                    aria-hidden="true">
                     <span>🏷️</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -282,15 +380,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 6. Pharma Prints -->
-            <div class="product-card" data-category="special">
-                <div class="product-img pharma">
+            <article class="product-card"
+                data-category="special"
+                role="listitem"
+                tabindex="0"
+                aria-label="Pharma Prints - Click to know more">
+                <div class="product-img pharma"
+                    aria-hidden="true">
                     <span>💊</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -319,15 +423,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 7. Personalized Items -->
-            <div class="product-card" data-category="special">
-                <div class="product-img personalized">
+            <article class="product-card"
+                data-category="special"
+                role="listitem"
+                tabindex="0"
+                aria-label="Personalized Items - Click to know more">
+                <div class="product-img personalized"
+                    aria-hidden="true">
                     <span>🎁</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -356,15 +466,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 8. Exhibition Print -->
-            <div class="product-card" data-category="design">
-                <div class="product-img exhibition">
+            <article class="product-card"
+                data-category="design"
+                role="listitem"
+                tabindex="0"
+                aria-label="Exhibition Print - Click to know more">
+                <div class="product-img exhibition"
+                    aria-hidden="true">
                     <span>🖼️</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -393,15 +509,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 9. Plan Xerox -->
-            <div class="product-card" data-category="print">
-                <div class="product-img plan">
+            <article class="product-card"
+                data-category="print"
+                role="listitem"
+                tabindex="0"
+                aria-label="Plan Xerox - Click to know more">
+                <div class="product-img plan"
+                    aria-hidden="true">
                     <span>📐</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -414,8 +536,8 @@
                         and construction plans. We print and scan
                         sizes A0, A1, A2, A3 and custom sizes.</p>
                     <div class="product-features">
-                        <span>🏗️ Architecture Plans</span>
-                        <span>⚡ Electrical Plans</span>
+                        <span>🏗️ Architecture</span>
+                        <span>⚡ Electrical</span>
                         <span>🔧 Engineering</span>
                         <span>📐 A0 / A1 / A2</span>
                     </div>
@@ -430,15 +552,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 10. Packaging -->
-            <div class="product-card" data-category="packaging">
-                <div class="product-img packaging">
+            <article class="product-card"
+                data-category="packaging"
+                role="listitem"
+                tabindex="0"
+                aria-label="Packaging - Click to know more">
+                <div class="product-img packaging"
+                    aria-hidden="true">
                     <span>📦</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -469,15 +597,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 11. Restaurants -->
-            <div class="product-card" data-category="special">
-                <div class="product-img restaurant">
+            <article class="product-card"
+                data-category="special"
+                role="listitem"
+                tabindex="0"
+                aria-label="Restaurants - Click to know more">
+                <div class="product-img restaurant"
+                    aria-hidden="true">
                     <span>🍽️</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -506,15 +640,21 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- 12. Lamination -->
-            <div class="product-card" data-category="packaging">
-                <div class="product-img lamination">
+            <article class="product-card"
+                data-category="packaging"
+                role="listitem"
+                tabindex="0"
+                aria-label="Lamination - Click to know more">
+                <div class="product-img lamination"
+                    aria-hidden="true">
                     <span>🗂️</span>
                     <div class="product-overlay">
                         <a href="contact.html"
-                            class="overlay-btn">
+                            class="overlay-btn"
+                            tabindex="-1">
                             Get Quote
                         </a>
                     </div>
@@ -545,16 +685,30 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
         </div>
+
+        <!-- No results message -->
+        <div class="no-results" id="noResults"
+            aria-live="polite">
+            <p>No products found in this category.</p>
+        </div>
+
     </section>
 
-    <!-- ========== PRODUCT DETAIL MODAL ========== -->
-    <div class="modal-overlay" id="modalOverlay">
+    <!-- ========== MODAL ========== -->
+    <div class="modal-overlay" id="modalOverlay"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDesc">
         <div class="modal-box" id="modalBox">
-            <button class="modal-close" id="modalClose">✕</button>
-            <div class="modal-icon" id="modalIcon"></div>
+            <button class="modal-close" id="modalClose"
+                aria-label="Close modal"
+                type="button">✕</button>
+            <div class="modal-icon" id="modalIcon"
+                aria-hidden="true"></div>
             <h2 id="modalTitle"></h2>
             <p id="modalDesc"></p>
             <div class="modal-actions">
@@ -563,6 +717,7 @@
                 </a>
                 <a href="https://wa.me/919898867134"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="btn btn-dark">
                     💬 WhatsApp
                 </a>
@@ -571,49 +726,50 @@
     </div>
 
     <!-- ========== WHY CHOOSE US ========== -->
-    <section class="products-why">
+    <section class="products-why"
+        aria-label="Why Choose Us">
         <h2 class="section-title">Why Choose Us?</h2>
         <p class="section-subtitle">
             Best printing products in Vejalpur, Ahmedabad
         </p>
         <div class="why-products-grid">
             <div class="why-product-card">
-                <span>🏆</span>
+                <span aria-hidden="true">🏆</span>
                 <h3>Premium Quality</h3>
                 <p>We use only premium quality materials
                     and latest printing technology for
                     all our products.</p>
             </div>
             <div class="why-product-card">
-                <span>💰</span>
+                <span aria-hidden="true">💰</span>
                 <h3>Best Prices</h3>
                 <p>Most affordable prices in Vejalpur
                     area. No hidden charges.
                     Bulk discounts available.</p>
             </div>
             <div class="why-product-card">
-                <span>⚡</span>
+                <span aria-hidden="true">⚡</span>
                 <h3>Fast Delivery</h3>
                 <p>Quick turnaround time for all products.
                     Most orders ready within same day
                     or next day.</p>
             </div>
             <div class="why-product-card">
-                <span>🎨</span>
+                <span aria-hidden="true">🎨</span>
                 <h3>Custom Design</h3>
                 <p>Free design assistance for all products.
                     Our team helps you create the perfect
                     design for your needs.</p>
             </div>
             <div class="why-product-card">
-                <span>📞</span>
+                <span aria-hidden="true">📞</span>
                 <h3>24/7 Support</h3>
                 <p>WhatsApp us anytime for queries.
                     Quick response and excellent
                     customer service always.</p>
             </div>
             <div class="why-product-card">
-                <span>🏪</span>
+                <span aria-hidden="true">🏪</span>
                 <h3>3 Branches</h3>
                 <p>Visit any of our 3 branches in
                     Ahmedabad - Vejalpur, Narol
@@ -627,9 +783,7 @@
         <h2>Need Custom Products? 📞</h2>
         <p>Contact us for custom printing at best prices!</p>
         <div class="cta-buttons">
-            <a href="contact.html" class="btn">
-                Get Quote
-            </a>
+            <a href="contact.html" class="btn">Get Quote</a>
             <a href="tel:+919898867134" class="btn btn-dark">
                 📞 Call Now
             </a>
@@ -637,7 +791,7 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>📠 Abhishek Xerox</h3>
@@ -646,11 +800,16 @@
                     in Ahmedabad since 2014.</p>
                 <div class="footer-social">
                     <a href="https://wa.me/919898867134"
-                        target="_blank" title="WhatsApp">💬</a>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="WhatsApp"
+                        aria-label="Chat on WhatsApp">💬</a>
                     <a href="mailto:abhishekxerox01@gmail.com"
-                        title="Email">📧</a>
+                        title="Email"
+                        aria-label="Send Email">📧</a>
                     <a href="tel:+919898867134"
-                        title="Call">📞</a>
+                        title="Call"
+                        aria-label="Call Us">📞</a>
                 </div>
             </div>
             <div class="footer-col">
@@ -662,6 +821,7 @@
                     <li><a href="products.html">
                         📦 Products</a></li>
                     <li><a href="about.html">👤 About Us</a></li>
+                    <li><a href="gallery.html">🖼️ Gallery</a></li>
                     <li><a href="price.html">💰 Price List</a></li>
                     <li><a href="contact.html">
                         📞 Contact Us</a></li>
@@ -690,7 +850,8 @@
                 <p>📞 <a href="tel:+919898867134"
                     style="color:#aaa;">
                     +91 98988 67134</a></p>
-                <p>📧 <a href="mailto:abhishekxerox01@gmail.com"
+                <p>📧 <a
+                    href="mailto:abhishekxerox01@gmail.com"
                     style="color:#aaa;">
                     abhishekxerox01@gmail.com</a></p>
                 <p>🕐 Mon-Sat: 9AM - 9:30PM</p>
@@ -703,17 +864,24 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/919898867134"
         target="_blank"
+        rel="noopener noreferrer"
         class="whatsapp-float"
-        title="Chat on WhatsApp">
+        title="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp">
         💬
     </a>
 
-    <button id="scrollTop">↑</button>
+    <!-- Scroll Top -->
+    <button id="scrollTop"
+        aria-label="Scroll to top"
+        type="button">↑</button>
 
-    <script src="js/common.js"></script>
-    <script src="js/products.js"></script>
+    <!-- JS -->
+    <script src="js/common.js" defer></script>
+    <script src="js/products.js" defer></script>
 
 </body>
 </html>

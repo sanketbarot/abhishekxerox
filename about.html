@@ -2,64 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>About Us - Abhishek Xerox | Vejalpur Ahmedabad</title>
     <meta name="description"
         content="Know more about Abhishek Xerox - Best Printing
-        Shop in Vejalpur, Ahmedabad. Run by Akash Mistry.
-        Call: +91 98988 67134">
+        Shop in Vejalpur, Ahmedabad. 3 Branches. Run by
+        Akash Mistry. Call: +91 98988 67134">
     <meta name="keywords"
         content="about abhishek xerox, xerox shop vejalpur,
-        akash mistry, printing ahmedabad">
+        akash mistry printing ahmedabad, 3 branches ahmedabad">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFD700">
 
-    <!-- Common CSS -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="images/Abhishek-Logo1.png">
+    <link rel="apple-touch-icon"
+        href="images/Abhishek-Logo1.png">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/common.css">
-    <!-- About CSS -->
     <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png"
-                        alt="Abhishek Xerox"
-                        class="logo-img">
-                </a>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="price.html">Price List</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="logo">
+            <a href="index.html" aria-label="Abhishek Xerox Home">
+                <img src="images/Abhishek-Logo1.png" alt="Abhishek Xerox - Best Xerox Shop Vejalpur" class="logo-img" width="160" height="48" loading="eager">
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <!-- Home (Start) -->
+            <li role="none">
+                <a href="index.html" class="active" role="menuitem">Home</a>
+            </li>
+            
+            <!-- Services (What you do) -->
+            <li role="none">
+                <a href="services.html" role="menuitem">Services</a>
+            </li>
+            
+            <!-- Products (What you sell) -->
+            <li role="none">
+                <a href="products.html" role="menuitem">Products</a>
+            </li>
+            
+            <!-- Gallery (Proof of work) -->
+            <li role="none">
+                <a href="gallery.html" role="menuitem">Gallery</a>
+            </li>
+
+            <!-- Prices (Transparency) -->
+            <li role="none">
+                <a href="price.html" role="menuitem">Price List</a>
+            </li>
+
+            <!-- About Us (Trust) -->
+            <li role="none">
+                <a href="about.html" class="active" role="menuitem">About Us</a>
+            </li>
+
+            <!-- Enquiry (Lead generation) -->
+            <li role="none">
+                <a href="enquiry.html" role="menuitem">Enquiry</a>
+            </li>
+
+            <!-- Contact Us (End/Action) -->
+            <li role="none">
+                <a href="contact.html" role="menuitem">Contact Us</a>
+            </li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navLinks" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
 
     <!-- ========== PAGE BANNER ========== -->
-    <section class="page-banner">
+    <section class="page-banner" aria-label="About Us Banner">
         <h2>About <span>Us</span></h2>
-        <p>Know More About Abhishek Xerox - Vejalpur, Ahmedabad</p>
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> &rarr; About Us
-        </div>
+        <p>Know More About Abhishek Xerox -
+            Vejalpur, Ahmedabad</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true"> &rarr; </span>
+            <span>About Us</span>
+        </nav>
     </section>
 
     <!-- ========== PROFESSIONAL INTRO ========== -->
-    <section class="pro-intro-section">
+    <section class="pro-intro-section"
+        aria-label="Professional Introduction">
         <div class="pro-intro-grid">
             <div class="pro-intro-content">
-                <div class="pro-badge">⭐ We Are Professional</div>
+                <div class="pro-badge">
+                    ⭐ We Are Professional
+                </div>
                 <h2>We're something other than
                     <span>duplicates…</span>
                 </h2>
@@ -77,9 +125,10 @@
                     Find the Perfect Product
                 </a>
             </div>
-            <div class="pro-intro-features">
+            <div class="pro-intro-features"
+                aria-label="Our Features">
                 <div class="pro-feature">
-                    <span>🖨️</span>
+                    <span aria-hidden="true">🖨️</span>
                     <div>
                         <h4>Top quality prints using
                             the latest technology</h4>
@@ -88,7 +137,7 @@
                     </div>
                 </div>
                 <div class="pro-feature">
-                    <span>🎨</span>
+                    <span aria-hidden="true">🎨</span>
                     <div>
                         <h4>Mix and match colors,
                             sizes, and designs</h4>
@@ -97,7 +146,7 @@
                     </div>
                 </div>
                 <div class="pro-feature">
-                    <span>🚚</span>
+                    <span aria-hidden="true">🚚</span>
                     <div>
                         <h4>Shipping worldwide</h4>
                         <p>We provide delivery services
@@ -105,7 +154,7 @@
                     </div>
                 </div>
                 <div class="pro-feature">
-                    <span>📦</span>
+                    <span aria-hidden="true">📦</span>
                     <div>
                         <h4>Made-to-measure packaging</h4>
                         <p>Custom packaging solutions for all
@@ -113,7 +162,7 @@
                     </div>
                 </div>
                 <div class="pro-feature">
-                    <span>🔄</span>
+                    <span aria-hidden="true">🔄</span>
                     <div>
                         <h4>Reorder quickly and easily</h4>
                         <p>Simple reorder process for all
@@ -121,7 +170,7 @@
                     </div>
                 </div>
                 <div class="pro-feature">
-                    <span>🌿</span>
+                    <span aria-hidden="true">🌿</span>
                     <div>
                         <h4>Environmentally friendly
                             production processes</h4>
@@ -134,7 +183,8 @@
     </section>
 
     <!-- ========== WELCOME SECTION ========== -->
-    <section class="welcome-section">
+    <section class="welcome-section"
+        aria-label="Welcome to Abhishek Xerox">
         <div class="welcome-grid">
             <div class="welcome-content">
                 <div class="welcome-badge">
@@ -144,28 +194,28 @@
                 <p>Best shipping rates for print-on-demand
                     services. Fast print, flyer, and pamphlet
                     printing organization. Pleased with our past.
-                    Printing for what's to come. What's more, we
-                    do it right! A full administration printing
-                    background.</p>
+                    Printing for what's to come. What's more,
+                    we do it right! A full administration
+                    printing background.</p>
 
                 <div class="welcome-features">
                     <div class="welcome-feat">
-                        <span>✅</span>
+                        <span aria-hidden="true">✅</span>
                         <p>Top quality prints using
                             the latest technology</p>
                     </div>
                     <div class="welcome-feat">
-                        <span>✅</span>
+                        <span aria-hidden="true">✅</span>
                         <p>Mix and match colors,
                             sizes, and designs</p>
                     </div>
                     <div class="welcome-feat">
-                        <span>✅</span>
-                        <p>Shipping worldwide</p>
+                        <span aria-hidden="true">✅</span>
+                        <p>Serving all areas of Ahmedabad</p>
                     </div>
                     <div class="welcome-feat">
-                        <span>✅</span>
-                        <p>Printed locally, worn globally</p>
+                        <span aria-hidden="true">✅</span>
+                        <p>Printed locally, served globally</p>
                     </div>
                 </div>
 
@@ -179,31 +229,41 @@
                     </a>
                 </div>
             </div>
+
             <div class="welcome-img">
-                <div class="welcome-img-box">
-                    <span>📠</span>
+                <div class="welcome-img-box"
+                    role="img"
+                    aria-label="Abhishek Xerox Shop">
+                    <span aria-hidden="true">📠</span>
                     <p>Abhishek Xerox</p>
                     <small>Vejalpur, Ahmedabad</small>
-                    <div class="welcome-play">
-                        <div class="play-btn">▶</div>
+                    <button class="welcome-play"
+                        id="playBtn"
+                        type="button"
+                        aria-label="Watch video about our shop">
+                        <div class="play-btn"
+                            aria-hidden="true">▶</div>
                         <span>Watch Video</span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ========== WHO WE ARE ========== -->
-    <section class="who-we-are">
+    <section class="who-we-are" aria-label="Who We Are">
         <div class="who-grid">
 
             <div class="who-img">
-                <div class="img-box">
-                    <span>📠</span>
+                <div class="img-box"
+                    role="img"
+                    aria-label="Abhishek Xerox Shop Image">
+                    <span aria-hidden="true">📠</span>
                     <p>Abhishek Xerox</p>
                     <small>Vejalpur, Ahmedabad</small>
                 </div>
-                <div class="exp-badge">
+                <div class="exp-badge"
+                    aria-label="10+ Years Experience">
                     <h3>10+</h3>
                     <p>Years Experience</p>
                 </div>
@@ -213,10 +273,13 @@
                 <div class="about-badge">
                     ⭐ Best Xerox Shop in Vejalpur
                 </div>
-                <h2>Welcome to <span>Abhishek Xerox</span></h2>
+                <h2>Welcome to
+                    <span>Abhishek Xerox</span>
+                </h2>
 
                 <p>We are <strong>Abhishek Xerox</strong>,
-                    located in <strong>Vejalpur, Ahmedabad</strong>.
+                    located in
+                    <strong>Vejalpur, Ahmedabad</strong>.
                     Run by <strong>Akash Mistry</strong>, we are
                     a trusted printing and documentation service
                     provider. Our mission is to provide fast,
@@ -234,28 +297,28 @@
 
                 <div class="about-highlights">
                     <div class="highlight-item">
-                        <span>🖨️</span>
+                        <span aria-hidden="true">🖨️</span>
                         <div>
                             <h4>Modern Equipment</h4>
                             <p>Latest printing machines</p>
                         </div>
                     </div>
                     <div class="highlight-item">
-                        <span>👨‍💼</span>
+                        <span aria-hidden="true">👨‍💼</span>
                         <div>
                             <h4>Expert Staff</h4>
                             <p>Trained and experienced</p>
                         </div>
                     </div>
                     <div class="highlight-item">
-                        <span>⚡</span>
+                        <span aria-hidden="true">⚡</span>
                         <div>
                             <h4>Fast Service</h4>
                             <p>Quick turnaround time</p>
                         </div>
                     </div>
                     <div class="highlight-item">
-                        <span>💰</span>
+                        <span aria-hidden="true">💰</span>
                         <div>
                             <h4>Best Price</h4>
                             <p>Affordable for everyone</p>
@@ -268,7 +331,10 @@
                         📞 Call Now
                     </a>
                     <a href="https://wa.me/919898867134"
-                        target="_blank" class="btn-whatsapp">
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-whatsapp"
+                        aria-label="Chat on WhatsApp">
                         💬 WhatsApp
                     </a>
                 </div>
@@ -277,10 +343,12 @@
     </section>
 
     <!-- ========== SHOP INFO ========== -->
-    <section class="shop-info-section">
+    <section class="shop-info-section"
+        aria-label="Shop Information">
         <div class="shop-info-grid">
+
             <div class="shop-info-item">
-                <span>📍</span>
+                <span aria-hidden="true">📍</span>
                 <div>
                     <h4>Our Location</h4>
                     <p>3 Branches - Vejalpur,
@@ -288,8 +356,9 @@
                     <p>Ahmedabad, Gujarat</p>
                 </div>
             </div>
+
             <div class="shop-info-item">
-                <span>📞</span>
+                <span aria-hidden="true">📞</span>
                 <div>
                     <h4>Call Us</h4>
                     <a href="tel:+919898867134">
@@ -300,8 +369,9 @@
                     </a>
                 </div>
             </div>
+
             <div class="shop-info-item">
-                <span>📧</span>
+                <span aria-hidden="true">📧</span>
                 <div>
                     <h4>Email Us</h4>
                     <a href="mailto:abhishekxerox01@gmail.com">
@@ -309,46 +379,61 @@
                     </a>
                 </div>
             </div>
+
             <div class="shop-info-item">
-                <span>🕐</span>
+                <span aria-hidden="true">🕐</span>
                 <div>
                     <h4>Working Hours</h4>
                     <p>Mon-Sat: 9:00 AM - 9:30 PM</p>
                     <p>Sunday: 9:00 AM - 1:30 PM</p>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- ========== STATS ========== -->
-    <section class="about-stats">
+    <section class="about-stats"
+        aria-label="Our Achievements">
         <div class="stats-grid">
             <div class="stat-item">
-                <h3 class="counter" data-target="10000">0</h3>
+                <h3 class="counter"
+                    data-target="10000"
+                    aria-label="10000+ Happy Customers">0</h3>
                 <p>Happy Customers</p>
             </div>
             <div class="stat-item">
-                <h3 class="counter" data-target="10">0</h3>
+                <h3 class="counter"
+                    data-target="10"
+                    aria-label="10+ Years Experience">0</h3>
                 <p>Years Experience</p>
             </div>
             <div class="stat-item">
-                <h3 class="counter" data-target="3">0</h3>
+                <h3 class="counter"
+                    data-target="3"
+                    aria-label="3 Branches">0</h3>
                 <p>Branches</p>
             </div>
             <div class="stat-item">
-                <h3 class="counter" data-target="15">0</h3>
+                <h3 class="counter"
+                    data-target="15"
+                    aria-label="15+ Services">0</h3>
                 <p>Services Offered</p>
             </div>
         </div>
     </section>
 
     <!-- ========== MISSION VISION ========== -->
-    <section class="mission-vision">
+    <section class="mission-vision"
+        aria-label="Mission and Vision">
         <h2 class="section-title">Mission & Vision</h2>
-        <p class="section-subtitle">What drives us every day</p>
+        <p class="section-subtitle">
+            What drives us every day
+        </p>
         <div class="mv-grid">
             <div class="mv-card">
-                <div class="mv-icon">🎯</div>
+                <div class="mv-icon"
+                    aria-hidden="true">🎯</div>
                 <h3>Our Mission</h3>
                 <p>To provide fast, reliable and affordable
                     printing and documentation services with
@@ -357,7 +442,8 @@
                     who walks into our Vejalpur shop.</p>
             </div>
             <div class="mv-card">
-                <div class="mv-icon">👁️</div>
+                <div class="mv-icon"
+                    aria-hidden="true">👁️</div>
                 <h3>Our Vision</h3>
                 <p>To become the most trusted and preferred
                     printing service center in Vejalpur and
@@ -366,7 +452,8 @@
                     every single day.</p>
             </div>
             <div class="mv-card">
-                <div class="mv-icon">💎</div>
+                <div class="mv-icon"
+                    aria-hidden="true">💎</div>
                 <h3>Our Values</h3>
                 <p>Quality, Integrity, Reliability, Customer
                     Focus and Continuous Improvement are the
@@ -378,60 +465,87 @@
     </section>
 
     <!-- ========== WHAT WE OFFER ========== -->
-    <section class="what-we-offer">
+    <section class="what-we-offer"
+        aria-label="What We Offer">
         <h2 class="section-title">What We Offer</h2>
         <p class="section-subtitle">
             Complete list of our services at all branches
         </p>
-        <div class="offer-grid">
-            <div class="offer-item">
-                <span>🖨️</span>
+        <div class="offer-grid" role="list">
+
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Xerox / Printing">
+                <span aria-hidden="true">🖨️</span>
                 <p>Xerox / Printing</p>
             </div>
-            <div class="offer-item">
-                <span>🎨</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Color Printing">
+                <span aria-hidden="true">🎨</span>
                 <p>Color Printing</p>
             </div>
-            <div class="offer-item">
-                <span>📄</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Scanning">
+                <span aria-hidden="true">📄</span>
                 <p>Scanning</p>
             </div>
-            <div class="offer-item">
-                <span>🗂️</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Lamination">
+                <span aria-hidden="true">🗂️</span>
                 <p>Lamination</p>
             </div>
-            <div class="offer-item">
-                <span>📚</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Binding">
+                <span aria-hidden="true">📚</span>
                 <p>Binding</p>
             </div>
-            <div class="offer-item">
-                <span>🖼️</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Photo Print">
+                <span aria-hidden="true">🖼️</span>
                 <p>Photo Print</p>
             </div>
-            <div class="offer-item">
-                <span>📝</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Typing Work">
+                <span aria-hidden="true">📝</span>
                 <p>Typing Work</p>
             </div>
-            <div class="offer-item">
-                <span>💳</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="ID Card Making">
+                <span aria-hidden="true">💳</span>
                 <p>ID Card Making</p>
             </div>
-            <div class="offer-item">
-                <span>📮</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Visiting Cards">
+                <span aria-hidden="true">📮</span>
                 <p>Visiting Cards</p>
             </div>
-            <div class="offer-item">
-                <span>📜</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Certificate Print">
+                <span aria-hidden="true">📜</span>
                 <p>Certificate Print</p>
             </div>
-            <div class="offer-item">
-                <span>📋</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Form Filling">
+                <span aria-hidden="true">📋</span>
                 <p>Form Filling</p>
             </div>
-            <div class="offer-item">
-                <span>🖊️</span>
+            <div class="offer-item" role="listitem"
+                tabindex="0"
+                aria-label="Stationery">
+                <span aria-hidden="true">🖊️</span>
                 <p>Stationery</p>
             </div>
+
         </div>
         <div class="offer-btn">
             <a href="services.html" class="btn">
@@ -441,14 +555,16 @@
     </section>
 
     <!-- ========== TEAM ========== -->
-    <section class="team-section">
+    <section class="team-section" aria-label="Our Team">
         <h2 class="section-title">Our Team</h2>
         <p class="section-subtitle">
             We are the best team
         </p>
         <div class="team-grid">
-            <div class="team-card">
-                <div class="team-icon">👨‍💼</div>
+
+            <article class="team-card">
+                <div class="team-icon"
+                    aria-hidden="true">👨‍💼</div>
                 <h3>Akash Mistry</h3>
                 <p class="team-role">Owner & Manager</p>
                 <p class="team-exp">10+ Years Experience</p>
@@ -458,12 +574,15 @@
                     <span>Customer Care</span>
                 </div>
                 <a href="tel:+919898867134"
-                    class="team-contact">
+                    class="team-contact"
+                    aria-label="Call Akash Mistry">
                     📞 +91 98988 67134
                 </a>
-            </div>
-            <div class="team-card">
-                <div class="team-icon">👨‍🔧</div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-icon"
+                    aria-hidden="true">👨‍🔧</div>
                 <h3>Staff Member</h3>
                 <p class="team-role">Printing Specialist</p>
                 <p class="team-exp">5+ Years Experience</p>
@@ -472,9 +591,11 @@
                     <span>Scanning</span>
                     <span>Lamination</span>
                 </div>
-            </div>
-            <div class="team-card">
-                <div class="team-icon">👩‍💻</div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-icon"
+                    aria-hidden="true">👩‍💻</div>
                 <h3>Staff Member</h3>
                 <p class="team-role">Customer Service</p>
                 <p class="team-exp">3+ Years Experience</p>
@@ -483,12 +604,14 @@
                     <span>Typing</span>
                     <span>Billing</span>
                 </div>
-            </div>
+            </article>
+
         </div>
     </section>
 
     <!-- ========== CUSTOMER LOVE ========== -->
-    <section class="customer-love-section">
+    <section class="customer-love-section"
+        aria-label="Customer Reviews">
         <div class="customer-love-header">
             <div class="love-badge">❤️ Customers Love</div>
             <h2>Over <span>10,000 Reviews</span></h2>
@@ -496,127 +619,156 @@
         </div>
 
         <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+
+            <article class="testimonial-card">
+                <div class="stars"
+                    aria-label="5 stars">⭐⭐⭐⭐⭐</div>
                 <p>"Best xerox shop in Vejalpur! Fast service
                     and great quality printing. Highly recommended
                     to everyone in Ahmedabad!"</p>
                 <div class="author">
-                    <div class="author-icon">👨</div>
+                    <div class="author-icon"
+                        aria-hidden="true">👨</div>
                     <div>
                         <h4>Rahul Sharma</h4>
                         <small>Vejalpur, Ahmedabad</small>
                     </div>
                 </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="stars"
+                    aria-label="5 stars">⭐⭐⭐⭐⭐</div>
                 <p>"Very affordable prices and friendly staff.
                     Akash bhai always helps with all printing
                     work. Best shop near Vejalpur!"</p>
                 <div class="author">
-                    <div class="author-icon">👩</div>
+                    <div class="author-icon"
+                        aria-hidden="true">👩</div>
                     <div>
                         <h4>Priya Patel</h4>
                         <small>Ahmedabad</small>
                     </div>
                 </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="stars"
+                    aria-label="5 stars">⭐⭐⭐⭐⭐</div>
                 <p>"Great lamination and binding service.
                     My project looked amazing. Thank you
                     Abhishek Xerox team!"</p>
                 <div class="author">
-                    <div class="author-icon">👨</div>
+                    <div class="author-icon"
+                        aria-hidden="true">👨</div>
                     <div>
                         <h4>Amit Kumar</h4>
                         <small>Vejalpur, Ahmedabad</small>
                     </div>
                 </div>
-            </div>
+            </article>
+
         </div>
 
         <div class="love-btn">
-            <a href="contact.html" class="btn">View More</a>
+            <a href="contact.html" class="btn">
+                View More Reviews
+            </a>
         </div>
     </section>
 
     <!-- ========== WHY CHOOSE US ========== -->
-    <section class="about-why">
+    <section class="about-why"
+        aria-label="Why Choose Abhishek Xerox">
         <h2 class="section-title">Why Choose Us?</h2>
         <p class="section-subtitle">
             Reasons to visit Abhishek Xerox in Vejalpur
         </p>
         <div class="why-list">
+
             <div class="why-list-item">
-                <div class="why-check">✅</div>
+                <div class="why-check"
+                    aria-hidden="true">✅</div>
                 <div>
                     <h4>Best Quality Printing</h4>
                     <p>We use premium quality paper and ink
                         for best output results every time.</p>
                 </div>
             </div>
+
             <div class="why-list-item">
-                <div class="why-check">✅</div>
+                <div class="why-check"
+                    aria-hidden="true">✅</div>
                 <div>
                     <h4>Fastest Service in Vejalpur</h4>
                     <p>Most orders completed within minutes.
                         We value your precious time.</p>
                 </div>
             </div>
+
             <div class="why-list-item">
-                <div class="why-check">✅</div>
+                <div class="why-check"
+                    aria-hidden="true">✅</div>
                 <div>
                     <h4>Most Affordable Prices</h4>
                     <p>Lowest prices in Vejalpur area with
                         no hidden charges at all.</p>
                 </div>
             </div>
+
             <div class="why-list-item">
-                <div class="why-check">✅</div>
+                <div class="why-check"
+                    aria-hidden="true">✅</div>
                 <div>
                     <h4>WhatsApp Document Service</h4>
                     <p>Send documents on WhatsApp and
                         pickup prints from our shop.</p>
                 </div>
             </div>
+
             <div class="why-list-item">
-                <div class="why-check">✅</div>
+                <div class="why-check"
+                    aria-hidden="true">✅</div>
                 <div>
                     <h4>All Services Under One Roof</h4>
                     <p>Printing, scanning, lamination,
                         binding and much more available.</p>
                 </div>
             </div>
+
             <div class="why-list-item">
-                <div class="why-check">✅</div>
+                <div class="why-check"
+                    aria-hidden="true">✅</div>
                 <div>
                     <h4>3 Branches in Ahmedabad</h4>
                     <p>Vejalpur, Narol and Makarba branches
                         always near you in Ahmedabad.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- ========== CTA ========== -->
     <section class="cta-section">
         <h2>Visit Us at Vejalpur! 📍</h2>
-        <p>3 Branches - Vejalpur | Narol | Makarba, Ahmedabad</p>
+        <p>3 Branches - Vejalpur | Narol | Makarba,
+            Ahmedabad</p>
         <div class="cta-buttons">
             <a href="tel:+919898867134" class="btn">
                 📞 Call Now
             </a>
             <a href="https://wa.me/919898867134"
-                target="_blank" class="btn btn-dark">
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-dark">
                 💬 WhatsApp
             </a>
         </div>
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>📠 Abhishek Xerox</h3>
@@ -625,11 +777,16 @@
                     Ahmedabad since 2014.</p>
                 <div class="footer-social">
                     <a href="https://wa.me/919898867134"
-                        target="_blank" title="WhatsApp">💬</a>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="WhatsApp"
+                        aria-label="Chat on WhatsApp">💬</a>
                     <a href="mailto:abhishekxerox01@gmail.com"
-                        title="Email">📧</a>
+                        title="Email"
+                        aria-label="Send Email">📧</a>
                     <a href="tel:+919898867134"
-                        title="Call">📞</a>
+                        title="Call"
+                        aria-label="Call Us">📞</a>
                 </div>
             </div>
             <div class="footer-col">
@@ -638,6 +795,8 @@
                     <li><a href="index.html">🏠 Home</a></li>
                     <li><a href="services.html">
                         🛠️ Services</a></li>
+                    <li><a href="products.html">
+                        📦 Products</a></li>
                     <li><a href="about.html">👤 About Us</a></li>
                     <li><a href="gallery.html">🖼️ Gallery</a></li>
                     <li><a href="price.html">💰 Price List</a></li>
@@ -668,7 +827,8 @@
                 <p>📞 <a href="tel:+919898867134"
                     style="color:#aaa;">
                     +91 98988 67134</a></p>
-                <p>📧 <a href="mailto:abhishekxerox01@gmail.com"
+                <p>📧 <a
+                    href="mailto:abhishekxerox01@gmail.com"
                     style="color:#aaa;">
                     abhishekxerox01@gmail.com</a></p>
                 <p>🕐 Mon-Sat: 9AM - 9:30PM</p>
@@ -681,17 +841,24 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/919898867134"
         target="_blank"
+        rel="noopener noreferrer"
         class="whatsapp-float"
-        title="Chat on WhatsApp">
+        title="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp">
         💬
     </a>
 
-    <button id="scrollTop">↑</button>
+    <!-- Scroll Top -->
+    <button id="scrollTop"
+        aria-label="Scroll to top"
+        type="button">↑</button>
 
-    <script src="js/common.js"></script>
-    <script src="js/about.js"></script>
+    <!-- JS -->
+    <script src="js/common.js" defer></script>
+    <script src="js/about.js" defer></script>
 
 </body>
 </html>

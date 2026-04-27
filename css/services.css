@@ -1,10 +1,11 @@
 /* ========================================
    SERVICES PAGE CSS - services.css
    Abhishek Xerox - Yellow Theme
+   Fully Responsive & Performance Optimized
 ======================================== */
 
 /* ========================================
-   PROFESSIONAL INTRO SECTION
+   PROFESSIONAL INTRO
 ======================================== */
 .professional-intro {
     padding: 80px 50px;
@@ -17,23 +18,27 @@
     overflow: hidden;
 }
 
+/* Background glow */
 .professional-intro::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 400px;
-    height: 100%;
-    background: radial-gradient(
-        circle at 80% 50%,
-        rgba(255, 215, 0, 0.05) 0%,
-        transparent 70%
-    );
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at 80% 50%,
+            rgba(255, 215, 0, 0.05) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 20% 50%,
+            rgba(255, 215, 0, 0.03) 0%,
+            transparent 60%
+        );
     pointer-events: none;
 }
 
 .intro-content {
-    max-width: 900px;
+    max-width: 880px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -46,14 +51,14 @@
     color: #1a1a1a;
     padding: 7px 22px;
     border-radius: 25px;
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
 }
 
 .intro-content h2 {
-    font-size: 40px;
+    font-size: 38px;
     color: #ffffff;
     font-weight: 800;
     margin-bottom: 10px;
@@ -65,35 +70,35 @@
 }
 
 .intro-tagline {
-    font-size: 20px;
+    font-size: 19px;
     color: #FFD700;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-style: italic;
 }
 
 .intro-desc {
-    font-size: 16px;
+    font-size: 15px;
     color: #cccccc;
     line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 40px;
+    max-width: 680px;
+    margin: 0 auto 38px;
 }
 
-/* ✅ Intro Stats */
+/* Stats */
 .intro-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    max-width: 800px;
+    gap: 22px;
+    max-width: 780px;
     margin: 0 auto;
-    padding-top: 30px;
+    padding-top: 28px;
     border-top: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .intro-stat {
     text-align: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .intro-stat:hover {
@@ -101,17 +106,17 @@
 }
 
 .intro-stat h3 {
-    font-size: 40px;
+    font-size: 38px;
     color: #FFD700;
     font-weight: 800;
     line-height: 1;
-    margin-bottom: 8px;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    margin-bottom: 6px;
+    text-shadow: 0 0 18px rgba(255, 215, 0, 0.3);
 }
 
 .intro-stat p {
     color: #cccccc;
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 500;
 }
 
@@ -124,28 +129,33 @@
 }
 
 .services-list {
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 32px;
 }
 
-/* ✅ Service Item */
+/* Service Item */
 .service-item {
     display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 45px;
+    grid-template-columns: 230px 1fr;
+    gap: 42px;
     align-items: center;
     background-color: #FFFDE7;
-    border-radius: 22px;
-    padding: 45px;
+    border-radius: 20px;
+    padding: 42px;
     border: 2px solid transparent;
-    transition: all 0.35s ease;
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease,
+                background-color 0.35s ease;
     position: relative;
     overflow: hidden;
+    will-change: transform;
 }
 
+/* Side color bar */
 .service-item::before {
     content: '';
     position: absolute;
@@ -154,25 +164,26 @@
     bottom: 0;
     width: 5px;
     background: linear-gradient(180deg, #FFD700, #FFA500);
-    border-radius: 22px 0 0 22px;
+    border-radius: 20px 0 0 20px;
+    transition: width 0.3s ease;
 }
 
 .service-item.reverse::before {
     left: auto;
     right: 0;
-    border-radius: 0 22px 22px 0;
+    border-radius: 0 20px 20px 0;
 }
 
 .service-item:hover {
     border-color: #FFD700;
-    box-shadow: 0 20px 50px rgba(255, 215, 0, 0.18);
-    transform: translateY(-6px);
+    box-shadow: 0 18px 48px rgba(255, 215, 0, 0.17);
+    transform: translateY(-5px);
     background-color: #FFF8DC;
 }
 
-/* ✅ Reverse Layout */
+/* Reverse Layout */
 .service-item.reverse {
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 230px;
 }
 
 .service-item.reverse .service-left {
@@ -183,7 +194,7 @@
     order: 1;
 }
 
-/* ✅ Service Left */
+/* Service Left */
 .service-left {
     display: flex;
     align-items: center;
@@ -191,101 +202,109 @@
 }
 
 .service-icon-box {
-    width: 165px;
-    height: 165px;
+    width: 155px;
+    height: 155px;
     background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    border-radius: 22px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 72px;
+    font-size: 68px;
     border: 3px solid #FFD700;
-    box-shadow: 0 10px 35px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
     transition: all 0.35s ease;
-    cursor: pointer;
+    cursor: default;
+    will-change: transform;
+    flex-shrink: 0;
 }
 
 .service-item:hover .service-icon-box {
     background: linear-gradient(135deg, #FFD700, #FFA500);
-    transform: scale(1.06) rotate(4deg);
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.35);
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 14px 38px rgba(255, 215, 0, 0.35);
 }
 
-/* ✅ Service Right */
+/* Service Right */
 .service-right {
     position: relative;
+    min-width: 0; /* Fix overflow */
 }
 
 .service-number {
-    font-size: 65px;
+    font-size: 60px;
     font-weight: 900;
-    color: rgba(255, 215, 0, 0.12);
+    color: rgba(255, 215, 0, 0.1);
     position: absolute;
-    top: -20px;
+    top: -18px;
     right: 0;
     line-height: 1;
     pointer-events: none;
     user-select: none;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .service-right h3 {
-    font-size: 26px;
+    font-size: 24px;
     color: #1a1a1a;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     font-weight: 800;
     line-height: 1.3;
+    padding-right: 50px; /* avoid overlap with number */
 }
 
 .service-right p {
     color: #555555;
-    font-size: 15px;
-    line-height: 1.85;
-    margin-bottom: 20px;
+    font-size: 14.5px;
+    line-height: 1.82;
+    margin-bottom: 18px;
 }
 
-/* ✅ Service Tags */
+/* Service Tags */
 .service-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 18px;
 }
 
 .service-tags span {
     background-color: #ffffff;
     color: #1a1a1a;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 22px;
+    padding: 5px 13px;
+    border-radius: 20px;
     border: 1px solid #FFD700;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     cursor: default;
+    white-space: nowrap;
 }
 
 .service-tags span:hover {
     background-color: #FFD700;
     border-color: #FFD700;
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
-/* ✅ NEW - Service CTA Link */
+/* Service CTA */
 .service-cta {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     color: #1a1a1a;
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 700;
     text-decoration: none;
     padding: 8px 20px;
     background: linear-gradient(135deg, #FFD700, #FFA500);
-    border-radius: 25px;
+    border-radius: 22px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.28);
 }
 
 .service-cta:hover {
     transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 22px rgba(255, 215, 0, 0.42);
 }
 
 /* ========================================
@@ -296,31 +315,34 @@
     background-color: #f8f8f8;
 }
 
-/* ✅ All Services Grid - 2 column */
 .all-services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    max-width: 1200px;
+    gap: 22px;
+    max-width: 1180px;
     margin: 0 auto;
 }
 
-/* ✅ All Service Card */
+/* All Service Card */
 .all-service-card {
     background-color: #ffffff;
-    border-radius: 18px;
-    padding: 30px;
+    border-radius: 16px;
+    padding: 28px;
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    transition: all 0.35s ease;
+    gap: 18px;
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
     border: 2px solid transparent;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    will-change: transform;
 }
 
+/* Top bar */
 .all-service-card::before {
     content: '';
     position: absolute;
@@ -339,18 +361,18 @@
 }
 
 .all-service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
     border-color: #FFD700;
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.18);
+    box-shadow: 0 14px 38px rgba(255, 215, 0, 0.17);
 }
 
-/* ✅ Card Icon */
+/* Card Icon */
 .asc-icon {
-    font-size: 45px;
-    width: 75px;
-    height: 75px;
+    font-size: 42px;
+    width: 72px;
+    height: 72px;
     background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    border-radius: 15px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -361,37 +383,44 @@
 
 .all-service-card:hover .asc-icon {
     background: linear-gradient(135deg, #FFD700, #FFA500);
-    transform: scale(1.08) rotate(5deg);
+    transform: scale(1.07) rotate(5deg);
     border-color: transparent;
 }
 
-/* ✅ Card Content */
+/* Card Content */
+.asc-content {
+    flex: 1;
+    min-width: 0;
+}
+
 .asc-content h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #1a1a1a;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     line-height: 1.3;
 }
 
 .asc-content p {
     color: #666666;
     font-size: 13px;
-    line-height: 1.75;
-    margin-bottom: 15px;
+    line-height: 1.72;
+    margin-bottom: 14px;
 }
 
 .asc-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     color: #1a1a1a;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 700;
     text-decoration: none;
-    padding: 6px 16px;
+    padding: 6px 15px;
     background-color: #FFD700;
-    border-radius: 20px;
+    border-radius: 18px;
     transition: all 0.3s ease;
     border: 2px solid #FFD700;
+    white-space: nowrap;
 }
 
 .asc-link:hover {
@@ -418,29 +447,34 @@
 }
 
 .more-services .section-title::after {
-    background-color: #FFD700;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
 }
 
 .more-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1100px;
+    gap: 22px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
 .more-card {
     background-color: #2d2d2d;
-    border-radius: 18px;
-    padding: 35px 25px;
+    border-radius: 16px;
+    padding: 32px 22px;
     text-align: center;
-    transition: all 0.35s ease;
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease,
+                background-color 0.35s ease;
     border: 2px solid transparent;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    will-change: transform;
 }
 
+/* Bottom bar */
 .more-card::after {
     content: '';
     position: absolute;
@@ -458,35 +492,35 @@
 }
 
 .more-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     border-color: #FFD700;
-    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.15);
+    box-shadow: 0 14px 32px rgba(255, 215, 0, 0.15);
     background-color: #3d3d3d;
 }
 
 .more-card span {
-    font-size: 48px;
+    font-size: 45px;
     display: block;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     transition: transform 0.35s ease;
     line-height: 1;
 }
 
 .more-card:hover span {
-    transform: scale(1.25) rotate(5deg);
+    transform: scale(1.22) rotate(5deg);
 }
 
 .more-card h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #FFD700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-weight: 700;
 }
 
 .more-card p {
     color: #aaaaaa;
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 13.5px;
+    line-height: 1.62;
 }
 
 /* ========================================
@@ -500,60 +534,79 @@
 .why-boxes {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    max-width: 1100px;
+    gap: 22px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
 .why-box {
     background-color: #ffffff;
-    border-radius: 18px;
-    padding: 40px 20px;
+    border-radius: 16px;
+    padding: 38px 18px;
     text-align: center;
     border-bottom: 4px solid #FFD700;
-    transition: all 0.35s ease;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
-    cursor: pointer;
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                background-color 0.35s ease;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+    cursor: default;
+    will-change: transform;
 }
 
 .why-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 14px 32px rgba(255, 215, 0, 0.2);
     background-color: #FFFDE7;
 }
 
 .why-box span {
-    font-size: 48px;
+    font-size: 44px;
     display: block;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     transition: transform 0.35s ease;
     line-height: 1;
 }
 
 .why-box:hover span {
-    transform: scale(1.2) rotate(-5deg);
+    transform: scale(1.18) rotate(-5deg);
 }
 
 .why-box h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #1a1a1a;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-weight: 700;
 }
 
 .why-box p {
     color: #666666;
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 13.5px;
+    line-height: 1.62;
 }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE - 1200px
+======================================== */
+@media (max-width: 1200px) {
+    .main-services,
+    .all-services-section,
+    .more-services,
+    .services-why {
+        padding: 75px 40px;
+    }
+
+    .professional-intro {
+        padding: 70px 40px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - 1024px
 ======================================== */
 @media (max-width: 1024px) {
     .all-services-grid {
         grid-template-columns: 1fr;
-        max-width: 700px;
+        max-width: 680px;
     }
 
     .more-grid {
@@ -566,16 +619,43 @@
 
     .intro-stats {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 560px;
+    }
+
+    .service-item {
+        grid-template-columns: 200px 1fr;
+        gap: 35px;
+    }
+
+    .service-item.reverse {
+        grid-template-columns: 1fr 200px;
+    }
+
+    .service-icon-box {
+        width: 140px;
+        height: 140px;
+        font-size: 60px;
     }
 }
 
+/* ========================================
+   RESPONSIVE - 768px (Tablet)
+======================================== */
 @media (max-width: 768px) {
     .professional-intro {
-        padding: 60px 20px;
+        padding: 55px 18px;
     }
 
     .intro-content h2 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+
+    .intro-tagline {
+        font-size: 16px;
+    }
+
+    .intro-desc {
+        font-size: 14px;
     }
 
     .intro-stats {
@@ -583,30 +663,32 @@
         gap: 15px;
     }
 
+    .intro-stat h3 {
+        font-size: 30px;
+    }
+
     .main-services {
-        padding: 60px 20px;
+        padding: 55px 18px;
     }
 
     .all-services-section {
-        padding: 60px 20px;
+        padding: 55px 18px;
     }
 
     .more-services {
-        padding: 60px 20px;
+        padding: 55px 18px;
     }
 
     .services-why {
-        padding: 60px 20px;
+        padding: 55px 18px;
     }
 
+    /* Service items - stack on mobile */
     .service-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         text-align: center;
-        padding: 30px 20px;
-    }
-
-    .service-item.reverse {
-        grid-template-columns: 1fr;
+        padding: 28px 20px;
+        gap: 22px;
     }
 
     .service-item.reverse .service-left {
@@ -617,6 +699,7 @@
         order: 1;
     }
 
+    /* Top bar for mobile */
     .service-item::before,
     .service-item.reverse::before {
         left: 0;
@@ -625,13 +708,13 @@
         bottom: auto;
         width: 100%;
         height: 5px;
-        border-radius: 22px 22px 0 0;
+        border-radius: 20px 20px 0 0;
     }
 
     .service-icon-box {
-        width: 120px;
-        height: 120px;
-        font-size: 55px;
+        width: 110px;
+        height: 110px;
+        font-size: 52px;
         margin: 0 auto;
     }
 
@@ -640,47 +723,144 @@
     }
 
     .service-number {
-        font-size: 40px;
-        top: -15px;
+        font-size: 38px;
+        top: -12px;
+        right: 10px;
     }
 
+    .service-right h3 {
+        padding-right: 0;
+        font-size: 22px;
+    }
+
+    /* All service cards */
     .all-service-card {
         flex-direction: column;
         text-align: center;
         align-items: center;
+        padding: 24px 20px;
     }
 
     .asc-icon {
         margin: 0 auto;
     }
 
+    /* More grid */
     .more-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
+    .more-card {
+        padding: 28px 18px;
+    }
+
+    /* Why boxes */
     .why-boxes {
         grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 }
 
+/* ========================================
+   RESPONSIVE - 480px (Mobile)
+======================================== */
 @media (max-width: 480px) {
+    .professional-intro {
+        padding: 45px 15px;
+    }
+
     .intro-content h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .intro-stat h3 {
-        font-size: 30px;
+        font-size: 26px;
+    }
+
+    .intro-stat p {
+        font-size: 12px;
+    }
+
+    .main-services {
+        padding: 45px 15px;
+    }
+
+    .all-services-section {
+        padding: 45px 15px;
+    }
+
+    .all-services-grid {
+        max-width: 100%;
+    }
+
+    .more-services {
+        padding: 45px 15px;
+    }
+
+    .more-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .services-why {
+        padding: 45px 15px;
     }
 
     .why-boxes {
         grid-template-columns: 1fr;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .service-item {
+        padding: 24px 15px;
+    }
+
+    .service-icon-box {
+        width: 95px;
+        height: 95px;
+        font-size: 44px;
     }
 
     .service-right h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
-    .all-service-card {
-        padding: 20px;
+    .service-tags span {
+        font-size: 11.5px;
+        padding: 4px 11px;
+    }
+
+    .asc-content h3 {
+        font-size: 17px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - 360px (Small Mobile)
+======================================== */
+@media (max-width: 360px) {
+    .intro-content h2 {
+        font-size: 20px;
+    }
+
+    .service-icon-box {
+        width: 85px;
+        height: 85px;
+        font-size: 38px;
+    }
+
+    .service-right h3 {
+        font-size: 18px;
+    }
+
+    .more-card span {
+        font-size: 38px;
+    }
+
+    .why-box span {
+        font-size: 38px;
     }
 }

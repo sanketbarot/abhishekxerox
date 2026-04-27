@@ -1,433 +1,393 @@
 // ========================================
 // ABOUT PAGE JS - about.js
-// Abhishek Xerox - Vejalpur, Ahmedabad
+// Abhishek Xerox - Performance Optimized
 // ========================================
 
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
+    'use strict';
 
-    // ===== PAGE BANNER ANIMATION =====
-    const pageBanner = document.querySelector('.page-banner');
-    if (pageBanner) {
-        pageBanner.style.opacity = '0';
-        pageBanner.style.transform = 'translateY(-20px)';
-        pageBanner.style.transition = 'all 0.6s ease';
-        setTimeout(function () {
-            pageBanner.style.opacity = '1';
-            pageBanner.style.transform = 'translateY(0)';
-        }, 100);
+    // =========================================
+    // UTILITY - INTERSECTION OBSERVER
+    // =========================================
+    function createObs(callback, options) {
+        var opts = {
+            threshold: (options && options.threshold) || 0.1,
+            rootMargin: (options && options.rootMargin) ||
+                '0px 0px -30px 0px'
+        };
+
+        if (!('IntersectionObserver' in window)) {
+            return {
+                observe: function (el) {
+                    callback([{
+                        target: el,
+                        isIntersecting: true
+                    }]);
+                },
+                unobserve: function () {}
+            };
+        }
+
+        return new IntersectionObserver(callback, opts);
     }
 
-    // ===== PRO INTRO ANIMATION =====
-    const proContent = document.querySelector('.pro-intro-content');
-    const proFeatures = document.querySelectorAll('.pro-feature');
+    // =========================================
+    // ANIMATE BATCH
+    // =========================================
+    function animateBatch(elements, options) {
+        if (!elements || !elements.length) return;
 
-    if (proContent) {
-        proContent.style.opacity = '0';
-        proContent.style.transform = 'translateX(-50px)';
-        proContent.style.transition = 'all 0.7s ease';
+        var direction = (options && options.direction) || 'up';
+        var stagger = (options && options.stagger) || 0;
+        var delay = (options && options.delay) || 0;
+        var threshold = (options && options.threshold) || 0.1;
 
-        const proObserver = new IntersectionObserver(
-            function (entries) {
+        var initTransforms = {
+            up: 'translateY(32px)',
+            down: 'translateY(-32px)',
+            left: 'translateX(-40px)',
+            right: 'translateX(40px)',
+            scale: 'scale(0.85)'
+        };
+
+        var t = initTransforms[direction] || initTransforms.up;
+
+        elements.forEach(function (el) {
+            el.style.opacity = '0';
+            el.style.transform = t;
+            el.style.transition =
+                'opacity 0.52s ease, transform 0.52s ease';
+            el.style.willChange = 'opacity, transform';
+        });
+
+        var obs = createObs(function (entries) {
+            entries.forEach(function (entry, idx) {
+                if (entry.isIntersecting) {
+                    setTimeout(function () {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'none';
+                        setTimeout(function () {
+                            entry.target.style.willChange = 'auto';
+                        }, 580);
+                    }, delay + idx * stagger);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: threshold });
+
+        elements.forEach(function (el) { obs.observe(el); });
+    }
+
+    // =========================================
+    // COUNTER ANIMATION
+    // =========================================
+    function animateCounter(element) {
+        var target = parseInt(
+            element.getAttribute('data-target'), 10
+        );
+        if (isNaN(target)) return;
+
+        var parent = element.closest('.stat-item');
+        var label = parent && parent.querySelector('p') ?
+            parent.querySelector('p').textContent : '';
+        var isPercent = label.includes('%');
+
+        var start = 0;
+        var duration = 1800;
+        var startTime = null;
+
+        function easeOut(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            var elapsed = ts - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var current = Math.round(easeOut(progress) * target);
+
+            if (isPercent) {
+                element.textContent = current + '%';
+            } else {
+                element.textContent =
+                    current.toLocaleString('en-IN') + '+';
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                element.textContent = isPercent ?
+                    target + '%' :
+                    target.toLocaleString('en-IN') + '+';
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    // =========================================
+    // DOM READY
+    // =========================================
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ===== PAGE BANNER =====
+        var banner = document.querySelector('.page-banner');
+        if (banner) {
+            banner.style.opacity = '0';
+            banner.style.transform = 'translateY(-16px)';
+            banner.style.transition = 'all 0.52s ease';
+            setTimeout(function () {
+                banner.style.opacity = '1';
+                banner.style.transform = 'translateY(0)';
+            }, 80);
+        }
+
+        // ===== PRO INTRO =====
+        var proContent = document.querySelector(
+            '.pro-intro-content'
+        );
+        if (proContent) {
+            proContent.style.opacity = '0';
+            proContent.style.transform = 'translateX(-45px)';
+            proContent.style.transition = 'all 0.65s ease';
+            proContent.style.willChange = 'opacity, transform';
+
+            var proObs = createObs(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateX(0)';
-                        proObserver.unobserve(entry.target);
+                        entry.target.style.transform = 'none';
+                        setTimeout(function () {
+                            entry.target.style.willChange = 'auto';
+                        }, 700);
+                        proObs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.18 });
 
-        proObserver.observe(proContent);
-    }
+            proObs.observe(proContent);
+        }
 
-    proFeatures.forEach(function (feat) {
-        feat.style.opacity = '0';
-        feat.style.transform = 'translateX(40px)';
-        feat.style.transition = 'all 0.5s ease';
-    });
+        animateBatch(
+            Array.from(document.querySelectorAll('.pro-feature')),
+            { direction: 'right', stagger: 90, threshold: 0.1 }
+        );
 
-    const featObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateX(0)';
-                    }, index * 100);
-                    featObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+        // ===== WELCOME SECTION =====
+        var welcomeContent = document.querySelector(
+            '.welcome-content'
+        );
+        var welcomeImg = document.querySelector('.welcome-img');
 
-    proFeatures.forEach(function (feat) {
-        featObserver.observe(feat);
-    });
+        if (welcomeContent) {
+            welcomeContent.style.opacity = '0';
+            welcomeContent.style.transform = 'translateX(-45px)';
+            welcomeContent.style.transition = 'all 0.65s ease';
+            welcomeContent.style.willChange =
+                'opacity, transform';
+        }
 
-    // ===== WELCOME SECTION ANIMATION =====
-    const welcomeContent = document.querySelector('.welcome-content');
-    const welcomeImg = document.querySelector('.welcome-img');
+        if (welcomeImg) {
+            welcomeImg.style.opacity = '0';
+            welcomeImg.style.transform = 'translateX(45px)';
+            welcomeImg.style.transition = 'all 0.65s ease';
+            welcomeImg.style.willChange = 'opacity, transform';
+        }
 
-    if (welcomeContent) {
-        welcomeContent.style.opacity = '0';
-        welcomeContent.style.transform = 'translateX(-50px)';
-        welcomeContent.style.transition = 'all 0.7s ease';
-    }
-
-    if (welcomeImg) {
-        welcomeImg.style.opacity = '0';
-        welcomeImg.style.transform = 'translateX(50px)';
-        welcomeImg.style.transition = 'all 0.7s ease';
-    }
-
-    const welcomeObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    if (welcomeContent) {
-                        welcomeContent.style.opacity = '1';
-                        welcomeContent.style.transform =
-                            'translateX(0)';
+        if (welcomeContent) {
+            var welObs = createObs(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        if (welcomeContent) {
+                            welcomeContent.style.opacity = '1';
+                            welcomeContent.style.transform =
+                                'none';
+                            setTimeout(function () {
+                                welcomeContent.style.willChange =
+                                    'auto';
+                            }, 700);
+                        }
+                        if (welcomeImg) {
+                            welcomeImg.style.opacity = '1';
+                            welcomeImg.style.transform = 'none';
+                            setTimeout(function () {
+                                welcomeImg.style.willChange =
+                                    'auto';
+                            }, 700);
+                        }
+                        welObs.unobserve(entry.target);
                     }
-                    if (welcomeImg) {
-                        welcomeImg.style.opacity = '1';
-                        welcomeImg.style.transform =
-                            'translateX(0)';
+                });
+            }, { threshold: 0.18 });
+
+            welObs.observe(welcomeContent);
+        }
+
+        animateBatch(
+            Array.from(document.querySelectorAll('.welcome-feat')),
+            { direction: 'left', stagger: 85, threshold: 0.1 }
+        );
+
+        // ===== WHO WE ARE =====
+        var whoImg = document.querySelector('.who-img');
+        var whoContent = document.querySelector('.who-content');
+
+        if (whoImg) {
+            whoImg.style.opacity = '0';
+            whoImg.style.transform = 'translateX(-52px)';
+            whoImg.style.transition = 'all 0.68s ease';
+            whoImg.style.willChange = 'opacity, transform';
+        }
+
+        if (whoContent) {
+            whoContent.style.opacity = '0';
+            whoContent.style.transform = 'translateX(52px)';
+            whoContent.style.transition = 'all 0.68s ease';
+            whoContent.style.willChange = 'opacity, transform';
+        }
+
+        if (whoImg) {
+            var whoObs = createObs(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        if (whoImg) {
+                            whoImg.style.opacity = '1';
+                            whoImg.style.transform = 'none';
+                            setTimeout(function () {
+                                whoImg.style.willChange = 'auto';
+                            }, 720);
+                        }
+                        if (whoContent) {
+                            whoContent.style.opacity = '1';
+                            whoContent.style.transform = 'none';
+                            setTimeout(function () {
+                                whoContent.style.willChange =
+                                    'auto';
+                            }, 720);
+                        }
+                        whoObs.unobserve(entry.target);
                     }
-                    welcomeObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
+                });
+            }, { threshold: 0.18 });
 
-    if (welcomeContent) welcomeObserver.observe(welcomeContent);
+            whoObs.observe(whoImg);
+        }
 
-    // ===== WELCOME FEATURES ANIMATION =====
-    const welcomeFeats = document.querySelectorAll('.welcome-feat');
-    welcomeFeats.forEach(function (feat) {
-        feat.style.opacity = '0';
-        feat.style.transform = 'translateX(-20px)';
-        feat.style.transition = 'all 0.4s ease';
-    });
+        // Highlights
+        animateBatch(
+            Array.from(document.querySelectorAll(
+                '.highlight-item'
+            )),
+            { direction: 'left', stagger: 90, threshold: 0.1 }
+        );
 
-    const wfObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateX(0)';
-                    }, index * 100);
-                    wfObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+        // ===== SHOP INFO =====
+        animateBatch(
+            Array.from(document.querySelectorAll(
+                '.shop-info-item'
+            )),
+            { direction: 'up', stagger: 90, threshold: 0.1 }
+        );
 
-    welcomeFeats.forEach(function (feat) {
-        wfObserver.observe(feat);
-    });
-
-    // ===== WHO WE ARE ANIMATION =====
-    const whoImg = document.querySelector('.who-img');
-    const whoContent = document.querySelector('.who-content');
-
-    if (whoImg) {
-        whoImg.style.opacity = '0';
-        whoImg.style.transform = 'translateX(-60px)';
-        whoImg.style.transition = 'all 0.7s ease';
-    }
-
-    if (whoContent) {
-        whoContent.style.opacity = '0';
-        whoContent.style.transform = 'translateX(60px)';
-        whoContent.style.transition = 'all 0.7s ease';
-    }
-
-    const whoObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    if (whoImg) {
-                        whoImg.style.opacity = '1';
-                        whoImg.style.transform = 'translateX(0)';
-                    }
-                    if (whoContent) {
-                        whoContent.style.opacity = '1';
-                        whoContent.style.transform = 'translateX(0)';
-                    }
-                    whoObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-    if (whoImg) whoObserver.observe(whoImg);
-
-    // ===== COUNTER ANIMATION =====
-    const counters = document.querySelectorAll('.counter');
-
-    if (counters.length > 0) {
-        const counterObserver = new IntersectionObserver(
-            function (entries) {
+        // ===== COUNTER =====
+        var counters = document.querySelectorAll('.counter');
+        if (counters.length) {
+            var cntObs = createObs(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         animateCounter(entry.target);
-                        counterObserver.unobserve(entry.target);
+                        cntObs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.55 });
 
-        counters.forEach(function (counter) {
-            counterObserver.observe(counter);
-        });
-    }
-
-    // ===== SHOP INFO ANIMATION =====
-    const shopItems = document.querySelectorAll('.shop-info-item');
-    shopItems.forEach(function (item) {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'all 0.5s ease';
-    });
-
-    const shopObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 100);
-                    shopObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    shopItems.forEach(function (item) {
-        shopObserver.observe(item);
-    });
-
-    // ===== MV CARDS ANIMATION =====
-    const mvCards = document.querySelectorAll('.mv-card');
-    mvCards.forEach(function (card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(40px)';
-        card.style.transition = 'all 0.5s ease';
-    });
-
-    const mvObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 150);
-                    mvObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    mvCards.forEach(function (card) {
-        mvObserver.observe(card);
-    });
-
-    // ===== OFFER ITEMS ANIMATION =====
-    const offerItems = document.querySelectorAll('.offer-item');
-    offerItems.forEach(function (item) {
-        item.style.opacity = '0';
-        item.style.transform = 'scale(0.8)';
-        item.style.transition = 'all 0.4s ease';
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', function () {
-            window.location.href = 'services.html';
-        });
-    });
-
-    const offerObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'scale(1)';
-                    }, index * 60);
-                    offerObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    offerItems.forEach(function (item) {
-        offerObserver.observe(item);
-    });
-
-    // ===== TEAM CARDS ANIMATION =====
-    const teamCards = document.querySelectorAll('.team-card');
-    teamCards.forEach(function (card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(40px)';
-        card.style.transition = 'all 0.5s ease';
-    });
-
-    const teamObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 150);
-                    teamObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    teamCards.forEach(function (card) {
-        teamObserver.observe(card);
-    });
-
-    // ===== TESTIMONIAL CARDS ANIMATION =====
-    const testimonialCards = document.querySelectorAll(
-        '.testimonial-card'
-    );
-    testimonialCards.forEach(function (card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.5s ease';
-    });
-
-    const testimonialObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 150);
-                    testimonialObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    testimonialCards.forEach(function (card) {
-        testimonialObserver.observe(card);
-    });
-
-    // ===== HIGHLIGHT ITEMS ANIMATION =====
-    const highlights = document.querySelectorAll('.highlight-item');
-    highlights.forEach(function (item) {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-20px)';
-        item.style.transition = 'all 0.4s ease';
-    });
-
-    const highlightObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateX(0)';
-                    }, index * 100);
-                    highlightObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    highlights.forEach(function (item) {
-        highlightObserver.observe(item);
-    });
-
-    // ===== WHY LIST ANIMATION =====
-    const whyItems = document.querySelectorAll('.why-list-item');
-    whyItems.forEach(function (item) {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-30px)';
-        item.style.transition = 'all 0.5s ease';
-    });
-
-    const whyObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateX(0)';
-                    }, index * 100);
-                    whyObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-    whyItems.forEach(function (item) {
-        whyObserver.observe(item);
-    });
-
-    // ===== STAT ITEMS ANIMATION =====
-    const statItems = document.querySelectorAll('.stat-item');
-    statItems.forEach(function (item) {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'all 0.5s ease';
-    });
-
-    const statObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform =
-                            'translateY(0)';
-                    }, index * 100);
-                    statObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-    statItems.forEach(function (item) {
-        statObserver.observe(item);
-    });
-
-    // ===== PLAY BUTTON =====
-    const playBtn = document.querySelector('.welcome-play');
-    if (playBtn) {
-        playBtn.addEventListener('click', function () {
-            alert('📹 Video coming soon! Visit our shop at Vejalpur, Ahmedabad.');
-        });
-    }
-
-    console.log('✅ About Page - Abhishek Xerox Vejalpur!');
-
-});
-
-// ===== COUNTER ANIMATION =====
-function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-target'));
-    const parent = element.closest('.stat-item');
-    const label = parent ?
-        parent.querySelector('p').textContent : '';
-    let count = 0;
-    const duration = 2000;
-    const steps = 60;
-    const increment = Math.ceil(target / steps);
-
-    const timer = setInterval(function () {
-        count += increment;
-        if (count >= target) {
-            count = target;
-            clearInterval(timer);
+            counters.forEach(function (c) { cntObs.observe(c); });
         }
-        if (label.includes('%')) {
-            element.textContent = count + '%';
-        } else {
-            element.textContent = count.toLocaleString() + '+';
+
+        // ===== STAT ITEMS =====
+        animateBatch(
+            Array.from(document.querySelectorAll('.stat-item')),
+            { direction: 'up', stagger: 90, threshold: 0.3 }
+        );
+
+        // ===== MV CARDS =====
+        animateBatch(
+            Array.from(document.querySelectorAll('.mv-card')),
+            { direction: 'up', stagger: 130, threshold: 0.1 }
+        );
+
+        // ===== OFFER ITEMS =====
+        var offerItems = document.querySelectorAll('.offer-item');
+
+        animateBatch(
+            Array.from(offerItems),
+            { direction: 'scale', stagger: 50, threshold: 0.08 }
+        );
+
+        offerItems.forEach(function (item) {
+            // Click to services
+            item.addEventListener('click', function () {
+                window.location.href = 'services.html';
+            });
+
+            // Keyboard nav
+            item.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href = 'services.html';
+                }
+            });
+        });
+
+        // ===== TEAM CARDS =====
+        animateBatch(
+            Array.from(document.querySelectorAll('.team-card')),
+            { direction: 'up', stagger: 130, threshold: 0.1 }
+        );
+
+        // ===== TESTIMONIALS =====
+        animateBatch(
+            Array.from(document.querySelectorAll(
+                '.testimonial-card'
+            )),
+            { direction: 'up', stagger: 130, threshold: 0.1 }
+        );
+
+        // ===== WHY LIST =====
+        animateBatch(
+            Array.from(document.querySelectorAll(
+                '.why-list-item'
+            )),
+            { direction: 'left', stagger: 90, threshold: 0.1 }
+        );
+
+        // ===== PLAY BUTTON =====
+        var playBtn = document.getElementById('playBtn');
+        if (playBtn) {
+            playBtn.addEventListener('click', function () {
+                if (window.showMessage) {
+                    window.showMessage(
+                        '📹 Video coming soon! Visit our shop ' +
+                        'at Vejalpur, Ahmedabad.',
+                        'info'
+                    );
+                } else {
+                    alert(
+                        '📹 Video coming soon! Visit our shop ' +
+                        'at Vejalpur, Ahmedabad.'
+                    );
+                }
+            });
         }
-    }, duration / steps);
-}
+
+        // ===== LOG =====
+        console.log(
+            '%c✅ About Page - Abhishek Xerox!',
+            'color: #FFD700; background: #1a1a1a; ' +
+            'padding: 5px 10px; border-radius: 4px; ' +
+            'font-weight: bold;'
+        );
+
+    }); // END DOMContentLoaded
+
+})(); // IIFE
