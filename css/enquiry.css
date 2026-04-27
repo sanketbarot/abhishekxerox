@@ -1,0 +1,497 @@
+/* ========================================
+   ENQUIRY PAGE CSS - enquiry.css
+   Yellow Theme
+   Abhishek Xerox - Vejalpur, Ahmedabad
+======================================== */
+
+/* ========== PAGE BANNER ========== */
+.page-banner {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: #ffffff;
+    text-align: center;
+    padding: 70px 20px;
+    border-bottom: 5px solid #FFD700;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 215, 0, 0.05) 0%,
+        transparent 70%
+    );
+}
+
+.page-banner h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.page-banner h2 span {
+    color: #FFD700;
+}
+
+.page-banner p {
+    color: #cccccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #999999;
+    position: relative;
+    z-index: 1;
+}
+
+.breadcrumb a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #ffffff;
+}
+
+/* ========== ENQUIRY SECTION ========== */
+.enquiry-section {
+    padding: 70px 50px;
+    background-color: #f8f8f8;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #1a1a1a;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666666;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.underline {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    margin: 12px auto;
+    border-radius: 2px;
+}
+
+/* ========== FORM CONTAINER ========== */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 45px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+}
+
+.form-container:hover {
+    border-color: #FFD700;
+}
+
+/* ========== FORM ROW ========== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 0;
+}
+
+/* ========== FORM GROUP ========== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.3px;
+}
+
+/* ========== FORM INPUTS ========== */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 13px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #333333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+    background-color: #FFFDE7;
+}
+
+/* ✅ Valid State */
+.form-group input:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23FFD700' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.form-group textarea {
+    height: 140px;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+    line-height: 1.6;
+}
+
+/* ✅ Error State */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* ========== ERROR MESSAGE ========== */
+.error-msg {
+    color: #e74c3c;
+    font-size: 12px;
+    font-weight: 600;
+    display: none;
+}
+
+.error-msg.show {
+    display: block;
+}
+
+/* ========== CHAR COUNT ========== */
+.char-count {
+    font-size: 11px;
+    color: #999;
+    text-align: right;
+    display: block;
+}
+
+.char-count.warning { color: #e67e22; }
+.char-count.danger { color: #e74c3c; }
+
+/* ========== SUBMIT BUTTON ========== */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 50px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #FFA500, #FFD700);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ========== FORM DIVIDER ========== */
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #999;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.form-divider::before,
+.form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+/* ========== WHATSAPP BTN ========== */
+.whatsapp-enquiry-btn {
+    display: block;
+    padding: 15px;
+    background-color: #25D366;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-enquiry-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+/* ========== INFO CARDS SECTION ========== */
+.info-cards-section {
+    padding: 60px 50px;
+    background-color: #ffffff;
+}
+
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background-color: #FFFDE7;
+    border-radius: 15px;
+    padding: 35px 25px;
+    text-align: center;
+    border-bottom: 4px solid #FFD700;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    background-color: #FFD700;
+}
+
+.info-card-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover .info-card-icon {
+    transform: scale(1.2);
+}
+
+.info-card h3 {
+    font-size: 20px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ========== FOOTER SOCIAL ========== */
+.footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.footer-social a {
+    font-size: 22px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    transform: scale(1.3);
+}
+
+/* ========== WHATSAPP FLOAT ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 998;
+    transition: all 0.3s ease;
+    animation: waPulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15);
+}
+
+@keyframes waPulse {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 5px 30px rgba(37, 211, 102, 0.7);
+    }
+}
+
+/* ========== SCROLL TOP ========== */
+#scrollTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #FFD700;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+#scrollTop:hover {
+    background-color: #1a1a1a;
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .page-banner h2 {
+        font-size: 30px;
+    }
+
+    .enquiry-section {
+        padding: 50px 20px;
+    }
+
+    .form-container {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .info-cards-section {
+        padding: 50px 20px;
+    }
+
+    .info-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-banner h2 {
+        font-size: 24px;
+    }
+
+    .form-container {
+        padding: 20px 15px;
+    }
+
+    .submit-btn {
+        font-size: 15px;
+        padding: 14px 30px;
+    }
+
+    .whatsapp-float {
+        bottom: 85px;
+        right: 15px;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+}

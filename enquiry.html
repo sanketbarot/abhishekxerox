@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry - Abhishek Xerox | Vejalpur Ahmedabad</title>
+    <meta name="description"
+        content="Send enquiry to Abhishek Xerox Vejalpur Ahmedabad.
+        Call +91 98988 67134 for printing services.">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Enquiry CSS -->
+    <link rel="stylesheet" href="css/enquiry.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>📠 Abhishek <span>Xerox</span></h1>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="price.html">Price List</a></li>
+                <li><a href="enquiry.html" class="active">
+                    Enquiry
+                </a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== PAGE BANNER ========== -->
+    <section class="page-banner">
+        <h2>Send <span>Enquiry</span></h2>
+        <p>We will get back to you as soon as possible!</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &rarr; Enquiry
+        </div>
+    </section>
+
+    <!-- ========== ENQUIRY FORM ========== -->
+    <section class="enquiry-section">
+        <div class="section-title">
+            <h2>Enquiry Form</h2>
+            <div class="underline"></div>
+            <p>Fill the form and we will contact you shortly</p>
+        </div>
+
+        <div class="form-container">
+            <form id="enquiryForm" novalidate>
+
+                <!-- Name & Phone -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">👤 Full Name *</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required>
+                        <span class="error-msg"
+                            id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            📞 Phone Number *
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+91 99999 99999"
+                            maxlength="13"
+                            autocomplete="tel"
+                            required>
+                        <span class="error-msg"
+                            id="phoneError"></span>
+                    </div>
+                </div>
+
+                <!-- Email & City -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">
+                            📧 Email Address
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">🏙️ City</label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="Enter your city"
+                            value="Ahmedabad">
+                    </div>
+                </div>
+
+                <!-- Service -->
+                <div class="form-group">
+                    <label for="service">
+                        🖨️ Service Required *
+                    </label>
+                    <select id="service"
+                        name="service" required>
+                        <option value="">
+                            -- Select Service --
+                        </option>
+                        <optgroup label="Printing Services">
+                            <option>Xerox / Photocopy</option>
+                            <option>Color Printing</option>
+                            <option>Photo Printing</option>
+                        </optgroup>
+                        <optgroup label="Document Services">
+                            <option>Document Scanning</option>
+                            <option>Lamination</option>
+                            <option>Typing Work</option>
+                            <option>Form Filling</option>
+                        </optgroup>
+                        <optgroup label="Binding Services">
+                            <option>Spiral Binding</option>
+                            <option>Hard Binding</option>
+                        </optgroup>
+                        <optgroup label="Card Services">
+                            <option>Visiting Cards</option>
+                            <option>ID Card Making</option>
+                            <option>Certificate Print</option>
+                        </optgroup>
+                        <option>Other</option>
+                    </select>
+                    <span class="error-msg"
+                        id="serviceError"></span>
+                </div>
+
+                <!-- Quantity & Date -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">
+                            📦 Quantity
+                        </label>
+                        <input
+                            type="number"
+                            id="quantity"
+                            name="quantity"
+                            placeholder="Enter quantity"
+                            min="1"
+                            max="99999">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">
+                            📅 Required By
+                        </label>
+                        <input
+                            type="date"
+                            id="date"
+                            name="date">
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message">
+                        📝 Message / Details
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Describe your requirements in detail...">
+                    </textarea>
+                    <span class="char-count"
+                        id="charCount">0 / 500</span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="submit-btn" id="submitBtn">
+                    <span id="btnText">📩 Send Enquiry</span>
+                    <span id="btnLoader"
+                        style="display:none;">
+                        ⏳ Sending...
+                    </span>
+                </button>
+
+                <!-- OR Divider -->
+                <div class="form-divider">
+                    <span>OR</span>
+                </div>
+
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/919898867134"
+                    target="_blank"
+                    class="whatsapp-enquiry-btn">
+                    💬 Send Enquiry on WhatsApp
+                </a>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== INFO CARDS ========== -->
+    <section class="info-cards-section">
+        <div class="info-cards-grid">
+            <div class="info-card">
+                <span class="info-card-icon">⚡</span>
+                <h3>Quick Response</h3>
+                <p>We respond to all enquiries within
+                    1-2 hours during business hours.</p>
+            </div>
+            <div class="info-card">
+                <span class="info-card-icon">💰</span>
+                <h3>Free Quotation</h3>
+                <p>Get a free price quotation for all
+                    your printing requirements.</p>
+            </div>
+            <div class="info-card">
+                <span class="info-card-icon">📦</span>
+                <h3>Bulk Orders</h3>
+                <p>Special discounts available for
+                    bulk and regular orders.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section">
+        <h2>Need Help? Call Us! 📞</h2>
+        <p>Abhishek Xerox - Vejalpur, Ahmedabad - 380051</p>
+        <div class="cta-buttons">
+            <a href="tel:+919898867134" class="btn">
+                📞 Call Now
+            </a>
+            <a href="https://wa.me/919898867134"
+                target="_blank" class="btn btn-dark">
+                💬 WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>📠 Abhishek Xerox</h3>
+                <p>Your trusted partner for all printing
+                    and documentation needs in Vejalpur,
+                    Ahmedabad since 2014.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/919898867134"
+                        target="_blank" title="WhatsApp">💬</a>
+                    <a href="mailto:abhishekxerox01@gmail.com"
+                        title="Email">📧</a>
+                    <a href="tel:+919898867134"
+                        title="Call">📞</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">🏠 Home</a></li>
+                    <li><a href="services.html">
+                        🛠️ Services</a></li>
+                    <li><a href="about.html">
+                        👤 About Us</a></li>
+                    <li><a href="gallery.html">
+                        🖼️ Gallery</a></li>
+                    <li><a href="price.html">
+                        💰 Price List</a></li>
+                    <li><a href="contact.html">
+                        📞 Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">
+                        🖨️ Xerox / Printing</a></li>
+                    <li><a href="services.html">
+                        📄 Scanning</a></li>
+                    <li><a href="services.html">
+                        🗂️ Lamination</a></li>
+                    <li><a href="services.html">
+                        📚 Binding</a></li>
+                    <li><a href="services.html">
+                        🖼️ Photo Print</a></li>
+                    <li><a href="services.html">
+                        📝 Typing Work</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p>📍 Vejalpur, Ahmedabad - 380051</p>
+                <p>📞 <a href="tel:+919898867134"
+                    style="color:#aaa;">
+                    +91 98988 67134</a></p>
+                <p>📧 <a href="mailto:abhishekxerox01@gmail.com"
+                    style="color:#aaa;">
+                    abhishekxerox01@gmail.com</a></p>
+                <p>🕐 Mon-Sat: 9AM - 9:30PM</p>
+                <p>🕐 Sunday: 9AM - 1:30PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Abhishek Xerox | Vejalpur, Ahmedabad |
+                All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919898867134"
+        target="_blank"
+        class="whatsapp-float"
+        title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- Scroll Top -->
+    <button id="scrollTop">↑</button>
+
+    <!-- Common JS -->
+    <script src="js/common.js"></script>
+    <!-- Enquiry JS -->
+    <script src="js/enquiry.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* ========================================
+   PRICE PAGE CSS - price.css
+   Yellow Theme
+======================================== */
+
+/* ========== PRICE INTRO ========== */
+.price-intro {
+    padding: 60px 50px;
+    background-color: #ffffff;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.intro-card {
+    background-color: #FFFDE7;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 4px solid #FFD700;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.intro-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    background-color: #FFD700;
+}
+
+.intro-card span {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.intro-card:hover span {
+    transform: scale(1.2);
+}
+
+.intro-card h3 {
+    font-size: 18px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.intro-card p {
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ========== PRICE SECTION ========== */
+.price-section {
+    padding: 20px 50px 80px;
+    background-color: #f8f8f8;
+}
+
+/* ========== PRICE CATEGORY ========== */
+.price-category {
+    max-width: 1100px;
+    margin: 0 auto 50px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.price-category:hover {
+    border-color: #FFD700;
+    box-shadow: 0 10px 35px rgba(255, 215, 0, 0.15);
+}
+
+/* ========== CATEGORY HEADER ========== */
+.category-header {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 4px solid #FFD700;
+}
+
+.category-header span {
+    font-size: 35px;
+}
+
+.category-header h2 {
+    font-size: 22px;
+    color: #FFD700;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* ========== PRICE TABLE ========== */
+.price-table-wrap {
+    overflow-x: auto;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table thead tr {
+    background-color: #FFFDE7;
+}
+
+.price-table th {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    border-bottom: 2px solid #FFD700;
+    white-space: nowrap;
+}
+
+.price-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+.price-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.price-table tbody tr:hover {
+    background-color: #FFFDE7;
+}
+
+.price-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========== PRICE COLUMN ========== */
+.price-col {
+    color: #1a1a1a !important;
+    font-weight: 800 !important;
+    font-size: 15px !important;
+    color: #b8860b !important;
+}
+
+/* ========== BADGE ========== */
+.badge {
+    background-color: #1a1a1a;
+    color: #FFD700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ========== NOTE SECTION ========== */
+.note-section {
+    padding: 0 50px 60px;
+    background-color: #f8f8f8;
+}
+
+.note-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border-radius: 15px;
+    padding: 25px 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border: 2px solid #FFD700;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.15);
+}
+
+.note-box span {
+    font-size: 35px;
+    flex-shrink: 0;
+}
+
+.note-box h3 {
+    font-size: 18px;
+    color: #FFD700;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.note-box p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .intro-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .price-intro {
+        padding: 40px 20px;
+    }
+
+    .price-section {
+        padding: 20px 15px 60px;
+    }
+
+    .note-section {
+        padding: 0 15px 40px;
+    }
+
+    .intro-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-header {
+        padding: 15px 20px;
+    }
+
+    .category-header h2 {
+        font-size: 18px;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+
+    .note-box {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .category-header span {
+        font-size: 25px;
+    }
+
+    .category-header h2 {
+        font-size: 16px;
+    }
+}
