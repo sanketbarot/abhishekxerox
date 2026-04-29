@@ -1,15 +1,34 @@
 /* ========================================
    PRICE PAGE CSS - price.css
-   Abhishek Xerox - Yellow Theme
-   Fully Responsive & Optimized
+   Abhishek Xerox - Liquid Glass Only Theme
+   Blue + Cyan Palette - Fully Responsive
 ======================================== */
 
 /* ========================================
-   PRICE INTRO
+   PRICE INTRO - Liquid Glass Cards
 ======================================== */
 .price-intro {
-    padding: 60px 50px;
-    background-color: #ffffff;
+    padding: 65px 50px;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.price-intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .intro-grid {
@@ -20,46 +39,113 @@
     margin: 0 auto;
 }
 
+/* ===== Intro Card - Liquid Glass ===== */
 .intro-card {
-    background-color: #FFFDE7;
-    border-radius: 15px;
-    padding: 28px 18px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: 20px;
+    padding: 30px 18px;
     text-align: center;
-    border-bottom: 4px solid #FFD700;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                background-color 0.35s ease;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+    transition:
+        transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
     will-change: transform;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top reflection */
+.intro-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Bottom accent */
+.intro-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--cyan),
+        transparent
+    );
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.intro-card:hover::after {
+    opacity: 1;
 }
 
 .intro-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.2);
-    background-color: #FFD700;
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 18px 48px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .intro-card span {
     font-size: 38px;
-    display: block;
-    margin-bottom: 12px;
-    transition: transform 0.35s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    margin-bottom: 14px;
+    transition: var(--transition);
     line-height: 1;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .intro-card:hover span {
-    transform: scale(1.2) rotate(5deg);
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.10);
 }
 
 .intro-card h3 {
-    font-size: 17px;
-    color: #1a1a1a;
+    font-size: 16px;
+    color: var(--text);
     font-weight: 700;
     margin-bottom: 8px;
+    transition: color 0.30s ease;
+}
+
+.intro-card:hover h3 {
+    color: var(--primary);
 }
 
 .intro-card p {
-    color: #666666;
+    color: var(--soft);
     font-size: 13px;
     line-height: 1.6;
 }
@@ -68,63 +154,118 @@
    PRICE SECTION
 ======================================== */
 .price-section {
-    padding: 25px 50px 80px;
-    background-color: #f8f8f8;
+    padding: 30px 50px 85px;
+    background: rgba(248, 250, 252, 0.45);
+    position: relative;
 }
 
 /* ========================================
-   PRICE CATEGORY
+   PRICE CATEGORY - Liquid Glass Card
 ======================================== */
 .price-category {
     max-width: 1080px;
-    margin: 0 auto 45px;
-    background-color: #ffffff;
-    border-radius: 18px;
+    margin: 0 auto 30px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease,
-                box-shadow 0.3s ease;
+    box-shadow:
+        0 6px 24px rgba(15, 23, 42, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    transition:
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
     will-change: transform;
+    position: relative;
+}
+
+/* Top reflection on category card */
+.price-category::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+    z-index: 2;
+    pointer-events: none;
 }
 
 .price-category:hover {
-    border-color: #FFD700;
-    box-shadow: 0 10px 35px rgba(255, 215, 0, 0.15);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 14px 40px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 /* ========================================
-   CATEGORY HEADER
+   CATEGORY HEADER - Liquid Glass
 ======================================== */
 .category-header {
-    background: linear-gradient(
-        135deg,
-        #1a1a1a 0%,
-        #2d2d2d 100%
-    );
+    background: rgba(37, 99, 235, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 18px 28px;
     display: flex;
     align-items: center;
     gap: 14px;
-    border-bottom: 4px solid #FFD700;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.10);
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Bottom blue shimmer */
+.category-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.25),
+        rgba(6, 182, 212, 0.20),
+        transparent
+    );
+}
+
+.category-header:hover {
+    background: rgba(37, 99, 235, 0.08);
 }
 
 .category-header span {
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1;
     flex-shrink: 0;
 }
 
 .category-header h2 {
-    font-size: 21px;
-    color: #FFD700;
+    font-size: 20px;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 800;
     margin: 0;
     line-height: 1.2;
 }
 
 /* ========================================
-   PRICE TABLE
+   PRICE TABLE - Liquid Glass
 ======================================== */
 .price-table-wrap {
     overflow-x: auto;
@@ -134,11 +275,12 @@
 .price-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 500px; /* Prevent too narrow on small screens */
+    min-width: 500px;
 }
 
+/* Table Head - Liquid Glass */
 .price-table thead tr {
-    background-color: #FFFDE7;
+    background: rgba(37, 99, 235, 0.04);
 }
 
 .price-table th {
@@ -146,29 +288,32 @@
     text-align: left;
     font-size: 13.5px;
     font-weight: 700;
-    color: #1a1a1a;
-    border-bottom: 2px solid #FFD700;
+    color: var(--text);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.12);
     white-space: nowrap;
-}
-
-.price-table th[scope="col"] {
-    cursor: default;
+    letter-spacing: 0.3px;
 }
 
 .price-table td {
     padding: 13px 18px;
     font-size: 13.5px;
-    color: #333333;
-    border-bottom: 1px solid #f0f0f0;
-    line-height: 1.4;
+    color: var(--soft);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+    transition: color 0.20s ease;
+}
+
+/* Alternate row subtle tint */
+.price-table tbody tr:nth-child(even) {
+    background: rgba(37, 99, 235, 0.02);
 }
 
 .price-table tbody tr {
-    transition: background-color 0.2s ease;
+    transition: background 0.20s ease;
 }
 
 .price-table tbody tr:hover {
-    background-color: #FFFDE7;
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .price-table tbody tr:last-child td {
@@ -177,8 +322,8 @@
 
 /* Focus for keyboard nav */
 .price-table tbody tr:focus-within {
-    background-color: #FFFDE7;
-    outline: 2px solid #FFD700;
+    background: rgba(37, 99, 235, 0.06);
+    outline: 2px solid rgba(37, 99, 235, 0.30);
     outline-offset: -2px;
 }
 
@@ -186,106 +331,158 @@
    PRICE COLUMN
 ======================================== */
 .price-col {
-    color: #b8860b !important;
+    color: var(--primary) !important;
     font-weight: 800 !important;
     font-size: 14px !important;
     white-space: nowrap;
+    transition: color 0.20s ease;
+}
+
+.price-table tbody tr:hover .price-col {
+    color: var(--primary-dark) !important;
 }
 
 /* ========================================
-   BADGE
+   BADGE - Liquid Glass Pill
 ======================================== */
 .badge {
     display: inline-block;
-    background-color: #1a1a1a;
-    color: #FFD700;
-    padding: 2px 10px;
-    border-radius: 10px;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary);
+    padding: 3px 12px;
+    border-radius: 999px;
     font-size: 12px;
     font-weight: 700;
     white-space: nowrap;
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 /* ========================================
-   NOTE SECTION
+   NOTE SECTION - Liquid Glass
 ======================================== */
 .note-section {
-    padding: 0 50px 60px;
-    background-color: #f8f8f8;
+    padding: 0 50px 65px;
+    background: rgba(248, 250, 252, 0.45);
 }
 
 .note-box {
     max-width: 1080px;
     margin: 0 auto;
-    background: linear-gradient(
-        135deg,
-        #1a1a1a 0%,
-        #2d2d2d 100%
-    );
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: 18px;
     padding: 24px 28px;
     display: flex;
     align-items: flex-start;
     gap: 18px;
-    border: 2px solid #FFD700;
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.15);
+    box-shadow:
+        0 6px 22px rgba(37, 99, 235, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left blue accent bar */
+.note-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(
+        180deg,
+        var(--primary),
+        var(--cyan)
+    );
+    border-radius: 18px 0 0 18px;
+}
+
+/* Top shimmer */
+.note-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .note-box > span {
-    font-size: 32px;
+    font-size: 30px;
     flex-shrink: 0;
     margin-top: 2px;
     line-height: 1;
 }
 
 .note-box h3 {
-    font-size: 17px;
-    color: #FFD700;
+    font-size: 16px;
+    color: var(--primary);
     font-weight: 700;
     margin-bottom: 7px;
 }
 
 .note-box > div > p {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 13.5px;
-    line-height: 1.72;
+    line-height: 1.75;
     margin: 0;
 }
 
 /* ========================================
-   PRINT BUTTON (JS generated)
+   PRINT BUTTON - Liquid Glass
 ======================================== */
 .print-btn {
     position: fixed;
     bottom: 90px;
-    right: 30px;
-    background: #1a1a1a;
-    color: #FFD700;
-    border: 2px solid #FFD700;
-    padding: 10px 18px;
-    border-radius: 25px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    color: var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    padding: 11px 20px;
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     cursor: pointer;
-    z-index: 998;
-    transition: all 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    z-index: 997;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
     white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow:
+        0 4px 16px rgba(15, 23, 42, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
 .print-btn:hover {
-    background: #FFD700;
-    color: #1a1a1a;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    color: #ffffff;
+    border-color: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
 }
 
 .print-btn:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.50);
     outline-offset: 2px;
 }
 
@@ -293,13 +490,14 @@
    SEARCH HIGHLIGHT
 ======================================== */
 .price-table tbody tr.search-highlight {
-    background-color: #FFD700 !important;
+    background: rgba(37, 99, 235, 0.08) !important;
+    border-left: 3px solid var(--primary);
     animation: searchPulse 0.4s ease;
 }
 
 @keyframes searchPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.01); }
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.005); }
 }
 
 /* ========================================
@@ -328,27 +526,33 @@
     }
 
     .price-category {
-        border: 2px solid #FFD700 !important;
+        border: 1px solid #ddd !important;
         box-shadow: none !important;
+        background: white !important;
         margin-bottom: 20px !important;
         break-inside: avoid;
+    }
+
+    .category-header {
+        background: #f0f5ff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .category-header h2 {
+        -webkit-text-fill-color: #1D4ED8 !important;
+        color: #1D4ED8 !important;
     }
 
     .price-table th,
     .price-table td {
         font-size: 12px !important;
         padding: 8px 10px !important;
+        border-bottom: 1px solid #eee !important;
     }
 
-    .category-header {
-        background: #f0f0f0 !important;
-        color: #000 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    .category-header h2 {
-        color: #1a1a1a !important;
+    .price-col {
+        color: #1D4ED8 !important;
     }
 }
 
@@ -356,17 +560,9 @@
    RESPONSIVE - 1200px
 ======================================== */
 @media (max-width: 1200px) {
-    .price-intro {
-        padding: 55px 40px;
-    }
-
-    .price-section {
-        padding: 20px 40px 70px;
-    }
-
-    .note-section {
-        padding: 0 40px 55px;
-    }
+    .price-intro  { padding: 55px 40px; }
+    .price-section{ padding: 25px 40px 75px; }
+    .note-section { padding: 0 40px 58px; }
 }
 
 /* ========================================
@@ -375,28 +571,21 @@
 @media (max-width: 1024px) {
     .intro-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 }
 
 /* ========================================
-   RESPONSIVE - 768px (Tablet)
+   RESPONSIVE - 768px
 ======================================== */
 @media (max-width: 768px) {
-    .price-intro {
-        padding: 45px 18px;
-    }
-
-    .price-section {
-        padding: 18px 15px 60px;
-    }
-
-    .note-section {
-        padding: 0 15px 45px;
-    }
+    .price-intro  { padding: 45px 18px; }
+    .price-section{ padding: 18px 15px 65px; }
+    .note-section { padding: 0 15px 48px; }
 
     .intro-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 14px;
     }
 
     .category-header {
@@ -404,11 +593,11 @@
     }
 
     .category-header h2 {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .category-header span {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .price-table th {
@@ -424,48 +613,30 @@
     .note-box {
         flex-direction: column;
         gap: 12px;
-        padding: 20px 18px;
+        padding: 20px 18px 20px 22px;
     }
 
     .print-btn {
         bottom: 82px;
-        right: 16px;
+        left: 16px;
         font-size: 12.5px;
-        padding: 9px 15px;
+        padding: 10px 16px;
     }
 }
 
 /* ========================================
-   RESPONSIVE - 480px (Mobile)
+   RESPONSIVE - 480px
 ======================================== */
 @media (max-width: 480px) {
-    .price-intro {
-        padding: 38px 15px;
-    }
+    .price-intro  { padding: 38px 15px; }
+    .price-section{ padding: 15px 12px 58px; }
+    .note-section { padding: 0 12px 42px; }
 
     .intro-grid {
         grid-template-columns: 1fr;
         max-width: 340px;
         margin: 0 auto;
-        gap: 14px;
-    }
-
-    .price-section {
-        padding: 15px 12px 55px;
-    }
-
-    .note-section {
-        padding: 0 12px 40px;
-    }
-
-    .price-table th {
-        padding: 10px 12px;
-        font-size: 12px;
-    }
-
-    .price-table td {
-        padding: 10px 12px;
-        font-size: 12px;
+        gap: 12px;
     }
 
     .category-header {
@@ -480,15 +651,25 @@
         font-size: 22px;
     }
 
+    .price-table th {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .price-table td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
     .price-col {
         font-size: 13px !important;
     }
 
     .print-btn {
         bottom: 78px;
-        right: 14px;
+        left: 14px;
         font-size: 12px;
-        padding: 8px 13px;
+        padding: 9px 14px;
     }
 }
 
@@ -496,13 +677,9 @@
    RESPONSIVE - 360px
 ======================================== */
 @media (max-width: 360px) {
-    .intro-grid {
-        max-width: 100%;
-    }
+    .intro-grid   { max-width: 100%; }
 
-    .price-table {
-        min-width: 380px;
-    }
+    .price-table  { min-width: 360px; }
 
     .price-table th,
     .price-table td {

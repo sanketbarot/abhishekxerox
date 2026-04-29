@@ -1,6 +1,6 @@
 // ========================================
 // PRICE PAGE JS - price.js
-// Abhishek Xerox - Performance Optimized
+// Abhishek Xerox - Liquid Glass Only
 // ========================================
 
 (function () {
@@ -13,9 +13,9 @@
         if (!elements || !elements.length) return;
 
         var opts = {
-            threshold: (options && options.threshold) || 0.1,
+            threshold:  (options && options.threshold)  || 0.1,
             rootMargin: (options && options.rootMargin) ||
-                '0px 0px -30px 0px'
+                        '0px 0px -30px 0px'
         };
 
         if (!('IntersectionObserver' in window)) {
@@ -38,6 +38,34 @@
     }
 
     // =========================================
+    // LIQUID SPOTLIGHT ON CARDS
+    // =========================================
+    function initLiquidSpotlight(selector, baseBg) {
+        var cards = document.querySelectorAll(selector);
+        var bg = baseBg || 'rgba(255,255,255,0.55)';
+
+        cards.forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+
+                card.style.background =
+                    'radial-gradient(' +
+                        '260px circle at ' + x + 'px ' + y + 'px,' +
+                        'rgba(37, 99, 235, 0.07),' +
+                        'rgba(6, 182, 212, 0.04) 30%,' +
+                        'transparent 52%' +
+                    '),' + bg;
+            });
+
+            card.addEventListener('mouseleave', function () {
+                card.style.background = '';
+            });
+        });
+    }
+
+    // =========================================
     // DOM READY
     // =========================================
     document.addEventListener('DOMContentLoaded', function () {
@@ -45,110 +73,140 @@
         // ===== PAGE BANNER =====
         var banner = document.querySelector('.page-banner');
         if (banner) {
-            banner.style.opacity = '0';
-            banner.style.transform = 'translateY(-15px)';
-            banner.style.transition = 'all 0.52s ease';
+            banner.style.opacity    = '0';
+            banner.style.transform  = 'translateY(-15px)';
+            banner.style.transition =
+                'opacity 0.55s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+
             setTimeout(function () {
-                banner.style.opacity = '1';
+                banner.style.opacity   = '1';
                 banner.style.transform = 'translateY(0)';
             }, 80);
         }
 
         // ===== INTRO CARDS =====
         var introCards = document.querySelectorAll('.intro-card');
+
         introCards.forEach(function (card) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(28px)';
+            card.style.opacity    = '0';
+            card.style.transform  = 'translateY(28px)';
             card.style.transition =
-                'opacity 0.5s ease, transform 0.5s ease';
+                'opacity 0.55s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
             card.style.willChange = 'opacity, transform';
         });
 
-        observeElements(Array.from(introCards), function (card, idx) {
-            setTimeout(function () {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+        observeElements(
+            Array.from(introCards),
+            function (card, idx) {
                 setTimeout(function () {
-                    card.style.willChange = 'auto';
-                }, 560);
-            }, idx * 110);
-        }, { threshold: 0.1 });
+                    card.style.opacity   = '1';
+                    card.style.transform = 'translateY(0)';
+                    setTimeout(function () {
+                        card.style.willChange = 'auto';
+                    }, 600);
+                }, idx * 100);
+            },
+            { threshold: 0.10 }
+        );
+
+        // Liquid spotlight on intro cards
+        initLiquidSpotlight(
+            '.intro-card',
+            'rgba(255,255,255,0.55)'
+        );
 
         // ===== PRICE CATEGORIES =====
-        var priceCategories = document.querySelectorAll(
-            '.price-category'
-        );
+        var priceCategories =
+            document.querySelectorAll('.price-category');
+
         priceCategories.forEach(function (cat) {
-            cat.style.opacity = '0';
-            cat.style.transform = 'translateY(38px)';
+            cat.style.opacity    = '0';
+            cat.style.transform  = 'translateY(35px)';
             cat.style.transition =
-                'opacity 0.58s ease, transform 0.58s ease';
+                'opacity 0.60s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.60s cubic-bezier(0.4,0,0.2,1)';
             cat.style.willChange = 'opacity, transform';
         });
 
-        observeElements(Array.from(priceCategories),
+        observeElements(
+            Array.from(priceCategories),
             function (cat, idx) {
                 setTimeout(function () {
-                    cat.style.opacity = '1';
+                    cat.style.opacity   = '1';
                     cat.style.transform = 'translateY(0)';
                     setTimeout(function () {
                         cat.style.willChange = 'auto';
-                    }, 620);
-                }, idx * 85);
+                    }, 650);
+                }, idx * 80);
             },
-            { threshold: 0.08 }
+            { threshold: 0.06 }
         );
 
         // ===== TABLE ROW ANIMATION =====
         var tableRows = document.querySelectorAll(
             '.price-table tbody tr'
         );
+
         tableRows.forEach(function (row) {
-            row.style.opacity = '0';
-            row.style.transform = 'translateX(-18px)';
+            row.style.opacity    = '0';
+            row.style.transform  = 'translateX(-16px)';
             row.style.transition =
-                'opacity 0.4s ease, transform 0.4s ease';
+                'opacity 0.42s ease, transform 0.42s ease';
         });
 
-        observeElements(Array.from(tableRows), function (row, idx) {
-            setTimeout(function () {
-                row.style.opacity = '1';
-                row.style.transform = 'translateX(0)';
-            }, idx * 40);
-        }, { threshold: 0.05 });
+        observeElements(
+            Array.from(tableRows),
+            function (row, idx) {
+                setTimeout(function () {
+                    row.style.opacity   = '1';
+                    row.style.transform = 'translateX(0)';
+                }, idx * 38);
+            },
+            { threshold: 0.04 }
+        );
 
         // ===== NOTE BOX =====
         var noteBox = document.querySelector('.note-box');
         if (noteBox) {
-            noteBox.style.opacity = '0';
-            noteBox.style.transform = 'translateY(20px)';
-            noteBox.style.transition = 'all 0.55s ease';
+            noteBox.style.opacity    = '0';
+            noteBox.style.transform  = 'translateY(20px)';
+            noteBox.style.transition =
+                'opacity 0.55s ease, transform 0.55s ease';
 
-            observeElements([noteBox], function (el) {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }, { threshold: 0.3 });
+            observeElements(
+                [noteBox],
+                function (el) {
+                    el.style.opacity   = '1';
+                    el.style.transform = 'translateY(0)';
+                },
+                { threshold: 0.25 }
+            );
         }
 
         // ===== TABLE ROW HOVER =====
         tableRows.forEach(function (row) {
             row.addEventListener('mouseenter', function () {
-                this.style.backgroundColor = '#FFFDE7';
-                this.style.transition =
-                    'background-color 0.2s ease';
+                this.style.background =
+                    'rgba(37, 99, 235, 0.05)';
+                this.style.transition = 'background 0.20s ease';
             });
+
             row.addEventListener('mouseleave', function () {
-                this.style.backgroundColor = '';
+                this.style.background = '';
             });
         });
 
-        // ===== PRICE COLUMN HOVER =====
+        // ===== PRICE COL HOVER =====
         var priceCols = document.querySelectorAll('.price-col');
+
         priceCols.forEach(function (col) {
             col.addEventListener('mouseenter', function () {
-                this.style.color = '#FFD700';
-                this.style.transition = 'color 0.2s ease';
+                this.style.color = 'var(--cyan)';
+                this.style.transition = 'color 0.20s ease';
             });
+
             col.addEventListener('mouseleave', function () {
                 this.style.color = '';
             });
@@ -167,6 +225,7 @@
             rows.forEach(function (row) {
                 row.classList.remove('search-highlight');
                 row.style.background = '';
+                row.style.borderLeft = '';
             });
 
             var queryLower = query.toLowerCase().trim();
@@ -176,27 +235,26 @@
                 if (text.includes(queryLower)) {
                     foundRows.push(row);
                     row.classList.add('search-highlight');
-                    row.style.background = '#FFD700';
-                    row.style.transition = 'background 0.3s ease';
                 }
             });
 
             if (foundRows.length > 0) {
-                // Scroll to first result
                 var navbar = document.querySelector('.navbar');
                 var offset = navbar ? navbar.offsetHeight + 20 : 90;
-                var top = foundRows[0].getBoundingClientRect().top +
+                var top =
+                    foundRows[0].getBoundingClientRect().top +
                     window.scrollY - offset;
 
                 window.scrollTo({ top: top, behavior: 'smooth' });
 
-                // Remove highlight after 3 seconds
+                // Remove highlight after 3.5 seconds
                 setTimeout(function () {
                     foundRows.forEach(function (row) {
                         row.classList.remove('search-highlight');
                         row.style.background = '';
+                        row.style.borderLeft = '';
                     });
-                }, 3200);
+                }, 3500);
 
                 if (window.showMessage) {
                     window.showMessage(
@@ -208,18 +266,20 @@
             } else {
                 if (window.showMessage) {
                     window.showMessage(
-                        '❌ "' + query + '" not found. ' +
-                        'Try different keyword.',
+                        '❌ "' + query +
+                        '" not found. Try different keyword.',
                         'error'
                     );
                 } else {
-                    alert('❌ "' + query +
-                        '" not found! Try different keyword.');
+                    alert(
+                        '❌ "' + query +
+                        '" not found! Try different keyword.'
+                    );
                 }
             }
         }
 
-        // Ctrl+F override for search
+        // Ctrl+F override
         document.addEventListener('keydown', function (e) {
             if (e.ctrlKey && e.key === 'f') {
                 e.preventDefault();
@@ -228,7 +288,7 @@
             }
         });
 
-        // ===== PRINT BUTTON =====
+        // ===== PRINT BUTTON - Liquid Glass =====
         var printBtn = document.createElement('button');
         printBtn.className = 'print-btn';
         printBtn.setAttribute('aria-label', 'Print Price List');
@@ -241,7 +301,7 @@
 
         document.body.appendChild(printBtn);
 
-        // ===== CATEGORY HEADER CLICK - COLLAPSE =====
+        // ===== CATEGORY HEADER COLLAPSE =====
         var categoryHeaders = document.querySelectorAll(
             '.category-header'
         );
@@ -255,16 +315,14 @@
             var wrap = header.nextElementSibling;
 
             function toggleCategory() {
-                var isOpen = header.getAttribute(
-                    'aria-expanded'
-                ) === 'true';
+                var isOpen =
+                    header.getAttribute('aria-expanded') === 'true';
 
                 if (isOpen) {
-                    wrap.style.maxHeight =
-                        wrap.scrollHeight + 'px';
-                    wrap.style.overflow = 'hidden';
-                    wrap.style.transition =
-                        'max-height 0.35s ease';
+                    // Collapse
+                    wrap.style.maxHeight = wrap.scrollHeight + 'px';
+                    wrap.style.overflow  = 'hidden';
+                    wrap.style.transition = 'max-height 0.35s ease';
 
                     requestAnimationFrame(function () {
                         wrap.style.maxHeight = '0';
@@ -272,24 +330,22 @@
 
                     header.setAttribute('aria-expanded', 'false');
                     header.style.borderBottomColor =
-                        'transparent';
+                        'rgba(37, 99, 235, 0.08)';
                 } else {
-                    wrap.style.maxHeight =
-                        wrap.scrollHeight + 'px';
+                    // Expand
+                    wrap.style.maxHeight = wrap.scrollHeight + 'px';
                     setTimeout(function () {
                         wrap.style.maxHeight = '';
-                        wrap.style.overflow = '';
-                    }, 380);
+                        wrap.style.overflow  = '';
+                    }, 360);
 
                     header.setAttribute('aria-expanded', 'true');
-                    header.style.borderBottomColor = '#FFD700';
+                    header.style.borderBottomColor = '';
                 }
             }
 
-            // Click
             header.addEventListener('click', toggleCategory);
 
-            // Keyboard
             header.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -300,12 +356,12 @@
 
         // ===== LOG =====
         console.log(
-            '%c✅ Price Page - Abhishek Xerox!',
-            'color: #FFD700; background: #1a1a1a; ' +
-            'padding: 5px 10px; border-radius: 4px; ' +
-            'font-weight: bold;'
+            '%c🫧 Price Page | Liquid Glass Ready!',
+            'color:#2563EB;background:#F8FAFC;' +
+            'padding:6px 14px;border-radius:8px;' +
+            'font-weight:bold;border-left:3px solid #06B6D4;'
         );
 
     }); // END DOMContentLoaded
 
-})(); // IIFE
+})(); // IIFE END

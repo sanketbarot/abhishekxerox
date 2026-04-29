@@ -1,19 +1,39 @@
 /* ========================================
    CONTACT PAGE CSS - contact.css
-   Abhishek Xerox - Yellow Theme
-   Fully Responsive & Optimized
+   Abhishek Xerox - Liquid Glass Only Theme
+   Blue + Cyan Palette - Fully Responsive
 ======================================== */
 
 /* ========================================
-   KEEP IN TOUCH SECTION
+   KEEP IN TOUCH SECTION - Liquid Glass
 ======================================== */
 .keep-touch-section {
     padding: 80px 50px;
-    background-color: #f8f8f8;
+    background: rgba(248, 250, 252, 0.45);
+    position: relative;
+}
+
+.keep-touch-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .keep-touch-section .section-title span {
-    color: #FFD700;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* ========================================
@@ -22,42 +42,73 @@
 .branches-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 26px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* ========================================
-   BRANCH CARD
+   BRANCH CARD - Liquid Glass
 ======================================== */
 .branch-card {
-    background-color: #ffffff;
-    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 22px;
     padding: 28px;
-    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
-    border: 2px solid transparent;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
+    box-shadow:
+        0 5px 22px rgba(15, 23, 42, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    transition:
+        transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.38s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     will-change: transform;
 }
 
+/* Top white reflection */
 .branch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Blue+Cyan top bar */
+.branch-card::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--cyan)
+    );
+    border-radius: 22px 22px 0 0;
 }
 
 .branch-card:hover {
     transform: translateY(-7px);
-    border-color: #FFD700;
-    box-shadow: 0 14px 38px rgba(255, 215, 0, 0.2);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 18px 48px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 /* Branch Header */
@@ -67,31 +118,37 @@
     gap: 14px;
     margin-bottom: 18px;
     padding-bottom: 14px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.08);
 }
 
+/* Branch Icon - Liquid Glass */
 .branch-icon {
-    font-size: 36px;
+    font-size: 34px;
     width: 58px;
     height: 58px;
-    background-color: #FFFDE7;
-    border-radius: 14px;
+    background: rgba(37, 99, 235, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #FFD700;
-    transition: all 0.3s ease;
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    transition: var(--transition);
     flex-shrink: 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .branch-card:hover .branch-icon {
-    background-color: #FFD700;
-    transform: scale(1.05);
+    background: rgba(37, 99, 235, 0.12);
+    border-color: rgba(37, 99, 235, 0.24);
+    transform: scale(1.06);
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.10);
 }
 
 .branch-header h3 {
-    font-size: 19px;
-    color: #1a1a1a;
+    font-size: 18px;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 5px;
     line-height: 1.2;
@@ -101,16 +158,23 @@
 .branch-badge {
     display: inline-block;
     padding: 3px 11px;
-    border-radius: 13px;
+    border-radius: 999px;
     font-size: 11.5px;
     font-weight: 700;
-    background-color: #f0f0f0;
-    color: #666666;
+    background: rgba(37, 99, 235, 0.06);
+    color: var(--soft);
+    border: 1px solid rgba(37, 99, 235, 0.12);
 }
 
 .branch-badge.main {
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #1a1a1a;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.18);
 }
 
 /* Branch Info */
@@ -136,7 +200,7 @@
 
 .branch-detail p,
 .branch-detail a {
-    color: #555555;
+    color: var(--soft);
     font-size: 13px;
     line-height: 1.68;
     text-decoration: none;
@@ -145,7 +209,7 @@
 }
 
 .branch-detail a:hover {
-    color: #FFD700;
+    color: var(--primary);
 }
 
 .branch-detail > div {
@@ -165,56 +229,100 @@
 .branch-btn {
     display: inline-flex;
     align-items: center;
+    gap: 4px;
     padding: 7px 13px;
-    border-radius: 18px;
+    border-radius: 999px;
     font-size: 12px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: var(--transition);
+    border: 1px solid transparent;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Call button */
 .branch-btn.call {
-    background-color: #FFFDE7;
-    color: #1a1a1a;
-    border-color: #FFD700;
+    background: rgba(37, 99, 235, 0.06);
+    color: var(--primary);
+    border-color: rgba(37, 99, 235, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .branch-btn.call:hover {
-    background-color: #FFD700;
+    background: var(--primary);
+    color: #ffffff;
+    border-color: transparent;
     transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.22);
 }
 
+/* WhatsApp button */
 .branch-btn.whatsapp {
-    background-color: #e8f8f0;
-    color: #25D366;
-    border-color: #25D366;
+    background: rgba(37, 211, 102, 0.06);
+    color: var(--whatsapp);
+    border-color: rgba(37, 211, 102, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .branch-btn.whatsapp:hover {
-    background-color: #25D366;
+    background: var(--whatsapp);
     color: #ffffff;
+    border-color: transparent;
     transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(37, 211, 102, 0.22);
 }
 
+/* Map button */
 .branch-btn.map {
-    background-color: #1a1a1a;
-    color: #FFD700;
-    border-color: #1a1a1a;
+    background: rgba(255, 255, 255, 0.55);
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow:
+        0 2px 6px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .branch-btn.map:hover {
-    background-color: #2d2d2d;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    color: #ffffff;
+    border-color: transparent;
     transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.20);
 }
 
 /* ========================================
-   CONTACT INFO CARDS
+   CONTACT INFO CARDS - Liquid Glass
 ======================================== */
 .contact-cards-section {
     padding: 55px 50px;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.60);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+    position: relative;
+}
+
+.contact-cards-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .contact-cards-grid {
@@ -225,49 +333,115 @@
     margin: 0 auto;
 }
 
+/* ===== Contact Info Card - Liquid Glass ===== */
 .contact-info-card {
-    background-color: #FFFDE7;
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
     padding: 28px 18px;
     text-align: center;
-    border-bottom: 4px solid #FFD700;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                background-color 0.35s ease;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+    transition:
+        transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 3px 14px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
     display: flex;
     flex-direction: column;
     align-items: center;
     will-change: transform;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top reflection */
+.contact-info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+}
+
+/* Bottom blue accent */
+.contact-info-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--cyan),
+        transparent
+    );
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.contact-info-card:hover::after {
+    opacity: 1;
 }
 
 .contact-info-card:hover {
     transform: translateY(-7px);
-    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.22);
-    background-color: #FFD700;
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 18px 45px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .info-icon {
     font-size: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.12);
     margin-bottom: 13px;
-    display: block;
-    transition: transform 0.35s ease;
+    transition: var(--transition);
     line-height: 1;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .contact-info-card:hover .info-icon {
-    transform: scale(1.18) rotate(8deg);
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    transform: scale(1.16) rotate(8deg);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.10);
 }
 
 .contact-info-card h3 {
-    font-size: 17px;
-    color: #1a1a1a;
+    font-size: 16px;
+    color: var(--text);
     font-weight: 700;
     margin-bottom: 9px;
+    transition: color 0.30s ease;
+}
+
+.contact-info-card:hover h3 {
+    color: var(--primary);
 }
 
 .contact-info-card p {
-    color: #666666;
+    color: var(--soft);
     font-size: 13px;
     line-height: 1.8;
     margin-bottom: 2px;
@@ -276,18 +450,18 @@
 .info-link {
     display: inline-block;
     margin-top: 11px;
-    color: #1a1a1a;
+    color: var(--primary);
     font-weight: 700;
     font-size: 13px;
     text-decoration: none;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.25);
     padding-bottom: 2px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .info-link:hover {
-    color: #b8860b;
-    border-color: #b8860b;
+    color: var(--cyan);
+    border-color: rgba(6, 182, 212, 0.40);
     padding-left: 4px;
 }
 
@@ -296,29 +470,48 @@
     display: inline-block;
     margin-top: 10px;
     padding: 4px 14px;
-    border-radius: 20px;
+    border-radius: 999px;
     font-size: 12px;
     font-weight: 700;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .status-badge.open {
-    background-color: #e8f8f0;
-    color: #27ae60;
-    border: 1px solid #27ae60;
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.20);
 }
 
 .status-badge.closed {
-    background-color: #fde8e8;
-    color: #e74c3c;
-    border: 1px solid #e74c3c;
+    background: rgba(220, 38, 38, 0.08);
+    color: #DC2626;
+    border: 1px solid rgba(220, 38, 38, 0.20);
 }
 
 /* ========================================
    CONTACT MAIN
 ======================================== */
 .contact-main {
-    padding: 60px 50px 80px;
-    background-color: #f8f8f8;
+    padding: 65px 50px 85px;
+    background: rgba(248, 250, 252, 0.45);
+    position: relative;
+}
+
+.contact-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.12),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .contact-grid {
@@ -330,19 +523,63 @@
 }
 
 /* ========================================
-   FORM SECTION
+   FORM SECTION - Liquid Glass
 ======================================== */
 .form-section {
-    background-color: #ffffff;
-    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(26px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(26px) saturate(180%) brightness(1.05);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 22px;
     padding: 38px;
-    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
+    box-shadow:
+        0 8px 32px rgba(15, 23, 42, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top reflection */
+.form-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Blue+Cyan top bar */
+.form-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--cyan),
+        var(--primary)
+    );
+    border-radius: 22px 22px 0 0;
 }
 
 .form-section:hover {
-    border-color: #FFD700;
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 16px 45px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98);
 }
 
 .form-header {
@@ -351,29 +588,36 @@
 
 .form-header h2 {
     font-size: 26px;
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 7px;
     line-height: 1.3;
 }
 
 .form-header h2 span {
-    color: #FFD700;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .form-header p {
-    color: #666666;
+    color: var(--soft);
     font-size: 13.5px;
 }
 
-/* Form Steps */
+/* ===== Form Steps - Liquid Glass ===== */
 .form-steps {
     display: flex;
     align-items: center;
     margin-bottom: 28px;
-    padding: 13px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    border-radius: var(--radius-sm);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .step {
@@ -386,54 +630,61 @@
 }
 
 .step span {
-    width: 30px;
-    height: 30px;
-    background-color: #e0e0e0;
-    color: #999;
+    width: 32px;
+    height: 32px;
+    background: rgba(37, 99, 235, 0.06);
+    color: var(--muted);
+    border: 1px solid rgba(37, 99, 235, 0.12);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 13px;
     font-weight: 700;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .step p {
     font-size: 10.5px;
-    color: #999;
+    color: var(--muted);
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .step.active span {
-    background-color: #FFD700;
-    color: #1a1a1a;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.22);
 }
 
-.step.active p { color: #1a1a1a; }
+.step.active p { color: var(--primary); }
 
 .step.done span {
-    background-color: #27ae60;
-    color: #ffffff;
+    background: rgba(16, 185, 129, 0.10);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.22);
 }
 
-.step.done p { color: #27ae60; }
+.step.done p { color: #059669; }
 
 .step-line {
     flex: 1;
-    height: 2px;
-    background-color: #e0e0e0;
+    height: 1px;
+    background: rgba(37, 99, 235, 0.10);
     margin: 0 5px;
     margin-bottom: 18px;
     transition: background 0.3s ease;
+    border-radius: 10px;
 }
 
 .step-line.done {
-    background-color: #FFD700;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
 }
 
-/* Form */
+/* ===== Contact Form ===== */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -456,33 +707,47 @@
 .form-group label {
     font-size: 13.5px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--text);
 }
 
+/* Inputs - Liquid Glass */
 .form-group input,
 .form-group select,
 .form-group textarea {
     padding: 11px 14px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: var(--radius-sm);
     font-size: 13.5px;
-    color: #333333;
-    transition: border-color 0.3s ease,
-                box-shadow 0.3s ease,
-                background-color 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #ffffff;
+    color: var(--text);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     outline: none;
     width: 100%;
     box-sizing: border-box;
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--muted);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #FFD700;
-    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.14);
-    background-color: #FFFDE7;
+    border-color: rgba(37, 99, 235, 0.32);
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.09),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.70);
 }
 
 .form-group textarea {
@@ -496,13 +761,13 @@
 /* Char Count */
 .char-count {
     font-size: 11px;
-    color: #999;
+    color: var(--muted);
     text-align: right;
     display: block;
 }
 
-.char-count.warning { color: #e67e22; }
-.char-count.danger { color: #e74c3c; }
+.char-count.warning { color: #D97706; }
+.char-count.danger  { color: #DC2626; }
 
 /* Checkbox */
 .checkbox-group {
@@ -518,20 +783,20 @@
     cursor: pointer;
     font-size: 13.5px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--text);
 }
 
 .checkbox-label input[type="checkbox"] {
     width: 17px;
     height: 17px;
-    accent-color: #FFD700;
+    accent-color: var(--primary);
     cursor: pointer;
     flex-shrink: 0;
 }
 
 /* Error */
 .error-msg {
-    color: #e74c3c;
+    color: #DC2626;
     font-size: 12px;
     font-weight: 600;
     display: none;
@@ -543,8 +808,8 @@
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-    border-color: #e74c3c;
-    background-color: #fff5f5;
+    border-color: rgba(220, 38, 38, 0.38);
+    background: rgba(254, 242, 242, 0.55);
     animation: shake 0.3s ease;
 }
 
@@ -557,33 +822,56 @@
 /* Submit Button */
 .submit-btn {
     padding: 14px 38px;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #1a1a1a;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    color: #ffffff;
     border: none;
-    border-radius: 28px;
+    border-radius: 999px;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
     width: 100%;
     letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.22);
+}
+
+.submit-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.28),
+        transparent
+    );
+    transition: 0.6s ease;
+}
+
+.submit-btn:hover:not(:disabled)::before {
+    left: 100%;
 }
 
 .submit-btn:hover:not(:disabled) {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.28);
 }
 
 .submit-btn:active { transform: translateY(-1px); }
 
 .submit-btn:disabled {
-    opacity: 0.7;
+    opacity: 0.70;
     cursor: not-allowed;
 }
 
 .submit-btn:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.50);
     outline-offset: 3px;
 }
 
@@ -592,7 +880,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    color: #999;
+    color: var(--muted);
     font-size: 12.5px;
     font-weight: 600;
 }
@@ -602,7 +890,12 @@
     content: '';
     flex: 1;
     height: 1px;
-    background-color: #e0e0e0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
 }
 
 /* WhatsApp Form Button */
@@ -610,47 +903,108 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     padding: 13px;
-    background-color: #25D366;
+    background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
     color: #ffffff;
     text-align: center;
-    border-radius: 28px;
+    border-radius: 999px;
     font-size: 14.5px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    box-shadow: 0 5px 18px rgba(37, 211, 102, 0.20);
+    position: relative;
+    overflow: hidden;
 }
 
+.whatsapp-form-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+    );
+    transition: 0.6s ease;
+}
+
+.whatsapp-form-btn:hover::before { left: 100%; }
+
 .whatsapp-form-btn:hover {
-    background-color: #128C7E;
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.28);
 }
 
 /* ========================================
-   DETAILS SECTION
+   DETAILS SECTION - Liquid Glass
 ======================================== */
 .details-section {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 20px;
 }
 
-/* Quick Contact */
+/* Quick Contact - Liquid Glass Dark */
 .quick-contact {
-    background-color: #1a1a1a;
-    border-radius: 18px;
-    padding: 23px;
-    border: 2px solid #FFD700;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow:
+        0 6px 22px rgba(15, 23, 42, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top blue bar */
+.quick-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--cyan)
+    );
+    border-radius: 20px 20px 0 0;
+}
+
+/* Inner reflection */
+.quick-contact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .quick-contact h3 {
-    color: #FFD700;
-    font-size: 17px;
+    color: var(--primary);
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 18px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.10);
 }
 
 .quick-items {
@@ -659,28 +1013,35 @@
     gap: 10px;
 }
 
+/* Quick Item - Liquid Glass */
 .quick-item {
     display: flex;
     align-items: center;
     gap: 13px;
-    background-color: #2d2d2d;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 13px;
-    border-radius: 11px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.68);
     will-change: transform;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .quick-item:hover {
-    background-color: #3d3d3d;
-    border-color: #FFD700;
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.18);
     transform: translateX(5px);
+    box-shadow:
+        0 4px 14px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .quick-item.whatsapp:hover {
-    border-color: #25D366;
-    background-color: rgba(37, 211, 102, 0.1);
+    border-color: rgba(37, 211, 102, 0.22);
+    background: rgba(37, 211, 102, 0.06);
 }
 
 .quick-item > span:first-child {
@@ -690,21 +1051,25 @@
 }
 
 .quick-item h4 {
-    color: #FFD700;
+    color: var(--primary);
     font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 3px;
 }
 
+.quick-item.whatsapp h4 {
+    color: var(--whatsapp-dark);
+}
+
 .quick-item p {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 12.5px;
     margin: 0;
 }
 
 .quick-arrow {
     margin-left: auto;
-    color: #FFD700;
+    color: var(--primary);
     font-size: 17px;
     font-weight: 700;
     transition: transform 0.3s ease;
@@ -715,27 +1080,70 @@
     transform: translateX(4px);
 }
 
-/* Working Hours */
+/* Working Hours - Liquid Glass */
 .working-hours {
-    background-color: #ffffff;
-    border-radius: 18px;
-    padding: 23px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.working-hours::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .working-hours:hover {
-    border-color: #FFD700;
+    border-color: rgba(37, 99, 235, 0.16);
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .working-hours h3 {
-    color: #1a1a1a;
-    font-size: 17px;
+    color: var(--text);
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 18px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #FFD700;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.10);
+    position: relative;
+}
+
+/* Gradient underline */
+.working-hours h3::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.working-hours:hover h3::after {
+    width: 55px;
 }
 
 .hours-list {
@@ -748,79 +1156,126 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 11px;
-    border-radius: 8px;
-    background-color: #f8f8f8;
+    padding: 7px 12px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.40);
     font-size: 12.5px;
-    transition: background-color 0.2s ease;
+    transition: background 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.55);
 }
 
 .hours-item:hover {
-    background-color: #FFFDE7;
+    background: rgba(37, 99, 235, 0.04);
+    border-color: rgba(37, 99, 235, 0.10);
 }
 
 .hours-item.today {
-    background-color: #FFFDE7;
-    border: 1px solid #FFD700;
+    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(37, 99, 235, 0.16);
     font-weight: 700;
 }
 
 .hours-item span:first-child {
-    color: #333333;
+    color: var(--text);
     font-weight: 600;
 }
 
 .hours-item .open {
-    color: #27ae60;
+    color: #059669;
     font-weight: 700;
-    background-color: #e8f8f0;
+    background: rgba(16, 185, 129, 0.08);
     padding: 2px 9px;
-    border-radius: 9px;
+    border-radius: 999px;
     font-size: 11.5px;
+    border: 1px solid rgba(16, 185, 129, 0.18);
 }
 
 .hours-item .limited {
-    color: #e67e22;
+    color: #D97706;
     font-weight: 700;
-    background-color: #fef3e2;
+    background: rgba(245, 158, 11, 0.08);
     padding: 2px 9px;
-    border-radius: 9px;
+    border-radius: 999px;
     font-size: 11.5px;
+    border: 1px solid rgba(245, 158, 11, 0.18);
 }
 
 .today-info {
     margin-top: 11px;
     padding: 9px 14px;
-    background-color: #1a1a1a;
-    border-radius: 9px;
-    color: #FFD700;
+    background: rgba(37, 99, 235, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    color: var(--primary);
     font-size: 12.5px;
     font-weight: 600;
     text-align: center;
 }
 
-/* Follow Us */
+/* Follow Us - Liquid Glass */
 .follow-us {
-    background-color: #ffffff;
-    border-radius: 18px;
-    padding: 23px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.follow-us::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .follow-us:hover {
-    border-color: #FFD700;
+    border-color: rgba(37, 99, 235, 0.16);
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .follow-us h3 {
-    color: #1a1a1a;
-    font-size: 17px;
+    color: var(--text);
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 18px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #FFD700;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.10);
+    position: relative;
 }
+
+.follow-us h3::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.follow-us:hover h3::after { width: 55px; }
 
 .social-links {
     display: grid;
@@ -828,81 +1283,114 @@
     gap: 9px;
 }
 
+/* Social Buttons - Liquid Glass */
 .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
     padding: 9px 14px;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     font-size: 12.5px;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .social-btn.facebook {
-    background-color: #e8f0fe;
+    background: rgba(24, 119, 242, 0.06);
     color: #1877f2;
-    border-color: #1877f2;
+    border-color: rgba(24, 119, 242, 0.18);
 }
 
 .social-btn.facebook:hover {
-    background-color: #1877f2;
+    background: #1877f2;
     color: #ffffff;
+    border-color: transparent;
     transform: translateY(-3px);
-    box-shadow: 0 5px 14px rgba(24, 119, 242, 0.3);
+    box-shadow: 0 6px 16px rgba(24, 119, 242, 0.25);
 }
 
 .social-btn.instagram {
-    background-color: #fce4ec;
+    background: rgba(225, 48, 108, 0.06);
     color: #e1306c;
-    border-color: #e1306c;
+    border-color: rgba(225, 48, 108, 0.18);
 }
 
 .social-btn.instagram:hover {
-    background-color: #e1306c;
+    background: #e1306c;
     color: #ffffff;
+    border-color: transparent;
     transform: translateY(-3px);
-    box-shadow: 0 5px 14px rgba(225, 48, 108, 0.3);
+    box-shadow: 0 6px 16px rgba(225, 48, 108, 0.25);
 }
 
 .social-btn.whatsapp {
-    background-color: #e8f8f0;
-    color: #25D366;
-    border-color: #25D366;
+    background: rgba(37, 211, 102, 0.06);
+    color: var(--whatsapp);
+    border-color: rgba(37, 211, 102, 0.18);
 }
 
 .social-btn.whatsapp:hover {
-    background-color: #25D366;
+    background: var(--whatsapp);
     color: #ffffff;
+    border-color: transparent;
     transform: translateY(-3px);
-    box-shadow: 0 5px 14px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
 }
 
 .social-btn.google {
-    background-color: #fef3e2;
-    color: #e67e22;
-    border-color: #e67e22;
+    background: rgba(234, 67, 53, 0.06);
+    color: #EA4335;
+    border-color: rgba(234, 67, 53, 0.18);
 }
 
 .social-btn.google:hover {
-    background-color: #e67e22;
+    background: #EA4335;
     color: #ffffff;
+    border-color: transparent;
     transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(234, 67, 53, 0.25);
 }
 
 /* ========================================
-   MAP SECTION
+   MAP SECTION - Liquid Glass
 ======================================== */
 .map-section {
-    padding: 60px 50px;
-    background-color: #ffffff;
+    padding: 65px 50px;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.55);
+    position: relative;
+}
+
+.map-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .map-section .section-title span {
-    color: #FFD700;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Map Tabs */
@@ -910,49 +1398,58 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     flex-wrap: wrap;
 }
 
 .map-tab {
     padding: 9px 22px;
-    border: 2px solid #FFD700;
-    background-color: #ffffff;
-    color: #1a1a1a;
-    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--soft);
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
     outline: none;
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .map-tab:hover {
-    background-color: #FFFDE7;
+    border-color: rgba(37, 99, 235, 0.20);
+    color: var(--primary);
     transform: translateY(-2px);
 }
 
 .map-tab.active {
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #1a1a1a;
-    box-shadow: 0 5px 14px rgba(255, 215, 0, 0.3);
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.22);
     transform: translateY(-2px);
 }
 
 .map-tab:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.50);
     outline-offset: 2px;
 }
 
-/* Map Container */
+/* Map Container - Liquid Glass Frame */
 .map-container {
     max-width: 1180px;
-    margin: 0 auto 20px;
-    border-radius: 18px;
+    margin: 0 auto 22px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 3px solid #FFD700;
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.60);
+    border: 1px solid rgba(37, 99, 235, 0.15);
 }
 
 .map-container iframe {
@@ -968,11 +1465,28 @@
 }
 
 /* ========================================
-   FAQ SECTION
+   FAQ SECTION - Liquid Glass
 ======================================== */
 .faq-section {
-    padding: 60px 50px 80px;
-    background-color: #FFFDE7;
+    padding: 65px 50px 85px;
+    background: rgba(248, 250, 252, 0.45);
+    position: relative;
+}
+
+.faq-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .faq-list {
@@ -980,76 +1494,91 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 13px;
+    gap: 12px;
 }
 
+/* FAQ Item - Liquid Glass */
 .faq-item {
-    background-color: #ffffff;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:
+        0 3px 14px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .faq-item.active {
-    border-color: #FFD700;
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.15);
+    border-color: rgba(37, 99, 235, 0.20);
+    box-shadow:
+        0 8px 24px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
-/* ✅ FIXED - button instead of div */
 .faq-question {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 22px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
     gap: 14px;
     width: 100%;
     background: none;
     border: none;
     text-align: left;
-    font-family: inherit;
+    font-family: 'Poppins', sans-serif;
     outline: none;
 }
 
 .faq-question:hover {
-    background-color: #FFFDE7;
+    background: rgba(37, 99, 235, 0.04);
 }
 
 .faq-question:focus-visible {
-    outline: 3px solid #FFD700;
-    outline-offset: -3px;
+    outline: 2px solid rgba(37, 99, 235, 0.40);
+    outline-offset: -2px;
 }
 
 .faq-question h3 {
     font-size: 15.5px;
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 700;
     margin: 0;
     line-height: 1.4;
 }
 
+/* FAQ Icon - Liquid Glass Circle */
 .faq-icon {
-    width: 28px;
-    height: 28px;
-    background-color: #1a1a1a;
-    color: #FFD700;
+    width: 30px;
+    height: 30px;
+    background: rgba(37, 99, 235, 0.07);
+    color: var(--primary);
+    border: 1px solid rgba(37, 99, 235, 0.16);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .faq-item.active .faq-icon {
     transform: rotate(45deg);
-    background-color: #FFD700;
-    color: #1a1a1a;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.22);
 }
 
 .faq-answer {
@@ -1063,23 +1592,17 @@
 }
 
 @keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .faq-answer p {
-    color: #555555;
+    color: var(--soft);
     font-size: 13.5px;
     line-height: 1.8;
     margin: 10px 0 0;
     padding-top: 10px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(37, 99, 235, 0.07);
 }
 
 /* ========================================
@@ -1102,7 +1625,7 @@
 @media (max-width: 1024px) {
     .branches-grid {
         grid-template-columns: 1fr;
-        max-width: 580px;
+        max-width: 560px;
         margin: 0 auto;
     }
 
@@ -1116,71 +1639,47 @@
 }
 
 /* ========================================
-   RESPONSIVE - 768px (Tablet)
+   RESPONSIVE - 768px
 ======================================== */
 @media (max-width: 768px) {
-    .keep-touch-section {
-        padding: 55px 18px;
-    }
-
-    .contact-cards-section {
-        padding: 40px 18px;
-    }
-
-    .contact-main {
-        padding: 40px 18px 60px;
-    }
-
-    .map-section {
-        padding: 45px 18px;
-    }
-
-    .faq-section {
-        padding: 45px 18px 60px;
-    }
+    .keep-touch-section  { padding: 55px 18px; }
+    .contact-cards-section{ padding: 40px 18px; }
+    .contact-main        { padding: 45px 18px 65px; }
+    .map-section         { padding: 48px 18px; }
+    .faq-section         { padding: 48px 18px 65px; }
 
     .contact-cards-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 14px;
     }
 
-    .form-section {
-        padding: 24px 18px;
-    }
+    .form-section { padding: 26px 20px; }
 
     .form-row {
         grid-template-columns: 1fr;
         gap: 14px;
     }
 
-    .map-container iframe {
-        height: 280px;
-    }
+    .map-container iframe { height: 280px; }
 
     .social-links {
         grid-template-columns: 1fr 1fr;
     }
 
-    .form-steps {
-        padding: 10px;
-    }
+    .form-steps { padding: 10px; }
 
-    .map-tabs {
-        gap: 8px;
-    }
+    .map-tabs { gap: 8px; }
 
     .map-tab {
         padding: 8px 16px;
         font-size: 12.5px;
     }
 
-    .branch-actions {
-        justify-content: center;
-    }
+    .branch-actions { justify-content: center; }
 }
 
 /* ========================================
-   RESPONSIVE - 480px (Mobile)
+   RESPONSIVE - 480px
 ======================================== */
 @media (max-width: 480px) {
     .contact-cards-grid {
@@ -1189,34 +1688,22 @@
         margin: 0 auto;
     }
 
-    .form-header h2 {
-        font-size: 21px;
-    }
+    .form-header h2 { font-size: 21px; }
 
-    .social-links {
-        grid-template-columns: 1fr;
-    }
+    .social-links { grid-template-columns: 1fr; }
 
-    .faq-question h3 {
-        font-size: 14px;
-    }
+    .faq-question h3 { font-size: 14px; }
 
-    .form-steps {
-        display: none;
-    }
+    .form-steps { display: none; }
 
     .branch-header {
         flex-direction: column;
         text-align: center;
     }
 
-    .branches-grid {
-        max-width: 100%;
-    }
+    .branches-grid { max-width: 100%; }
 
-    .map-container iframe {
-        height: 240px;
-    }
+    .map-container iframe { height: 240px; }
 }
 
 /* ========================================
@@ -1232,11 +1719,6 @@
         padding-right: 12px;
     }
 
-    .branch-card {
-        padding: 20px;
-    }
-
-    .form-section {
-        padding: 18px 14px;
-    }
+    .branch-card { padding: 20px; }
+    .form-section { padding: 18px 14px; }
 }

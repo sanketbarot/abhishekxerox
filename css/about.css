@@ -1,19 +1,31 @@
 /* ========================================
    ABOUT PAGE CSS - about.css
-   Abhishek Xerox - Yellow Theme
-   Fully Responsive & Optimized
+   Abhishek Xerox - Liquid Glass Only Theme
+   Blue + Cyan Palette - Fully Responsive
 ======================================== */
 
 /* ========================================
-   PROFESSIONAL INTRO
+   PROFESSIONAL INTRO - Liquid Glass
 ======================================== */
 .pro-intro-section {
-    padding: 85px 50px;
-    background: linear-gradient(
-        135deg,
-        #1a1a1a 0%,
-        #2d2d2d 100%
-    );
+    padding: 100px 50px;
+    background:
+        radial-gradient(
+            ellipse at 85% 40%,
+            rgba(37, 99, 235, 0.08) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 15% 60%,
+            rgba(6, 182, 212, 0.06) 0%,
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #EEF2F7 0%,
+            #F0F5FA 50%,
+            #F8FAFC 100%
+        );
     position: relative;
     overflow: hidden;
 }
@@ -21,18 +33,33 @@
 .pro-intro-section::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(
-            ellipse at 85% 40%,
-            rgba(255, 215, 0, 0.06) 0%,
-            transparent 55%
-        ),
-        radial-gradient(
-            ellipse at 15% 60%,
-            rgba(255, 215, 0, 0.03) 0%,
-            transparent 55%
-        );
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.22),
+        rgba(6, 182, 212, 0.25),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.pro-intro-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.15),
+        transparent
+    );
     pointer-events: none;
 }
 
@@ -47,70 +74,113 @@
     z-index: 1;
 }
 
-.pro-intro-content {
-    position: relative;
-}
-
+/* ===== Pro Badge - Liquid Glass ===== */
 .pro-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #1a1a1a;
-    padding: 7px 22px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    color: var(--primary);
+    padding: 10px 24px;
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 20px;
     letter-spacing: 0.8px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+        0 4px 18px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
 .pro-intro-content h2 {
     font-size: 36px;
-    color: #ffffff;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 12px;
     line-height: 1.3;
 }
 
 .pro-intro-content h2 span {
-    color: #FFD700;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .pro-tagline {
     font-size: 18px;
-    color: #FFD700;
+    color: var(--primary);
     font-weight: 700;
     font-style: italic;
     margin-bottom: 16px;
 }
 
 .pro-desc {
-    color: #cccccc;
+    color: var(--soft);
     font-size: 14.5px;
-    line-height: 1.82;
+    line-height: 1.88;
     margin-bottom: 28px;
 }
 
-/* Features */
+/* ===== Pro Features - Liquid Glass Items ===== */
 .pro-intro-features {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .pro-feature {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    background-color: rgba(255, 215, 0, 0.05);
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
     padding: 14px 18px;
-    border-radius: 12px;
-    border-left: 3px solid #FFD700;
-    transition: all 0.3s ease;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    border-left: 2px solid rgba(37, 99, 235, 0.28);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.pro-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.25),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pro-feature:hover::before {
+    opacity: 1;
 }
 
 .pro-feature:hover {
-    background-color: rgba(255, 215, 0, 0.1);
-    transform: translateX(5px);
+    background: rgba(37, 99, 235, 0.05);
+    border-left-color: var(--primary);
+    transform: translateX(6px);
+    box-shadow:
+        0 4px 18px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .pro-feature > span {
@@ -118,10 +188,15 @@
     flex-shrink: 0;
     margin-top: 2px;
     line-height: 1;
+    transition: transform 0.30s ease;
+}
+
+.pro-feature:hover > span {
+    transform: scale(1.15);
 }
 
 .pro-feature h4 {
-    color: #FFD700;
+    color: var(--primary);
     font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 4px;
@@ -129,18 +204,37 @@
 }
 
 .pro-feature p {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 12.5px;
     line-height: 1.6;
     margin: 0;
 }
 
 /* ========================================
-   WELCOME SECTION
+   WELCOME SECTION - Liquid Glass
 ======================================== */
 .welcome-section {
-    padding: 85px 50px;
-    background-color: #ffffff;
+    padding: 100px 50px;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+}
+
+.welcome-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.15),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .welcome-grid {
@@ -152,38 +246,49 @@
     align-items: center;
 }
 
+/* ===== Welcome Badge ===== */
 .welcome-badge {
     display: inline-block;
-    background-color: #FFFDE7;
-    color: #1a1a1a;
-    padding: 7px 18px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 16px;
-    border: 2px solid #FFD700;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
 .welcome-content h2 {
     font-size: 34px;
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 16px;
     line-height: 1.3;
 }
 
 .welcome-content h2 span {
-    color: #FFD700;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .welcome-content > p {
-    color: #555555;
+    color: var(--soft);
     font-size: 14.5px;
-    line-height: 1.85;
+    line-height: 1.88;
     margin-bottom: 22px;
 }
 
-/* Features list */
+/* ===== Welcome Features ===== */
 .welcome-features {
     display: flex;
     flex-direction: column;
@@ -195,16 +300,22 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 14px;
-    background-color: #FFFDE7;
-    border-radius: 10px;
-    border-left: 3px solid #FFD700;
-    transition: all 0.3s ease;
+    padding: 11px 16px;
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    border-left: 2px solid rgba(37, 99, 235, 0.28);
+    transition: var(--transition);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .welcome-feat:hover {
-    background-color: #FFD700;
-    transform: translateX(5px);
+    background: rgba(37, 99, 235, 0.05);
+    border-left-color: var(--primary);
+    transform: translateX(6px);
+    box-shadow: 0 3px 12px rgba(37, 99, 235, 0.08);
 }
 
 .welcome-feat span {
@@ -213,52 +324,91 @@
 }
 
 .welcome-feat p {
-    color: #333333;
+    color: var(--text);
     font-size: 13.5px;
     font-weight: 600;
     margin: 0;
 }
 
-/* Buttons */
 .welcome-btns {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
 }
 
-/* Image Box */
+/* ===== Welcome Image Box - Liquid Glass ===== */
 .welcome-img-box {
-    background: linear-gradient(
-        135deg,
-        #1a1a1a 0%,
-        #2d2d2d 100%
-    );
-    border-radius: 20px;
-    height: 410px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 26px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 3px solid #FFD700;
-    box-shadow: 0 14px 42px rgba(255, 215, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow:
+        0 15px 50px rgba(15, 23, 42, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    transition: var(--transition-slow);
     position: relative;
     overflow: hidden;
     cursor: default;
     will-change: transform;
 }
 
+/* Top reflection */
+.welcome-img-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Blue shimmer top */
+.welcome-img-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.35),
+        rgba(6, 182, 212, 0.25),
+        transparent
+    );
+    pointer-events: none;
+}
+
 .welcome-img-box:hover {
-    transform: translateY(-7px) scale(1.01);
-    box-shadow: 0 22px 55px rgba(255, 215, 0, 0.28);
+    transform: translateY(-8px) scale(1.015);
+    box-shadow:
+        0 25px 65px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    border-color: rgba(37, 99, 235, 0.18);
 }
 
 .welcome-img-box > span {
-    font-size: 88px;
+    font-size: 86px;
     display: block;
     margin-bottom: 14px;
     transition: transform 0.3s ease;
     line-height: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .welcome-img-box:hover > span {
@@ -266,82 +416,116 @@
 }
 
 .welcome-img-box > p {
-    color: #FFD700;
+    color: var(--primary);
     font-size: 19px;
     font-weight: 700;
     margin-bottom: 5px;
+    position: relative;
+    z-index: 1;
 }
 
 .welcome-img-box > small {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 13px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Play button */
+/* ===== Play Button - Liquid Glass ===== */
 .welcome-play {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: rgba(255, 215, 0, 0.15);
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 2px solid rgba(255, 215, 0, 0.4);
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    transition: var(--transition);
     cursor: pointer;
     font-family: inherit;
     outline: none;
+    position: relative;
+    z-index: 1;
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
 .welcome-play:hover,
 .welcome-play:focus-visible {
-    background-color: #FFD700;
-    border-color: #FFD700;
+    background: rgba(37, 99, 235, 0.08);
+    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.10);
 }
 
 .welcome-play:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.50);
     outline-offset: 3px;
 }
 
 .play-btn {
     width: 34px;
     height: 34px;
-    background-color: #FFD700;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
-    color: #1a1a1a;
+    font-size: 12px;
+    color: #ffffff;
     font-weight: 700;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.22);
 }
 
 .welcome-play span {
-    color: #ffffff;
+    color: var(--soft);
     font-size: 13px;
     font-weight: 600;
+    transition: var(--transition);
 }
 
-.welcome-play:hover span,
-.welcome-play:focus-visible span {
-    color: #1a1a1a;
+.welcome-play:hover span {
+    color: var(--primary);
 }
 
-.welcome-play:hover .play-btn,
-.welcome-play:focus-visible .play-btn {
-    background-color: #1a1a1a;
-    color: #FFD700;
+.welcome-play:hover .play-btn {
+    box-shadow: 0 0 16px rgba(37, 99, 235, 0.20);
 }
 
 /* ========================================
-   WHO WE ARE
+   WHO WE ARE - Liquid Glass
 ======================================== */
 .who-we-are {
-    padding: 85px 50px;
-    background-color: #f8f8f8;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(248, 250, 252, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.who-we-are::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .who-grid {
@@ -353,38 +537,84 @@
     align-items: center;
 }
 
-/* Image */
+/* ===== Image Box - Liquid Glass ===== */
 .who-img {
     position: relative;
 }
 
 .img-box {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 24px;
     height: 390px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 3px solid #FFD700;
-    box-shadow: 0 14px 40px rgba(255, 215, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow:
+        0 15px 50px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    transition: var(--transition-slow);
     overflow: hidden;
     position: relative;
     will-change: transform;
 }
 
+/* Top reflection */
+.img-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Blue shimmer */
+.img-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.35),
+        rgba(6, 182, 212, 0.25),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
 .img-box:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 22px 52px rgba(255, 215, 0, 0.28);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 25px 60px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    border-color: rgba(37, 99, 235, 0.18);
 }
 
 .img-box > span {
-    font-size: 95px;
+    font-size: 92px;
     display: block;
     margin-bottom: 14px;
     transition: transform 0.3s ease;
     line-height: 1;
+    position: relative;
+    z-index: 3;
 }
 
 .img-box:hover > span {
@@ -392,34 +622,49 @@
 }
 
 .img-box > p {
-    color: #FFD700;
-    font-size: 21px;
+    color: var(--primary);
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 5px;
+    position: relative;
+    z-index: 3;
 }
 
 .img-box > small {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 13.5px;
+    position: relative;
+    z-index: 3;
 }
 
-/* Exp Badge */
+/* ===== Experience Badge - Liquid Glass ===== */
 .exp-badge {
     position: absolute;
     bottom: -18px;
     right: -12px;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    border-radius: 14px;
-    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    border-radius: 18px;
+    padding: 16px 22px;
     text-align: center;
-    box-shadow: 0 10px 28px rgba(255, 215, 0, 0.4);
-    border: 3px solid #ffffff;
-    z-index: 1;
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    z-index: 4;
 }
 
 .exp-badge h3 {
     font-size: 32px;
-    color: #1a1a1a;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 900;
     line-height: 1;
     margin-bottom: 3px;
@@ -427,53 +672,79 @@
 
 .exp-badge p {
     font-size: 11.5px;
-    color: #1a1a1a;
-    font-weight: 700;
+    color: var(--soft);
+    font-weight: 600;
     white-space: nowrap;
 }
 
-/* Content */
+/* ===== About Badge - Liquid Glass ===== */
 .about-badge {
     display: inline-block;
-    background-color: #FFD700;
-    color: #1a1a1a;
-    padding: 6px 18px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 14px;
-    animation: aboutPulse 2.5s ease-in-out infinite;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    animation: badgeGlowPulse 2.5s ease-in-out infinite;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
-@keyframes aboutPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+@keyframes badgeGlowPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 15px rgba(37, 99, 235, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+        border-color: rgba(255, 255, 255, 0.72);
+    }
+    50% {
+        box-shadow:
+            0 0 28px rgba(37, 99, 235, 0.14),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+        border-color: rgba(37, 99, 235, 0.22);
+    }
 }
 
 .who-content h2 {
     font-size: 34px;
-    color: #1a1a1a;
+    color: var(--text);
     margin-bottom: 18px;
     font-weight: 800;
     line-height: 1.3;
 }
 
 .who-content h2 span {
-    color: #FFD700;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .who-content p {
-    color: #555555;
+    color: var(--soft);
     font-size: 14.5px;
-    line-height: 1.85;
+    line-height: 1.88;
     margin-bottom: 14px;
 }
 
-/* Highlights */
+.who-content strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* ===== Highlights - Liquid Glass Items ===== */
 .about-highlights {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 13px;
+    gap: 12px;
     margin-top: 22px;
     margin-bottom: 26px;
 }
@@ -482,104 +753,221 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: #FFFDE7;
-    padding: 13px;
-    border-radius: 11px;
-    border-left: 3px solid #FFD700;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 13px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    border-left: 2px solid rgba(37, 99, 235, 0.28);
+    transition: var(--transition);
     cursor: default;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .highlight-item:hover {
-    background-color: #FFD700;
-    transform: translateX(5px);
-    box-shadow: 0 3px 14px rgba(255, 215, 0, 0.25);
+    background: rgba(37, 99, 235, 0.05);
+    border-left-color: var(--primary);
+    transform: translateX(6px);
+    box-shadow: 0 3px 14px rgba(37, 99, 235, 0.08);
 }
 
 .highlight-item > span {
     font-size: 26px;
     flex-shrink: 0;
     line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.highlight-item:hover > span {
+    transform: scale(1.12);
 }
 
 .highlight-item h4 {
     font-size: 14px;
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 700;
     margin-bottom: 3px;
 }
 
 .highlight-item > div > p {
     font-size: 12px;
-    color: #666666;
+    color: var(--soft);
     margin: 0;
     line-height: 1.4;
 }
 
-/* Contact Buttons */
 .about-contact-btns {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
 }
 
+/* WhatsApp Button */
 .btn-whatsapp {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     padding: 12px 28px;
-    background-color: #25D366;
+    background: linear-gradient(
+        135deg,
+        var(--whatsapp),
+        var(--whatsapp-dark)
+    );
     color: #ffffff;
-    border-radius: 30px;
+    border-radius: 999px;
     font-size: 14.5px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid #25D366;
+    transition: var(--transition);
+    border: none;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(37, 211, 102, 0.22);
 }
 
+.btn-whatsapp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+    );
+    transition: 0.6s ease;
+}
+
+.btn-whatsapp:hover::before { left: 100%; }
+
 .btn-whatsapp:hover {
-    background-color: #128C7E;
-    border-color: #128C7E;
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 8px 26px rgba(37, 211, 102, 0.35);
+    color: #ffffff;
 }
 
 /* ========================================
-   SHOP INFO
+   SHOP INFO - Liquid Glass Cards
 ======================================== */
 .shop-info-section {
-    padding: 42px 50px;
-    background-color: #1a1a1a;
-    border-top: 4px solid #FFD700;
-    border-bottom: 4px solid #FFD700;
+    padding: 50px 50px;
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+    position: relative;
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.shop-info-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.22),
+        rgba(6, 182, 212, 0.25),
+        transparent
+    );
+}
+
+.shop-info-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.15),
+        transparent
+    );
 }
 
 .shop-info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+    gap: 20px;
     max-width: 1080px;
     margin: 0 auto;
 }
 
+/* ===== Shop Info Item - Liquid Glass ===== */
 .shop-info-item {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    padding: 18px;
-    background-color: #2d2d2d;
-    border-radius: 13px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
+    padding: 22px 18px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    transition: var(--transition);
     will-change: transform;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.shop-info-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+}
+
+.shop-info-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.30),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shop-info-item:hover::after {
+    opacity: 1;
 }
 
 .shop-info-item:hover {
-    border-color: #FFD700;
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(255, 215, 0, 0.1);
+    border-color: rgba(37, 99, 235, 0.18);
+    transform: translateY(-5px);
+    box-shadow:
+        0 14px 35px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .shop-info-item > span {
@@ -587,24 +975,29 @@
     flex-shrink: 0;
     margin-top: 2px;
     line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.shop-info-item:hover > span {
+    transform: scale(1.12);
 }
 
 .shop-info-item h4 {
-    color: #FFD700;
+    color: var(--primary);
     font-size: 13.5px;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .shop-info-item p {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 12.5px;
-    line-height: 1.65;
+    line-height: 1.68;
     margin: 0 0 3px;
 }
 
 .shop-info-item a {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 12.5px;
     text-decoration: none;
     display: block;
@@ -613,74 +1006,156 @@
 }
 
 .shop-info-item a:hover {
-    color: #FFD700;
+    color: var(--primary);
 }
 
 /* ========================================
-   STATS
+   STATS - Liquid Glass Counters
 ======================================== */
 .about-stats {
-    background-color: #1a1a1a;
-    padding: 75px 50px;
-    background-image:
-        radial-gradient(
-            ellipse at 15% 50%,
-            rgba(255, 215, 0, 0.04) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            ellipse at 85% 50%,
-            rgba(255, 215, 0, 0.04) 0%,
-            transparent 50%
-        );
+    padding: 80px 50px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.60);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+    overflow: hidden;
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.about-stats::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.06),
+        transparent 65%
+    );
+    filter: blur(55px);
+    pointer-events: none;
+}
+
+.about-stats::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle,
+        rgba(6, 182, 212, 0.06),
+        transparent 65%
+    );
+    filter: blur(55px);
+    pointer-events: none;
 }
 
 .about-stats .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 20px;
     max-width: 960px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
+/* ===== Stat Item - Liquid Glass ===== */
 .about-stats .stat-item {
-    padding: 22px 18px;
-    border-right: 1px solid rgba(255, 215, 0, 0.14);
-    transition: transform 0.3s ease;
-    border-radius: 10px;
+    padding: 30px 18px;
+    background: rgba(255, 255, 255, 0.60);
+    backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+}
+
+.about-stats .stat-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 18%;
+    right: 18%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.35),
+        transparent
+    );
 }
 
 .about-stats .stat-item:hover {
-    transform: scale(1.07);
-    background-color: rgba(255, 215, 0, 0.03);
-}
-
-.about-stats .stat-item:last-child {
-    border-right: none;
+    transform: translateY(-8px) scale(1.03);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 16px 40px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .about-stats .stat-item h3 {
     font-size: 50px;
-    color: #FFD700;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 800;
     line-height: 1;
     margin-bottom: 10px;
-    text-shadow: 0 0 22px rgba(255, 215, 0, 0.32);
 }
 
 .about-stats .stat-item p {
-    color: #cccccc;
+    color: var(--soft);
     font-size: 14px;
     font-weight: 500;
 }
 
 /* ========================================
-   MISSION VISION
+   MISSION VISION - Liquid Glass Cards
 ======================================== */
 .mission-vision {
-    padding: 85px 50px;
-    background-color: #FFFDE7;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(248, 250, 252, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.mission-vision::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .mv-grid {
@@ -691,112 +1166,200 @@
     margin: 0 auto;
 }
 
+/* ===== MV Card - Liquid Glass ===== */
 .mv-card {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 40px 28px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: 24px;
+    padding: 42px 30px;
     text-align: center;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
-    border: 2px solid transparent;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    transition: var(--transition-slow);
     position: relative;
     overflow: hidden;
     will-change: transform;
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
 }
 
+/* Top white reflection */
 .mv-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+}
+
+/* Blue shimmer on hover */
+.mv-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.40),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+}
+
+.mv-card:hover::after {
+    opacity: 1;
 }
 
 .mv-card:hover {
-    transform: translateY(-10px);
-    border-color: #FFD700;
-    box-shadow: 0 18px 48px rgba(255, 215, 0, 0.2);
+    transform: translateY(-12px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 20px 55px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .mv-icon {
-    font-size: 55px;
+    font-size: 52px;
     margin-bottom: 20px;
-    display: block;
-    transition: transform 0.35s ease;
-    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    transition: var(--transition);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .mv-card:hover .mv-icon {
-    transform: scale(1.22) rotate(5deg);
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    transform: scale(1.16) rotate(5deg);
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.10);
 }
 
 .mv-card h3 {
-    font-size: 21px;
-    color: #1a1a1a;
+    font-size: 20px;
+    color: var(--text);
     margin-bottom: 14px;
     font-weight: 800;
+    transition: color 0.30s ease;
+}
+
+.mv-card:hover h3 {
+    color: var(--primary);
 }
 
 .mv-card p {
-    color: #666666;
+    color: var(--soft);
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.82;
 }
 
 /* ========================================
-   WHAT WE OFFER
+   WHAT WE OFFER - Liquid Glass Items
 ======================================== */
 .what-we-offer {
-    padding: 85px 50px;
-    background-color: #1a1a1a;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.what-we-offer .section-title {
-    color: #FFD700;
-}
-
-.what-we-offer .section-subtitle {
-    color: #aaaaaa;
-}
-
-.what-we-offer .section-title::after {
-    background: linear-gradient(90deg, #FFD700, #FFA500);
+.what-we-offer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .offer-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 18px;
+    gap: 16px;
     max-width: 1080px;
-    margin: 0 auto 42px;
+    margin: 0 auto 45px;
 }
 
+/* ===== Offer Item - Liquid Glass ===== */
 .offer-item {
-    background-color: #2d2d2d;
-    border-radius: 14px;
-    padding: 26px 12px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(16px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: var(--radius-md);
+    padding: 28px 12px;
     text-align: center;
-    transition: all 0.35s ease;
-    border: 2px solid transparent;
+    transition: var(--transition);
     cursor: pointer;
     outline: none;
     will-change: transform;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.offer-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.35),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.offer-item:hover::before,
+.offer-item:focus-visible::before {
+    opacity: 1;
 }
 
 .offer-item:hover,
 .offer-item:focus-visible {
-    background-color: #FFD700;
-    border-color: #FFD700;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 28px rgba(255, 215, 0, 0.3);
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.18);
+    transform: translateY(-6px);
+    box-shadow:
+        0 14px 35px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
 .offer-item:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.45);
     outline-offset: 2px;
 }
 
@@ -804,17 +1367,17 @@
     font-size: 34px;
     display: block;
     margin-bottom: 10px;
-    transition: transform 0.35s ease;
+    transition: var(--transition);
     line-height: 1;
 }
 
 .offer-item:hover span,
 .offer-item:focus-visible span {
-    transform: scale(1.22) rotate(5deg);
+    transform: scale(1.20) rotate(5deg);
 }
 
 .offer-item p {
-    color: #aaaaaa;
+    color: var(--soft);
     font-size: 12.5px;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -824,7 +1387,7 @@
 
 .offer-item:hover p,
 .offer-item:focus-visible p {
-    color: #1a1a1a;
+    color: var(--primary);
 }
 
 .offer-btn {
@@ -832,11 +1395,30 @@
 }
 
 /* ========================================
-   TEAM SECTION
+   TEAM SECTION - Liquid Glass Cards
 ======================================== */
 .team-section {
-    padding: 85px 50px;
-    background-color: #ffffff;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(248, 250, 252, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.team-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .team-grid {
@@ -847,175 +1429,275 @@
     margin: 0 auto;
 }
 
+/* ===== Team Card - Liquid Glass ===== */
 .team-card {
-    background-color: #FFFDE7;
-    border-radius: 20px;
-    padding: 40px 26px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: 24px;
+    padding: 42px 28px;
     text-align: center;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
-    border: 2px solid transparent;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    transition: var(--transition-slow);
     position: relative;
     overflow: hidden;
     will-change: transform;
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
 }
 
+/* Top white reflection */
 .team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+}
+
+/* Blue shimmer animated in */
+.team-card::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.40),
+        rgba(6, 182, 212, 0.30),
+        transparent
+    );
     transform: scaleX(0);
-    transition: transform 0.35s ease;
+    transition: transform 0.40s ease;
     transform-origin: left;
+    z-index: 1;
 }
 
-.team-card:hover::before {
+.team-card:hover::after {
     transform: scaleX(1);
 }
 
 .team-card:hover {
-    transform: translateY(-10px);
-    border-color: #FFD700;
-    box-shadow: 0 18px 48px rgba(255, 215, 0, 0.2);
+    transform: translateY(-12px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 22px 55px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
+/* ===== Team Icon - Liquid Glass Circle ===== */
 .team-icon {
-    font-size: 58px;
-    background-color: #ffffff;
+    font-size: 56px;
+    background: rgba(37, 99, 235, 0.05);
     width: 96px;
     height: 96px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
-    border: 3px solid #FFD700;
-    box-shadow: 0 5px 14px rgba(255, 215, 0, 0.2);
-    transition: all 0.35s ease;
+    margin: 0 auto 22px;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .team-card:hover .team-icon {
-    background-color: #FFD700;
-    transform: scale(1.1);
-    box-shadow: 0 8px 26px rgba(255, 215, 0, 0.35);
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    transform: scale(1.10);
+    box-shadow: 0 8px 28px rgba(37, 99, 235, 0.12);
 }
 
 .team-card h3 {
-    font-size: 21px;
-    color: #1a1a1a;
+    font-size: 20px;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.team-card:hover h3 {
+    color: var(--primary);
 }
 
 .team-role {
-    color: #FFD700 !important;
+    color: var(--primary) !important;
     font-size: 13.5px !important;
     font-weight: 700 !important;
     margin-bottom: 5px !important;
 }
 
 .team-exp {
-    color: #666666 !important;
+    color: var(--soft) !important;
     font-size: 12.5px !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 18px !important;
 }
 
+/* ===== Team Skills - Liquid Glass Tags ===== */
 .team-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .team-skills span {
-    background-color: #ffffff;
-    color: #1a1a1a;
+    background: rgba(37, 99, 235, 0.05);
+    color: var(--soft);
     font-size: 11.5px;
     font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 18px;
-    border: 1px solid #FFD700;
-    transition: background-color 0.3s ease;
+    padding: 5px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .team-skills span:hover {
-    background-color: #FFD700;
+    background: rgba(37, 99, 235, 0.10);
+    color: var(--primary);
+    border-color: rgba(37, 99, 235, 0.22);
 }
 
+/* Team Contact */
 .team-contact {
     display: inline-flex;
     align-items: center;
-    color: #1a1a1a;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
-    background-color: #FFD700;
-    padding: 7px 18px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    padding: 9px 20px;
+    border-radius: 999px;
+    transition: var(--transition);
     white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.20);
+    position: relative;
+    overflow: hidden;
 }
 
+.team-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.28),
+        transparent
+    );
+    transition: 0.6s ease;
+}
+
+.team-contact:hover::before { left: 100%; }
+
 .team-contact:hover {
-    background-color: #1a1a1a;
-    color: #FFD700;
     transform: scale(1.04);
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.26);
 }
 
 /* ========================================
-   CUSTOMER LOVE
+   CUSTOMER LOVE - Liquid Glass
 ======================================== */
 .customer-love-section {
-    padding: 85px 50px;
-    background-color: #FFFDE7;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(248, 250, 252, 0.40);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.customer-love-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .customer-love-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 50px;
 }
 
+/* Love Badge */
 .love-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #1a1a1a;
-    padding: 7px 20px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--primary);
+    padding: 8px 22px;
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     margin-bottom: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
 .customer-love-header h2 {
     font-size: 36px;
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 10px;
     line-height: 1.25;
 }
 
 .customer-love-header h2 span {
-    color: #FFD700;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .customer-love-header p {
-    color: #666666;
+    color: var(--soft);
     font-size: 15.5px;
 }
 
 .love-btn {
     text-align: center;
-    margin-top: 38px;
+    margin-top: 40px;
 }
 
-/* Testimonials */
+/* Testimonials Grid */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1024,49 +1706,77 @@
     margin: 0 auto;
 }
 
+/* Liquid Glass Testimonial Card */
 .testimonial-card {
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 30px 26px;
-    border-top: 5px solid #FFD700;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: 22px;
+    padding: 32px 28px;
+    transition: var(--transition-slow);
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
     position: relative;
     overflow: hidden;
     will-change: transform;
 }
 
+/* Top reflection */
 .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+}
+
+/* Blue shimmer + quote mark */
+.testimonial-card::after {
     content: '\201C';
     position: absolute;
-    top: 8px;
-    right: 16px;
+    top: 10px;
+    right: 18px;
     font-size: 65px;
-    color: rgba(255, 215, 0, 0.14);
+    color: rgba(37, 99, 235, 0.07);
     font-family: Georgia, serif;
     line-height: 1;
     pointer-events: none;
+    transition: color 0.35s ease;
+}
+
+.testimonial-card:hover::after {
+    color: rgba(37, 99, 235, 0.14);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 14px 38px rgba(255, 215, 0, 0.2);
-    border-top-color: #FFA500;
+    transform: translateY(-10px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 20px 50px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .stars {
-    font-size: 17px;
-    margin-bottom: 13px;
+    font-size: 16px;
+    margin-bottom: 14px;
     display: block;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .testimonial-card > p {
-    color: #555555;
+    color: var(--soft);
     font-style: italic;
-    line-height: 1.72;
-    margin-bottom: 18px;
+    line-height: 1.75;
+    margin-bottom: 20px;
     font-size: 14.5px;
     position: relative;
     z-index: 1;
@@ -1076,105 +1786,173 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-top: 14px;
-    border-top: 1px solid #f0f0f0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(37, 99, 235, 0.07);
 }
 
 .author-icon {
-    font-size: 24px;
-    background-color: #FFFDE7;
-    width: 44px;
-    height: 44px;
+    font-size: 22px;
+    background: rgba(37, 99, 235, 0.05);
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #FFD700;
+    border: 1px solid rgba(37, 99, 235, 0.12);
     flex-shrink: 0;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .testimonial-card:hover .author-icon {
-    background-color: #FFD700;
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 0 14px rgba(37, 99, 235, 0.08);
 }
 
 .author h4 {
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 700;
     font-size: 14.5px;
     margin-bottom: 2px;
 }
 
 .author small {
-    color: #999999;
+    color: var(--muted);
     font-size: 12px;
     display: block;
 }
 
 /* ========================================
-   WHY CHOOSE US
+   WHY CHOOSE US - Liquid Glass List
 ======================================== */
 .about-why {
-    padding: 85px 50px;
-    background-color: #ffffff;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.about-why::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .why-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: 16px;
     max-width: 980px;
     margin: 0 auto;
 }
 
+/* ===== Why List Item - Liquid Glass ===== */
 .why-list-item {
     display: flex;
     align-items: flex-start;
     gap: 14px;
     padding: 20px;
-    background-color: #FFFDE7;
-    border-radius: 13px;
-    border-left: 4px solid #FFD700;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(16px) saturate(180%) brightness(1.04);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-left: 2px solid rgba(37, 99, 235, 0.28);
+    transition: var(--transition);
     will-change: transform;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.why-list-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.28),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.why-list-item:hover::before {
+    opacity: 1;
 }
 
 .why-list-item:hover {
-    background-color: #FFD700;
-    transform: translateX(5px);
-    box-shadow: 0 5px 18px rgba(255, 215, 0, 0.25);
+    background: rgba(37, 99, 235, 0.05);
+    border-left-color: var(--primary);
+    border-color: rgba(37, 99, 235, 0.18);
+    transform: translateX(6px);
+    box-shadow:
+        0 8px 24px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
 }
 
+/* ===== Why Check - Liquid Glass Circle ===== */
 .why-check {
-    width: 40px;
-    height: 40px;
-    background-color: #ffffff;
+    width: 42px;
+    height: 42px;
+    background: rgba(37, 99, 235, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #FFD700;
+    border: 1px solid rgba(37, 99, 235, 0.12);
     font-size: 15px;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .why-list-item:hover .why-check {
-    background-color: #1a1a1a;
-    border-color: #1a1a1a;
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 0 14px rgba(37, 99, 235, 0.10);
 }
 
 .why-list-item h4 {
-    font-size: 15.5px;
-    color: #1a1a1a;
+    font-size: 15px;
+    color: var(--text);
     font-weight: 700;
     margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.why-list-item:hover h4 {
+    color: var(--primary);
 }
 
 .why-list-item p {
-    color: #666666;
+    color: var(--soft);
     font-size: 13px;
-    line-height: 1.65;
+    line-height: 1.68;
     margin: 0;
 }
 
@@ -1190,20 +1968,15 @@
     .team-section,
     .customer-love-section,
     .about-why {
-        padding: 70px 40px;
+        padding: 75px 40px;
     }
 
-    .shop-info-section {
-        padding: 38px 40px;
-    }
-
-    .about-stats {
-        padding: 65px 40px;
-    }
+    .shop-info-section { padding: 42px 40px; }
+    .about-stats       { padding: 65px 40px; }
 }
 
 /* ========================================
-   RESPONSIVE - 1024px (Tablet Landscape)
+   RESPONSIVE - 1024px
 ======================================== */
 @media (max-width: 1024px) {
     .pro-intro-grid,
@@ -1213,67 +1986,28 @@
         gap: 38px;
     }
 
-    .pro-intro-content h2 {
-        font-size: 32px;
-    }
+    .pro-intro-content h2 { font-size: 32px; }
+    .welcome-content h2   { font-size: 30px; }
+    .who-content h2       { font-size: 30px; }
 
-    .welcome-content h2 {
-        font-size: 30px;
-    }
+    .welcome-img-box { height: 320px; }
+    .img-box         { height: 320px; }
 
-    .welcome-img-box {
-        height: 320px;
-    }
-
-    .who-content h2 {
-        font-size: 30px;
-    }
-
-    .img-box {
-        height: 320px;
-    }
-
-    .offer-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .mv-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .shop-info-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .offer-grid { grid-template-columns: repeat(4, 1fr); }
+    .mv-grid    { grid-template-columns: repeat(2, 1fr); }
+    .shop-info-grid { grid-template-columns: repeat(2, 1fr); }
 
     .about-stats .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0;
+        gap: 14px;
     }
 
-    .about-stats .stat-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 215, 0, 0.14);
-    }
-
-    .about-stats .stat-item:nth-child(odd) {
-        border-right: 1px solid rgba(255, 215, 0, 0.14);
-    }
-
-    .about-stats .stat-item:nth-last-child(-n+2) {
-        border-bottom: none;
-    }
-
-    .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .why-list {
-        grid-template-columns: 1fr;
-    }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-list          { grid-template-columns: 1fr; }
 }
 
 /* ========================================
-   RESPONSIVE - 768px (Tablet Portrait)
+   RESPONSIVE - 768px
 ======================================== */
 @media (max-width: 768px) {
     .pro-intro-section,
@@ -1284,57 +2018,24 @@
     .team-section,
     .customer-love-section,
     .about-why {
-        padding: 55px 18px;
+        padding: 60px 18px;
     }
 
-    .shop-info-section {
-        padding: 32px 18px;
-    }
+    .shop-info-section { padding: 35px 18px; }
+    .about-stats       { padding: 60px 18px; }
 
-    .about-stats {
-        padding: 55px 18px;
-    }
+    .pro-intro-content h2 { font-size: 26px; }
+    .pro-tagline          { font-size: 16px; }
+    .welcome-content h2   { font-size: 26px; }
+    .welcome-img-box      { height: 280px; }
+    .welcome-img-box > span { font-size: 68px; }
+    .who-content h2       { font-size: 26px; }
+    .img-box              { height: 280px; }
+    .img-box > span       { font-size: 76px; }
 
-    .pro-intro-content h2 {
-        font-size: 26px;
-    }
+    .exp-badge { bottom: -14px; right: 8px; }
 
-    .pro-tagline {
-        font-size: 16px;
-    }
-
-    .welcome-content h2 {
-        font-size: 26px;
-    }
-
-    .welcome-img-box {
-        height: 280px;
-    }
-
-    .welcome-img-box > span {
-        font-size: 70px;
-    }
-
-    .who-content h2 {
-        font-size: 26px;
-    }
-
-    .img-box {
-        height: 280px;
-    }
-
-    .img-box > span {
-        font-size: 78px;
-    }
-
-    .exp-badge {
-        bottom: -14px;
-        right: 8px;
-    }
-
-    .about-highlights {
-        grid-template-columns: 1fr;
-    }
+    .about-highlights     { grid-template-columns: 1fr; }
 
     .about-contact-btns,
     .welcome-btns {
@@ -1343,46 +2044,25 @@
 
     .about-contact-btns .btn,
     .about-contact-btns .btn-whatsapp,
-    .welcome-btns .btn {
+    .welcome-btns .btn,
+    .welcome-btns .btn-dark {
         width: 100%;
         justify-content: center;
         text-align: center;
     }
 
-    .mv-grid {
-        grid-template-columns: 1fr;
-    }
+    .mv-grid            { grid-template-columns: 1fr; }
+    .offer-grid         { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .team-grid          { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .testimonials-grid  { grid-template-columns: 1fr; }
+    .why-list           { grid-template-columns: 1fr; }
+    .shop-info-grid     { grid-template-columns: 1fr; gap: 14px; }
 
-    .offer-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .why-list {
-        grid-template-columns: 1fr;
-    }
-
-    .shop-info-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .customer-love-header h2 {
-        font-size: 26px;
-    }
+    .customer-love-header h2 { font-size: 26px; }
 }
 
 /* ========================================
-   RESPONSIVE - 480px (Mobile)
+   RESPONSIVE - 480px
 ======================================== */
 @media (max-width: 480px) {
     .pro-intro-section,
@@ -1393,86 +2073,32 @@
     .team-section,
     .customer-love-section,
     .about-why {
-        padding: 45px 15px;
+        padding: 48px 15px;
     }
 
-    .pro-intro-content h2 {
-        font-size: 22px;
-    }
+    .pro-intro-content h2   { font-size: 22px; }
+    .welcome-content h2     { font-size: 22px; }
+    .welcome-img-box        { height: 250px; }
+    .welcome-img-box > span { font-size: 58px; }
+    .who-content h2         { font-size: 22px; }
+    .img-box                { height: 250px; }
+    .img-box > span         { font-size: 63px; }
 
-    .welcome-content h2 {
-        font-size: 22px;
-    }
-
-    .welcome-img-box {
-        height: 250px;
-    }
-
-    .welcome-img-box > span {
-        font-size: 60px;
-    }
-
-    .who-content h2 {
-        font-size: 22px;
-    }
-
-    .img-box {
-        height: 250px;
-    }
-
-    .img-box > span {
-        font-size: 65px;
-    }
-
-    .offer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .about-stats .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-stats .stat-item h3 {
-        font-size: 38px;
-    }
-
-    .customer-love-header h2 {
-        font-size: 22px;
-    }
+    .offer-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .about-stats .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-stats .stat-item h3 { font-size: 38px; }
+    .customer-love-header h2   { font-size: 22px; }
 }
 
 /* ========================================
    RESPONSIVE - 360px
 ======================================== */
 @media (max-width: 360px) {
-    .pro-intro-content h2 {
-        font-size: 20px;
-    }
-
-    .img-box {
-        height: 225px;
-    }
-
-    .img-box > span {
-        font-size: 56px;
-    }
-
-    .welcome-img-box {
-        height: 225px;
-    }
-
-    .offer-item span {
-        font-size: 28px;
-    }
-
-    .offer-item p {
-        font-size: 11.5px;
-    }
-
-    .team-icon {
-        width: 82px;
-        height: 82px;
-        font-size: 48px;
-    }
+    .pro-intro-content h2 { font-size: 20px; }
+    .img-box              { height: 225px; }
+    .img-box > span       { font-size: 54px; }
+    .welcome-img-box      { height: 225px; }
+    .offer-item span      { font-size: 28px; }
+    .offer-item p         { font-size: 11.5px; }
+    .team-icon            { width: 82px; height: 82px; font-size: 46px; }
 }

@@ -1,6 +1,6 @@
 // ========================================
 // PRODUCTS PAGE JS - products.js
-// Abhishek Xerox - Performance Optimized
+// Abhishek Xerox - Liquid Glass Only
 // ========================================
 
 (function () {
@@ -91,28 +91,27 @@
     };
 
     // =========================================
-    // MODAL MANAGEMENT
+    // MODAL
     // =========================================
-    var modalOverlay = null;
-    var modalClose = null;
-    var lastFocusedCard = null;
+    var modalOverlay  = null;
+    var modalClose    = null;
+    var lastFocusedEl = null;
 
     function openModal(title) {
         var data = productData[title];
         if (!data || !modalOverlay) return;
 
-        var iconEl = document.getElementById('modalIcon');
+        var iconEl  = document.getElementById('modalIcon');
         var titleEl = document.getElementById('modalTitle');
-        var descEl = document.getElementById('modalDesc');
+        var descEl  = document.getElementById('modalDesc');
 
-        if (iconEl) iconEl.textContent = data.icon;
+        if (iconEl)  iconEl.textContent  = data.icon;
         if (titleEl) titleEl.textContent = title;
-        if (descEl) descEl.textContent = data.desc;
+        if (descEl)  descEl.textContent  = data.desc;
 
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
-        // Focus close button
         setTimeout(function () {
             if (modalClose) modalClose.focus();
         }, 100);
@@ -123,42 +122,44 @@
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
 
-        // Return focus
-        if (lastFocusedCard) {
-            lastFocusedCard.focus();
-            lastFocusedCard = null;
+        if (lastFocusedEl) {
+            lastFocusedEl.focus();
+            lastFocusedEl = null;
         }
     }
 
     // =========================================
-    // FILTER PRODUCTS
+    // FILTER PRODUCTS - Liquid Transition
     // =========================================
     function filterProducts(filter, cards) {
         var visibleCount = 0;
 
         cards.forEach(function (card) {
-            var category = card.getAttribute('data-category');
-            var isMatch = filter === 'all' || category === filter;
+            var cat     = card.getAttribute('data-category');
+            var isMatch = filter === 'all' || cat === filter;
 
             if (isMatch) {
                 card.classList.remove('hidden');
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.92) translateY(15px)';
+                card.style.opacity   = '0';
+                card.style.transform = 'scale(0.92) translateY(18px)';
                 card.style.transition = 'none';
                 visibleCount++;
+
+                var idx = visibleCount;
 
                 requestAnimationFrame(function () {
                     setTimeout(function () {
                         card.style.transition =
-                            'opacity 0.38s ease, transform 0.38s ease';
-                        card.style.opacity = '1';
+                            'opacity 0.40s cubic-bezier(0.4,0,0.2,1),' +
+                            'transform 0.40s cubic-bezier(0.4,0,0.2,1)';
+                        card.style.opacity   = '1';
                         card.style.transform = 'scale(1) translateY(0)';
-                    }, visibleCount * 55);
+                    }, idx * 55);
                 });
             } else {
                 card.style.transition =
                     'opacity 0.25s ease, transform 0.25s ease';
-                card.style.opacity = '0';
+                card.style.opacity   = '0';
                 card.style.transform = 'scale(0.92)';
 
                 setTimeout(function () {
@@ -167,39 +168,61 @@
             }
         });
 
-        // Show/hide no results
         var noResults = document.getElementById('noResults');
         if (noResults) {
-            if (visibleCount === 0) {
-                noResults.classList.add('show');
-            } else {
-                noResults.classList.remove('show');
-            }
+            noResults.classList.toggle('show', visibleCount === 0);
         }
     }
 
     // =========================================
     // INTERSECTION OBSERVER HELPER
     // =========================================
-    function observeElements(elements, callback, options) {
+    function observeElements(elements, callback, opts) {
         if (!('IntersectionObserver' in window)) {
-            elements.forEach(function (el) {
-                callback(el, 0);
+            elements.forEach(function (el, i) {
+                callback(el, i);
             });
             return;
         }
 
-        var obs = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry, idx) {
-                if (entry.isIntersecting) {
+        var obs = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry, idx) {
+                    if (!entry.isIntersecting) return;
                     callback(entry.target, idx);
                     obs.unobserve(entry.target);
-                }
-            });
-        }, options || { threshold: 0.08 });
+                });
+            },
+            opts || { threshold: 0.06 }
+        );
+
+        elements.forEach(function (el) { obs.observe(el); });
+    }
+
+    // =========================================
+    // LIQUID SPOTLIGHT EFFECT
+    // =========================================
+    function initLiquidSpotlight(elements, baseBg) {
+        var bg = baseBg || 'rgba(255,255,255,0.55)';
 
         elements.forEach(function (el) {
-            obs.observe(el);
+            el.addEventListener('mousemove', function (e) {
+                var rect = el.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+
+                el.style.background =
+                    'radial-gradient(' +
+                        '280px circle at ' + x + 'px ' + y + 'px,' +
+                        'rgba(37, 99, 235, 0.07),' +
+                        'rgba(6, 182, 212, 0.04) 30%,' +
+                        'transparent 52%' +
+                    '),' + bg;
+            });
+
+            el.addEventListener('mouseleave', function () {
+                el.style.background = '';
+            });
         });
     }
 
@@ -208,95 +231,109 @@
     // =========================================
     document.addEventListener('DOMContentLoaded', function () {
 
-        // Get elements
         modalOverlay = document.getElementById('modalOverlay');
-        modalClose = document.getElementById('modalClose');
+        modalClose   = document.getElementById('modalClose');
 
-        var filterTabs = document.querySelectorAll('.filter-tab');
+        var filterTabs   = document.querySelectorAll('.filter-tab');
         var productCards = document.querySelectorAll('.product-card');
-        var whyCards = document.querySelectorAll('.why-product-card');
+        var whyCards     = document.querySelectorAll('.why-product-card');
 
         // ===== PAGE BANNER =====
         var pageBanner = document.querySelector('.page-banner');
         if (pageBanner) {
-            pageBanner.style.opacity = '0';
-            pageBanner.style.transform = 'translateY(-16px)';
-            pageBanner.style.transition = 'all 0.52s ease';
+            pageBanner.style.opacity   = '0';
+            pageBanner.style.transform = 'translateY(-18px)';
+            pageBanner.style.transition =
+                'opacity 0.55s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+
             setTimeout(function () {
-                pageBanner.style.opacity = '1';
+                pageBanner.style.opacity   = '1';
                 pageBanner.style.transform = 'translateY(0)';
             }, 80);
         }
 
         // ===== FILTER TABS ANIMATION =====
-        filterTabs.forEach(function (tab, index) {
-            tab.style.opacity = '0';
-            tab.style.transform = 'translateY(12px)';
-            tab.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+        filterTabs.forEach(function (tab, idx) {
+            tab.style.opacity   = '0';
+            tab.style.transform = 'translateY(14px)';
+            tab.style.transition = 'opacity 0.38s ease, transform 0.38s ease';
+
             setTimeout(function () {
-                tab.style.opacity = '1';
+                tab.style.opacity   = '1';
                 tab.style.transform = 'translateY(0)';
-            }, 100 + index * 65);
+            }, 100 + idx * 60);
         });
 
         // ===== FILTER TABS CLICK =====
         filterTabs.forEach(function (tab) {
             tab.addEventListener('click', function () {
-                // Update active
                 filterTabs.forEach(function (t) {
                     t.classList.remove('active');
                     t.setAttribute('aria-selected', 'false');
                 });
+
                 this.classList.add('active');
                 this.setAttribute('aria-selected', 'true');
 
-                var filter = this.getAttribute('data-filter');
-                filterProducts(filter, Array.from(productCards));
+                filterProducts(
+                    this.getAttribute('data-filter'),
+                    Array.from(productCards)
+                );
             });
         });
 
         // ===== PRODUCT CARDS ANIMATION =====
         productCards.forEach(function (card) {
-            card.style.opacity = '0';
+            card.style.opacity   = '0';
             card.style.transform = 'translateY(38px)';
             card.style.transition =
-                'opacity 0.5s ease, transform 0.5s ease';
+                'opacity 0.55s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
             card.style.willChange = 'opacity, transform';
         });
 
-        observeElements(Array.from(productCards), function (card, idx) {
-            setTimeout(function () {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+        observeElements(
+            Array.from(productCards),
+            function (card, idx) {
                 setTimeout(function () {
-                    card.style.willChange = 'auto';
-                }, 550);
-            }, idx * 70);
-        });
+                    card.style.opacity   = '1';
+                    card.style.transform = 'translateY(0)';
+                    setTimeout(function () {
+                        card.style.willChange = 'auto';
+                    }, 600);
+                }, idx * 65);
+            }
+        );
 
-        // ===== PRODUCT CARD CLICK (Modal) =====
+        // Liquid spotlight on product cards
+        initLiquidSpotlight(
+            Array.from(productCards),
+            'rgba(255,255,255,0.55)'
+        );
+
+        // ===== PRODUCT CARD - Click (Modal) =====
         productCards.forEach(function (card) {
-            // Click
             card.addEventListener('click', function (e) {
                 if (e.target.tagName === 'A' ||
-                    e.target.closest('a')) {
-                    return;
-                }
+                    e.target.closest('a')) return;
+
                 var titleEl = this.querySelector('h3');
                 if (!titleEl) return;
-                lastFocusedCard = card;
+
+                lastFocusedEl = card;
                 openModal(titleEl.textContent.trim());
             });
 
-            // Keyboard - Enter/Space
             card.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    var titleEl = this.querySelector('h3');
-                    if (!titleEl) return;
-                    lastFocusedCard = card;
-                    openModal(titleEl.textContent.trim());
-                }
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                e.preventDefault();
+
+                var titleEl = this.querySelector('h3');
+                if (!titleEl) return;
+
+                lastFocusedEl = card;
+                openModal(titleEl.textContent.trim());
             });
         });
 
@@ -313,7 +350,8 @@
 
         // Escape key
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && modalOverlay &&
+            if (e.key === 'Escape' &&
+                modalOverlay &&
                 modalOverlay.classList.contains('active')) {
                 closeModal();
             }
@@ -321,43 +359,70 @@
 
         // ===== WHY CARDS ANIMATION =====
         whyCards.forEach(function (card) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(28px)';
+            card.style.opacity   = '0';
+            card.style.transform = 'translateY(30px)';
             card.style.transition =
-                'opacity 0.5s ease, transform 0.5s ease';
+                'opacity 0.55s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
             card.style.willChange = 'opacity, transform';
         });
 
-        observeElements(Array.from(whyCards), function (card, idx) {
-            setTimeout(function () {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+        observeElements(
+            Array.from(whyCards),
+            function (card, idx) {
                 setTimeout(function () {
-                    card.style.willChange = 'auto';
-                }, 550);
-            }, idx * 100);
+                    card.style.opacity   = '1';
+                    card.style.transform = 'translateY(0)';
+                    setTimeout(function () {
+                        card.style.willChange = 'auto';
+                    }, 600);
+                }, idx * 90);
+            }
+        );
+
+        // Liquid spotlight on why cards
+        initLiquidSpotlight(
+            Array.from(whyCards),
+            'rgba(255,255,255,0.55)'
+        );
+
+        // ===== SECTION TITLES =====
+        var titles = document.querySelectorAll(
+            '.section-title, .section-subtitle'
+        );
+
+        titles.forEach(function (el) {
+            el.style.opacity   = '0';
+            el.style.transform = 'translateY(25px)';
+            el.style.transition =
+                'opacity 0.60s cubic-bezier(0.4,0,0.2,1),' +
+                'transform 0.60s cubic-bezier(0.4,0,0.2,1)';
         });
 
-        // ===== PERFORMANCE - PAUSE ON HIDDEN =====
+        observeElements(Array.from(titles), function (el) {
+            el.style.opacity   = '1';
+            el.style.transform = 'translateY(0)';
+        }, { threshold: 0.10 });
+
+        // ===== VISIBILITY CHANGE =====
         if ('visibilityState' in document) {
-            document.addEventListener('visibilitychange',
-                function () {
-                    if (document.hidden && modalOverlay &&
-                        modalOverlay.classList.contains('active')) {
-                        closeModal();
-                    }
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden &&
+                    modalOverlay &&
+                    modalOverlay.classList.contains('active')) {
+                    closeModal();
                 }
-            );
+            });
         }
 
         // ===== LOG =====
         console.log(
-            '%c✅ Products Page - Abhishek Xerox!',
-            'color: #FFD700; background: #1a1a1a; ' +
-            'padding: 5px 10px; border-radius: 4px; ' +
-            'font-weight: bold;'
+            '%c🫧 Products Page | Liquid Glass Ready!',
+            'color:#2563EB;background:#F8FAFC;' +
+            'padding:6px 14px;border-radius:8px;' +
+            'font-weight:bold;border-left:3px solid #06B6D4;'
         );
 
     }); // END DOMContentLoaded
 
-})(); // IIFE
+})(); // IIFE END

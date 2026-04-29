@@ -1,20 +1,41 @@
 /* ========================================
    PRODUCTS PAGE CSS - products.css
-   Abhishek Xerox - Yellow Theme
-   Fully Responsive & Optimized
+   Abhishek Xerox - Liquid Glass Only Theme
+   Blue + Cyan Palette - Fully Responsive
 ======================================== */
 
 /* ========================================
-   FILTER SECTION
+   FILTER SECTION - Liquid Glass Strip
 ======================================== */
 .filter-section {
-    padding: 28px 50px 18px;
-    background-color: #ffffff;
-    border-bottom: 2px solid #f0f0f0;
+    padding: 22px 50px 18px;
+    background: rgba(255, 255, 255, 0.60);
+    backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
     position: sticky;
-    top: 62px; /* navbar height */
+    top: 70px;
     z-index: 99;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+}
+
+/* Bottom liquid shimmer */
+.filter-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.20),
+        rgba(6, 182, 212, 0.22),
+        transparent
+    );
 }
 
 .filter-tabs {
@@ -26,38 +47,71 @@
     margin: 0 auto;
 }
 
+/* ===== Filter Tab - Liquid Glass Pill ===== */
 .filter-tab {
-    padding: 9px 20px;
-    border: 2px solid #e0e0e0;
-    background-color: #ffffff;
-    color: #666666;
-    border-radius: 25px;
+    padding: 10px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    color: var(--soft);
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
     white-space: nowrap;
     outline: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.80);
+}
+
+.filter-tab::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 999px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.filter-tab:hover::before {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .filter-tab:hover {
-    border-color: #FFD700;
-    color: #1a1a1a;
-    background-color: #FFFDE7;
+    border-color: rgba(37, 99, 235, 0.20);
+    color: var(--primary);
     transform: translateY(-2px);
+    box-shadow:
+        0 4px 14px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .filter-tab.active {
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    border-color: #FFD700;
-    color: #1a1a1a;
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
+    font-weight: 700;
 }
 
 .filter-tab:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.50);
     outline-offset: 2px;
 }
 
@@ -65,8 +119,26 @@
    PRODUCTS SECTION
 ======================================== */
 .products-section {
-    padding: 65px 50px 80px;
-    background-color: #f8f8f8;
+    padding: 70px 50px 90px;
+    position: relative;
+    background: rgba(248, 250, 252, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.products-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.14),
+        transparent
+    );
 }
 
 /* No results */
@@ -74,7 +146,7 @@
     display: none;
     text-align: center;
     padding: 50px 20px;
-    color: #999;
+    color: var(--soft);
     font-size: 16px;
 }
 
@@ -88,39 +160,89 @@
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 22px;
     max-width: 1280px;
     margin: 0 auto;
 }
 
 /* ========================================
-   PRODUCT CARD
+   PRODUCT CARD - Liquid Glass
 ======================================== */
 .product-card {
-    background-color: #ffffff;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-    border: 2px solid transparent;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+    transition:
+        transform 0.40s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.40s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.40s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     display: flex;
     flex-direction: column;
     will-change: transform;
     outline: none;
+    position: relative;
+}
+
+/* Top reflection line */
+.product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+    z-index: 2;
+}
+
+/* Blue shimmer on hover */
+.product-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.40),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 3;
+}
+
+.product-card:hover::after,
+.product-card:focus-visible::after {
+    opacity: 1;
 }
 
 .product-card:hover,
 .product-card:focus-visible {
-    transform: translateY(-10px);
-    border-color: #FFD700;
-    box-shadow: 0 18px 48px rgba(255, 215, 0, 0.2);
+    transform: translateY(-12px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 20px 55px rgba(37, 99, 235, 0.10),
+        0 6px 18px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .product-card:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.45);
     outline-offset: 2px;
 }
 
@@ -138,65 +260,70 @@
 }
 
 /* ========================================
-   PRODUCT IMAGE
+   PRODUCT IMAGE - Liquid Glass
 ======================================== */
 .product-img {
     height: 195px;
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background: rgba(37, 99, 235, 0.04);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 68px;
+    font-size: 70px;
     position: relative;
     overflow: hidden;
     transition: height 0.35s ease;
     flex-shrink: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 }
 
-/* Category backgrounds */
-.product-img.branding {
-    background: linear-gradient(135deg, #1a1a3a, #2d2d5a);
+/* Shimmer sweep */
+.product-img::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 220%;
+    height: 220%;
+    background: linear-gradient(
+        45deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.20) 50%,
+        transparent 65%
+    );
+    animation: shimmerSweep 5s linear infinite;
+    pointer-events: none;
 }
-.product-img.events {
-    background: linear-gradient(135deg, #1a2a1a, #2d4a2d);
+
+@keyframes shimmerSweep {
+    0%   { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
 }
-.product-img.photos {
-    background: linear-gradient(135deg, #2a1a1a, #4a2d2d);
-}
-.product-img.sticker {
-    background: linear-gradient(135deg, #2a2a1a, #4a4a2d);
-}
-.product-img.pharma {
-    background: linear-gradient(135deg, #1a2a2a, #2d4a4a);
-}
-.product-img.personalized {
-    background: linear-gradient(135deg, #2a1a2a, #4a2d4a);
-}
-.product-img.exhibition {
-    background: linear-gradient(135deg, #1a1a2a, #2d2d4a);
-}
-.product-img.plan {
-    background: linear-gradient(135deg, #1a2a1a, #3a4a2a);
-}
-.product-img.packaging {
-    background: linear-gradient(135deg, #2a1a1a, #5a3a2a);
-}
-.product-img.restaurant {
-    background: linear-gradient(135deg, #2a1a2a, #5a2a3a);
-}
-.product-img.lamination {
-    background: linear-gradient(135deg, #1a2a2a, #2a4a5a);
-}
+
+/* Category soft tints - light glass style */
+.product-img          { background: rgba(37, 99, 235, 0.04); }
+.product-img.branding { background: rgba(99, 102, 241, 0.06); }
+.product-img.events   { background: rgba(16, 185, 129, 0.06); }
+.product-img.photos   { background: rgba(239, 68, 68, 0.06); }
+.product-img.sticker  { background: rgba(245, 158, 11, 0.06); }
+.product-img.pharma   { background: rgba(6, 182, 212, 0.06); }
+.product-img.personalized { background: rgba(168, 85, 247, 0.06); }
+.product-img.exhibition   { background: rgba(37, 99, 235, 0.08); }
+.product-img.plan         { background: rgba(16, 185, 129, 0.06); }
+.product-img.packaging    { background: rgba(249, 115, 22, 0.06); }
+.product-img.restaurant   { background: rgba(236, 72, 153, 0.06); }
+.product-img.lamination   { background: rgba(6, 182, 212, 0.08); }
 
 .product-card:hover .product-img {
     height: 185px;
 }
 
-/* Overlay */
+/* ===== Product Overlay - Liquid Blue Glass ===== */
 .product-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(255, 215, 0, 0.92);
+    background: rgba(37, 99, 235, 0.82);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,19 +335,25 @@
     opacity: 1;
 }
 
+/* ===== Overlay Button - Liquid White Glass ===== */
 .overlay-btn {
     padding: 11px 26px;
-    background-color: #1a1a1a;
-    color: #FFD700;
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: var(--primary);
+    border-radius: 999px;
     font-size: 13.5px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     transform: translateY(18px);
-    border: 2px solid #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.90);
     display: inline-block;
     white-space: nowrap;
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .product-card:hover .overlay-btn {
@@ -228,9 +361,9 @@
 }
 
 .overlay-btn:hover {
-    background-color: #FFD700;
-    color: #1a1a1a;
-    border-color: #FFD700;
+    background: rgba(37, 99, 235, 0.10);
+    color: var(--primary-dark);
+    border-color: rgba(37, 99, 235, 0.25);
 }
 
 /* ========================================
@@ -241,71 +374,78 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    background: transparent;
 }
 
-/* Tags */
+/* ===== Product Tags - Liquid Glass Pills ===== */
 .product-tag {
     display: inline-block;
-    padding: 3px 11px;
-    border-radius: 14px;
+    padding: 4px 12px;
+    border-radius: 999px;
     font-size: 10.5px;
     font-weight: 700;
-    margin-bottom: 9px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     width: fit-content;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .product-tag.print {
-    background-color: #e8f0fe;
-    color: #1565c0;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary);
+    border: 1px solid rgba(37, 99, 235, 0.18);
 }
 
 .product-tag.design {
-    background-color: #fce4ec;
-    color: #c62828;
+    background: rgba(99, 102, 241, 0.08);
+    color: #6366F1;
+    border: 1px solid rgba(99, 102, 241, 0.18);
 }
 
 .product-tag.photo {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background: rgba(239, 68, 68, 0.08);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.18);
 }
 
 .product-tag.packaging {
-    background-color: #fff3e0;
-    color: #e65100;
+    background: rgba(249, 115, 22, 0.08);
+    color: #F97316;
+    border: 1px solid rgba(249, 115, 22, 0.18);
 }
 
 .product-tag.special {
-    background-color: #FFFDE7;
-    color: #e65c00;
-    border: 1px solid #FFD700;
+    background: rgba(6, 182, 212, 0.08);
+    color: var(--cyan);
+    border: 1px solid rgba(6, 182, 212, 0.18);
 }
 
 /* Title */
 .product-body h3 {
-    font-size: 17px;
-    color: #1a1a1a;
+    font-size: 16px;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 9px;
     line-height: 1.3;
-    transition: color 0.3s ease;
+    transition: color 0.30s ease;
 }
 
 .product-card:hover .product-body h3 {
-    color: #b8860b;
+    color: var(--primary);
 }
 
 /* Description */
 .product-body > p {
-    color: #666666;
+    color: var(--soft);
     font-size: 12.5px;
-    line-height: 1.7;
+    line-height: 1.72;
     margin-bottom: 14px;
     flex: 1;
 }
 
-/* Features */
+/* ===== Product Features - Liquid Glass Tags ===== */
 .product-features {
     display: flex;
     flex-wrap: wrap;
@@ -316,74 +456,110 @@
 .product-features span {
     font-size: 11px;
     font-weight: 600;
-    color: #555555;
-    background-color: #f8f8f8;
-    padding: 3px 9px;
-    border-radius: 11px;
-    border: 1px solid #e0e0e0;
-    transition: all 0.3s ease;
+    color: var(--soft);
+    background: rgba(255, 255, 255, 0.50);
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    transition: var(--transition);
     white-space: nowrap;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .product-card:hover .product-features span {
-    background-color: #FFFDE7;
-    border-color: #FFD700;
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.16);
+    color: var(--text);
 }
 
-/* Footer */
+/* ===== Product Footer ===== */
 .product-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 14px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(37, 99, 235, 0.07);
     margin-top: auto;
     gap: 8px;
 }
 
+/* Product Button - Blue Liquid */
 .product-btn {
     display: inline-flex;
     align-items: center;
-    padding: 7px 16px;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #1a1a1a;
-    border-radius: 18px;
+    gap: 3px;
+    padding: 8px 16px;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    color: #ffffff;
+    border-radius: 999px;
     font-size: 12.5px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.20);
+}
+
+.product-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.28),
+        transparent
+    );
+    transition: 0.6s ease;
+}
+
+.product-btn:hover::before {
+    left: 100%;
 }
 
 .product-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 14px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.26);
 }
 
+/* Price Link */
 .product-price-link {
-    color: #999999;
+    color: var(--soft);
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease;
-    border-bottom: 1px dashed #cccccc;
+    transition: var(--transition);
+    border-bottom: 1px dashed rgba(37, 99, 235, 0.20);
     padding-bottom: 1px;
     white-space: nowrap;
 }
 
 .product-price-link:hover {
-    color: #FFD700;
-    border-color: #FFD700;
+    color: var(--primary);
+    border-color: rgba(37, 99, 235, 0.40);
 }
 
 /* ========================================
-   MODAL
+   MODAL - Liquid Glass
 ======================================== */
 .modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.88);
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
     z-index: 10000;
     align-items: center;
     justify-content: center;
@@ -398,22 +574,61 @@
 
 @keyframes modalFadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
+    to   { opacity: 1; }
 }
 
+/* ===== Modal Box - Liquid White Glass ===== */
 .modal-box {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 38px 35px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(32px) saturate(200%) brightness(1.06);
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.06);
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    border-radius: var(--radius-xl);
+    padding: 42px 38px;
     max-width: 520px;
     width: 100%;
     text-align: center;
     position: relative;
-    border: 3px solid #FFD700;
-    animation: modalSlideUp 0.35s ease forwards;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideUp 0.38s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.12),
+        0 8px 24px rgba(37, 99, 235, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
     max-height: 90vh;
     overflow-y: auto;
+}
+
+/* Top reflection */
+.modal-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+}
+
+/* Blue top shimmer */
+.modal-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.35),
+        rgba(6, 182, 212, 0.25),
+        transparent
+    );
 }
 
 @keyframes modalSlideUp {
@@ -427,63 +642,77 @@
     }
 }
 
+/* ===== Modal Close - Liquid Glass ===== */
 .modal-close {
     position: absolute;
     top: -14px;
     right: -14px;
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    border: none;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.80);
     border-radius: 50%;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    color: #1a1a1a;
-    transition: all 0.3s ease;
+    color: var(--primary);
+    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: inherit;
+    box-shadow:
+        0 5px 15px rgba(15, 23, 42, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .modal-close:hover {
-    background: #1a1a1a;
-    color: #FFD700;
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    color: var(--primary-dark);
     transform: scale(1.12) rotate(90deg);
 }
 
 .modal-close:focus-visible {
-    outline: 3px solid #FFD700;
+    outline: 2px solid rgba(37, 99, 235, 0.55);
     outline-offset: 2px;
 }
 
 .modal-icon {
     font-size: 72px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     display: block;
-    animation: modalBounce 0.6s ease;
+    animation: modalBounce 0.65s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes modalBounce {
-    0%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-14px); }
-    70% { transform: translateY(-6px); }
+    0%   { transform: translateY(-20px) scale(0.8); opacity: 0; }
+    60%  { transform: translateY(8px) scale(1.1); }
+    80%  { transform: translateY(-5px) scale(0.98); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 .modal-box h2 {
     font-size: 26px;
-    color: #1a1a1a;
+    color: var(--text);
     font-weight: 800;
     margin-bottom: 14px;
     line-height: 1.3;
+    position: relative;
+    z-index: 1;
 }
 
 .modal-box > p {
-    color: #555555;
+    color: var(--soft);
     font-size: 14.5px;
-    line-height: 1.8;
-    margin-bottom: 24px;
+    line-height: 1.82;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
 }
 
 .modal-actions {
@@ -491,86 +720,154 @@
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
 /* ========================================
-   WHY PRODUCTS SECTION
+   WHY PRODUCTS - Liquid Glass Cards
 ======================================== */
 .products-why {
-    padding: 90px 50px;
-    background-color: #ffffff;
+    padding: 100px 50px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.60);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+}
+
+.products-why::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.16),
+        transparent
+    );
 }
 
 .why-products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 22px;
     max-width: 1180px;
     margin: 0 auto;
 }
 
+/* ===== Why Product Card - Liquid Glass ===== */
 .why-product-card {
-    background-color: #FFFDE7;
-    border-radius: 16px;
-    padding: 32px 22px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: var(--radius-lg);
+    padding: 35px 22px;
     text-align: center;
-    border-bottom: 4px solid #FFD700;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                background-color 0.35s ease;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+    transition:
+        transform 0.40s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.40s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.40s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
     position: relative;
     overflow: hidden;
     will-change: transform;
+    cursor: default;
 }
 
+/* Top reflection */
 .why-product-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    transform: scaleX(0);
-    transition: transform 0.35s ease;
-    transform-origin: left;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
 }
 
-.why-product-card:hover::before {
-    transform: scaleX(1);
+/* Bottom blue accent */
+.why-product-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--cyan),
+        transparent
+    );
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.why-product-card:hover::after {
+    opacity: 1;
 }
 
 .why-product-card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 14px 38px rgba(255, 215, 0, 0.2);
-    background-color: #FFD700;
-    border-bottom-color: #FFA500;
+    transform: translateY(-10px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 18px 48px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .why-product-card > span {
-    font-size: 46px;
-    display: block;
-    margin-bottom: 16px;
-    transition: transform 0.35s ease;
-    line-height: 1;
+    font-size: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    margin-bottom: 18px;
+    transition: var(--transition);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
 }
 
 .why-product-card:hover > span {
-    transform: scale(1.22) rotate(5deg);
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.22);
+    transform: scale(1.14) rotate(5deg);
+    box-shadow: 0 0 22px rgba(37, 99, 235, 0.10);
 }
 
 .why-product-card h3 {
-    font-size: 18px;
-    color: #1a1a1a;
+    font-size: 17px;
+    color: var(--text);
     font-weight: 700;
     margin-bottom: 10px;
+    transition: color 0.30s ease;
+}
+
+.why-product-card:hover h3 {
+    color: var(--primary);
 }
 
 .why-product-card p {
-    color: #555555;
+    color: var(--soft);
     font-size: 13.5px;
-    line-height: 1.65;
+    line-height: 1.68;
 }
 
 /* ========================================
@@ -582,11 +879,11 @@
     }
 
     .products-section {
-        padding: 60px 40px 70px;
+        padding: 60px 40px 75px;
     }
 
     .products-why {
-        padding: 75px 40px;
+        padding: 80px 40px;
     }
 }
 
@@ -596,7 +893,7 @@
 @media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
     }
 
     .why-products-grid {
@@ -605,99 +902,85 @@
 }
 
 /* ========================================
-   RESPONSIVE - 768px (Tablet)
+   RESPONSIVE - 768px
 ======================================== */
 @media (max-width: 768px) {
     .filter-section {
-        padding: 18px 15px 14px;
+        padding: 16px 15px 14px;
         top: 62px;
     }
 
-    .filter-tabs {
-        gap: 8px;
-    }
+    .filter-tabs { gap: 8px; }
 
     .filter-tab {
-        padding: 8px 15px;
+        padding: 8px 16px;
         font-size: 12.5px;
     }
 
     .products-section {
-        padding: 50px 15px 60px;
+        padding: 50px 15px 65px;
     }
 
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 14px;
     }
 
     .product-img {
         height: 165px;
-        font-size: 52px;
+        font-size: 54px;
     }
 
     .product-card:hover .product-img {
         height: 155px;
     }
 
-    .product-body {
-        padding: 16px;
-    }
+    .product-body { padding: 16px; }
 
     .products-why {
-        padding: 60px 18px;
+        padding: 65px 18px;
     }
 
     .why-products-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        max-width: 100%;
+        gap: 14px;
     }
 
     .modal-box {
-        padding: 28px 20px;
+        padding: 30px 22px;
+        border-radius: var(--radius-lg);
     }
 
-    .modal-box h2 {
-        font-size: 22px;
-    }
-
-    .modal-icon {
-        font-size: 60px;
-    }
+    .modal-box h2 { font-size: 22px; }
+    .modal-icon   { font-size: 60px; }
 }
 
 /* ========================================
-   RESPONSIVE - 480px (Mobile)
+   RESPONSIVE - 480px
 ======================================== */
 @media (max-width: 480px) {
-    .filter-section {
-        padding: 15px 12px 12px;
-    }
-
-    .filter-tabs {
-        gap: 7px;
-    }
+    .filter-section { padding: 14px 12px 12px; }
+    .filter-tabs    { gap: 7px; }
 
     .filter-tab {
-        padding: 7px 13px;
+        padding: 7px 14px;
         font-size: 12px;
     }
 
     .products-section {
-        padding: 45px 12px 55px;
+        padding: 45px 12px 58px;
     }
 
     .products-grid {
         grid-template-columns: 1fr;
         max-width: 380px;
         margin: 0 auto;
-        gap: 18px;
+        gap: 16px;
     }
 
     .product-img {
         height: 195px;
-        font-size: 64px;
+        font-size: 66px;
     }
 
     .product-card:hover .product-img {
@@ -711,8 +994,8 @@
     }
 
     .modal-box {
-        padding: 25px 16px;
-        border-radius: 16px;
+        padding: 26px 18px;
+        border-radius: var(--radius-md);
     }
 
     .modal-actions {
@@ -730,24 +1013,13 @@
 ======================================== */
 @media (max-width: 360px) {
     .filter-tab {
-        padding: 6px 11px;
+        padding: 6px 12px;
         font-size: 11.5px;
     }
 
-    .products-grid {
-        max-width: 100%;
-    }
+    .products-grid   { max-width: 100%; }
+    .product-img     { height: 175px; font-size: 58px; }
+    .product-body h3 { font-size: 15px; }
 
-    .product-img {
-        height: 175px;
-        font-size: 56px;
-    }
-
-    .product-body h3 {
-        font-size: 15px;
-    }
-
-    .why-product-card {
-        padding: 25px 18px;
-    }
+    .why-product-card { padding: 28px 16px; }
 }
