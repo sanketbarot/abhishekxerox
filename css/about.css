@@ -7,6 +7,509 @@
 /* ========================================
    PROFESSIONAL INTRO - Liquid Glass
 ======================================== */
+
+/* ========================================
+   ABOUT HERO - UNIQUE PREMIUM SECTION
+   Different from common page-banner
+======================================== */
+.about-hero {
+    background:
+        radial-gradient(
+            ellipse at 20% 40%,
+            rgba(37, 99, 235, 0.12) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 80% 60%,
+            rgba(6, 182, 212, 0.10) 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 50% 90%,
+            rgba(37, 99, 235, 0.06) 0%,
+            transparent 40%
+        ),
+        linear-gradient(
+            160deg,
+            #E8EDF5 0%,
+            #EEF2F7 25%,
+            #F4F7FB 50%,
+            #F0F5FA 75%,
+            #F8FAFC 100%
+        );
+    color: var(--text);
+    text-align: center;
+    padding: 100px 20px 80px;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Floating Glass Blobs ===== */
+.about-hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-hero-blob.blob-1 {
+    top: 5%;
+    left: -6%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.14),
+        transparent 65%
+    );
+    filter: blur(75px);
+    animation: aboutBlob1 14s ease-in-out infinite;
+}
+
+.about-hero-blob.blob-2 {
+    bottom: 8%;
+    right: -6%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+        circle,
+        rgba(6, 182, 212, 0.12),
+        transparent 65%
+    );
+    filter: blur(90px);
+    animation: aboutBlob2 18s ease-in-out infinite;
+}
+
+.about-hero-blob.blob-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.06),
+        transparent 70%
+    );
+    filter: blur(60px);
+    animation: aboutBlob3 12s ease-in-out infinite;
+}
+
+@keyframes aboutBlob1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, 35px) scale(1.08); }
+    66% { transform: translate(-30px, 50px) scale(0.94); }
+}
+
+@keyframes aboutBlob2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-45px, -30px) scale(1.10); }
+    66% { transform: translate(35px, -50px) scale(0.92); }
+}
+
+@keyframes aboutBlob3 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-45%, -55%) scale(1.15); }
+}
+
+/* ===== Hero Content ===== */
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* ===== Hero Badge - Liquid Glass Pill ===== */
+.about-hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    color: var(--primary);
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: 0.6px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+        0 4px 18px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    animation: aboutBadgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes aboutBadgeGlow {
+    0%, 100% {
+        box-shadow:
+            0 4px 18px rgba(37, 99, 235, 0.10),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    }
+    50% {
+        box-shadow:
+            0 6px 28px rgba(37, 99, 235, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    }
+}
+
+/* ===== Hero Title ===== */
+.about-hero-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 18px;
+    line-height: 1.15;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.about-hero-content h1 span {
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--cyan) 50%,
+        var(--primary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: aboutGradient 4s ease infinite;
+}
+
+@keyframes aboutGradient {
+    0%   { background-position: 0% center; }
+    50%  { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+/* ===== Hero Description ===== */
+.about-hero-content > p {
+    font-size: 17px;
+    color: var(--soft);
+    max-width: 540px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+}
+
+/* ===== Hero Stats - Liquid Glass Cards ===== */
+.about-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.about-hero-stat {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    padding: 16px 26px;
+    text-align: center;
+    min-width: 100px;
+    transition: var(--transition);
+    box-shadow:
+        0 4px 16px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top reflection */
+.about-hero-stat::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Blue shimmer on hover */
+.about-hero-stat::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.35),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-hero-stat:hover::after {
+    opacity: 1;
+}
+
+.about-hero-stat:hover {
+    transform: translateY(-5px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 12px 35px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.about-hero-stat h3 {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-hero-stat p {
+    font-size: 12px;
+    color: var(--soft);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* ===== Hero Buttons ===== */
+.about-hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+/* ===== Breadcrumb - Liquid Glass Pill ===== */
+.about-hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    padding: 7px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.about-hero-breadcrumb a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.about-hero-breadcrumb a:hover {
+    color: var(--cyan);
+}
+
+/* ===== Bottom Shimmer ===== */
+.about-hero-shimmer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--primary) 25%,
+        var(--cyan) 50%,
+        var(--primary) 75%,
+        transparent 100%
+    );
+    z-index: 1;
+    animation: shimmerMove 3s linear infinite;
+}
+
+@keyframes shimmerMove {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* ========================================
+   ABOUT HERO RESPONSIVE
+======================================== */
+@media (max-width: 1024px) {
+    .about-hero-content h1 {
+        font-size: 40px;
+    }
+
+    .about-hero-stats {
+        gap: 12px;
+    }
+
+    .about-hero-stat {
+        padding: 14px 22px;
+        min-width: 90px;
+    }
+
+    .about-hero-stat h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 80px 18px 65px;
+        min-height: 360px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 32px;
+        letter-spacing: 0;
+    }
+
+    .about-hero-content > p {
+        font-size: 15px;
+        margin-bottom: 26px;
+    }
+
+    .about-hero-badge {
+        font-size: 12px;
+        padding: 8px 22px;
+        margin-bottom: 20px;
+    }
+
+    .about-hero-stats {
+        gap: 10px;
+        margin-bottom: 26px;
+    }
+
+    .about-hero-stat {
+        padding: 12px 18px;
+        min-width: 80px;
+        border-radius: 14px;
+    }
+
+    .about-hero-stat h3 {
+        font-size: 22px;
+    }
+
+    .about-hero-stat p {
+        font-size: 11px;
+    }
+
+    .about-hero-btns {
+        gap: 12px;
+    }
+
+    .about-hero-blob.blob-1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .about-hero-blob.blob-2 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .about-hero-blob.blob-3 {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: 70px 15px 55px;
+        min-height: 320px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 27px;
+    }
+
+    .about-hero-content > p {
+        font-size: 14px;
+    }
+
+    .about-hero-badge {
+        font-size: 11px;
+        padding: 7px 18px;
+    }
+
+    .about-hero-stats {
+        gap: 8px;
+    }
+
+    .about-hero-stat {
+        padding: 10px 16px;
+        min-width: 72px;
+        border-radius: 12px;
+    }
+
+    .about-hero-stat h3 {
+        font-size: 20px;
+    }
+
+    .about-hero-stat p {
+        font-size: 10.5px;
+    }
+
+    .about-hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-hero-btns .btn,
+    .about-hero-btns .btn-dark {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .about-hero-breadcrumb {
+        padding: 6px 16px;
+        font-size: 11.5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-hero-content h1 {
+        font-size: 24px;
+    }
+
+    .about-hero-stat {
+        padding: 9px 14px;
+        min-width: 65px;
+    }
+
+    .about-hero-stat h3 {
+        font-size: 18px;
+    }
+}
+
 .pro-intro-section {
     padding: 100px 50px;
     background:

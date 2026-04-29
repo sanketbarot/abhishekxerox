@@ -23,18 +23,19 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    overflow-x: hidden;
+    /* ✅ overflow-x: hidden REMOVED from html
+       — prevents sticky navbar from breaking */
 }
 
 body {
     font-family: 'Poppins', 'Segoe UI', sans-serif;
     background: var(--bg);
     color: var(--text);
-    overflow-x: hidden;
+    overflow-x: clip; /* ✅ clip instead of hidden — sticky safe */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
+    /* ✅ position: relative REMOVED — sticky safe */
     min-height: 100vh;
 }
 
@@ -256,7 +257,11 @@ button {
 }
 
 /* ========================================
-   NAVBAR - LIQUID GLASS
+   HEADER - STICKY FIXED
+   ✅ position: sticky kaam kare mate:
+   1. html ma overflow-x: hidden nahi
+   2. body ma overflow-x: clip use karyu
+   3. body ma position: relative nahi
 ======================================== */
 header {
     position: sticky;
@@ -265,6 +270,9 @@ header {
     width: 100%;
 }
 
+/* ========================================
+   NAVBAR - Liquid Glass
+======================================== */
 .navbar {
     display: flex;
     justify-content: space-between;

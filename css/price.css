@@ -7,6 +7,575 @@
 /* ========================================
    PRICE INTRO - Liquid Glass Cards
 ======================================== */
+
+/* ========================================
+   PRICE HERO - UNIQUE PREMIUM SECTION
+   Different from common page-banner
+======================================== */
+.price-hero {
+    background:
+        radial-gradient(
+            ellipse at 18% 45%,
+            rgba(37, 99, 235, 0.12) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 82% 55%,
+            rgba(6, 182, 212, 0.10) 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 50% 95%,
+            rgba(37, 99, 235, 0.06) 0%,
+            transparent 40%
+        ),
+        linear-gradient(
+            155deg,
+            #E8EDF5 0%,
+            #EEF2F7 30%,
+            #F4F7FB 55%,
+            #F0F5FA 80%,
+            #F8FAFC 100%
+        );
+    color: var(--text);
+    text-align: center;
+    padding: 95px 20px 75px;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Floating Blobs ===== */
+.price-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.price-blob.blob-1 {
+    top: 5%;
+    left: -8%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.14),
+        transparent 65%
+    );
+    filter: blur(80px);
+    animation: priceBlob1 14s ease-in-out infinite;
+}
+
+.price-blob.blob-2 {
+    bottom: 5%;
+    right: -8%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+        circle,
+        rgba(6, 182, 212, 0.12),
+        transparent 65%
+    );
+    filter: blur(90px);
+    animation: priceBlob2 18s ease-in-out infinite;
+}
+
+.price-blob.blob-3 {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.05),
+        transparent 70%
+    );
+    filter: blur(60px);
+    animation: priceBlob3 10s ease-in-out infinite;
+}
+
+@keyframes priceBlob1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(45px, 30px) scale(1.08); }
+    66% { transform: translate(-25px, 45px) scale(0.94); }
+}
+
+@keyframes priceBlob2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-40px, -28px) scale(1.10); }
+    66% { transform: translate(30px, -45px) scale(0.92); }
+}
+
+@keyframes priceBlob3 {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-45%, -55%) scale(1.15);
+    }
+}
+
+/* ===== Hero Content ===== */
+.price-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* ===== Badge - Liquid Glass Pill ===== */
+.price-hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    color: var(--primary);
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+        0 4px 18px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    animation: priceBadgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes priceBadgeGlow {
+    0%, 100% {
+        box-shadow:
+            0 4px 18px rgba(37, 99, 235, 0.10),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+        border-color: rgba(255, 255, 255, 0.75);
+    }
+    50% {
+        box-shadow:
+            0 6px 26px rgba(37, 99, 235, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+        border-color: rgba(37, 99, 235, 0.22);
+    }
+}
+
+/* ===== Hero Title ===== */
+.price-hero-content h1 {
+    font-size: 46px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.15;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.price-hero-content h1 span {
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--cyan) 50%,
+        var(--primary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: priceGradient 4s ease infinite;
+}
+
+@keyframes priceGradient {
+    0%   { background-position: 0% center; }
+    50%  { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+/* ===== Description ===== */
+.price-hero-content > p {
+    font-size: 16.5px;
+    color: var(--soft);
+    max-width: 480px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+/* ===== Price Highlight Cards ===== */
+.price-hero-cards {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+/* ===== Price Hero Card - Liquid Glass ===== */
+.price-hero-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    padding: 14px 22px;
+    transition: var(--transition);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 16px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    min-width: 175px;
+}
+
+/* Top reflection */
+.price-hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Blue shimmer on hover */
+.price-hero-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(37, 99, 235, 0.40),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.30s ease;
+}
+
+.price-hero-card:hover::after {
+    opacity: 1;
+}
+
+.price-hero-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 14px 38px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Card Icon - Glass Circle */
+.phc-icon {
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 14px;
+    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80);
+    flex-shrink: 0;
+}
+
+.price-hero-card:hover .phc-icon {
+    background: rgba(37, 99, 235, 0.12);
+    border-color: rgba(37, 99, 235, 0.24);
+    transform: scale(1.08) rotate(5deg);
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.10);
+}
+
+/* Card Info */
+.phc-info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.phc-info strong {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 800;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.phc-info span {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.price-hero-card:hover .phc-info strong {
+    color: var(--primary);
+}
+
+/* ===== Action Buttons ===== */
+.price-hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+}
+
+/* ===== Breadcrumb - Liquid Glass Pill ===== */
+.price-hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    padding: 7px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.price-hero-breadcrumb a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.price-hero-breadcrumb a:hover {
+    color: var(--cyan);
+}
+
+/* ===== Bottom Animated Shimmer ===== */
+.price-hero-shimmer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--primary) 25%,
+        var(--cyan) 50%,
+        var(--primary) 75%,
+        transparent 100%
+    );
+    background-size: 200% auto;
+    z-index: 1;
+    animation: priceShimmerMove 3s linear infinite;
+}
+
+@keyframes priceShimmerMove {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* ========================================
+   PRICE HERO RESPONSIVE
+======================================== */
+@media (max-width: 1024px) {
+    .price-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .price-hero-content > p {
+        font-size: 15.5px;
+    }
+
+    .price-hero-cards {
+        gap: 12px;
+    }
+
+    .price-hero-card {
+        min-width: 155px;
+        padding: 12px 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .price-hero {
+        padding: 80px 18px 62px;
+        min-height: 360px;
+    }
+
+    .price-hero-content h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+    }
+
+    .price-hero-content > p {
+        font-size: 14.5px;
+        margin-bottom: 24px;
+    }
+
+    .price-hero-badge {
+        font-size: 12px;
+        padding: 8px 20px;
+        margin-bottom: 18px;
+    }
+
+    .price-hero-cards {
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .price-hero-card {
+        min-width: 140px;
+        padding: 11px 16px;
+        border-radius: 16px;
+        gap: 10px;
+    }
+
+    .phc-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 22px;
+        border-radius: 12px;
+    }
+
+    .phc-info strong {
+        font-size: 13px;
+    }
+
+    .phc-info span {
+        font-size: 10.5px;
+    }
+
+    .price-hero-btns {
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .price-blob.blob-1 {
+        width: 260px;
+        height: 260px;
+    }
+
+    .price-blob.blob-2 {
+        width: 290px;
+        height: 290px;
+    }
+
+    .price-blob.blob-3 {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-hero {
+        padding: 70px 15px 55px;
+        min-height: 330px;
+    }
+
+    .price-hero-content h1 {
+        font-size: 26px;
+    }
+
+    .price-hero-content > p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .price-hero-badge {
+        font-size: 11px;
+        padding: 7px 16px;
+        margin-bottom: 16px;
+    }
+
+    .price-hero-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .price-hero-card {
+        width: 100%;
+        max-width: 300px;
+        min-width: unset;
+        justify-content: flex-start;
+        padding: 12px 18px;
+    }
+
+    .phc-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        font-size: 20px;
+    }
+
+    .price-hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .price-hero-btns .btn,
+    .price-hero-btns .btn-dark {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .price-hero-breadcrumb {
+        padding: 6px 16px;
+        font-size: 11.5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .price-hero-content h1 {
+        font-size: 22px;
+    }
+
+    .price-hero-card {
+        max-width: 100%;
+        padding: 10px 14px;
+    }
+
+    .phc-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .phc-info strong {
+        font-size: 12.5px;
+    }
+}
+
+
 .price-intro {
     padding: 65px 50px;
     background: rgba(255, 255, 255, 0.28);

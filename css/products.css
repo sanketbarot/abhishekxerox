@@ -7,6 +7,640 @@
 /* ========================================
    FILTER SECTION - Liquid Glass Strip
 ======================================== */
+
+/* ========================================
+   PRODUCTS HERO - UNIQUE PREMIUM SECTION
+   Different from common page-banner
+======================================== */
+.products-hero {
+    background:
+        radial-gradient(
+            ellipse at 18% 45%,
+            rgba(37, 99, 235, 0.12) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 82% 55%,
+            rgba(6, 182, 212, 0.10) 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 50% 95%,
+            rgba(37, 99, 235, 0.06) 0%,
+            transparent 40%
+        ),
+        linear-gradient(
+            155deg,
+            #E8EDF5 0%,
+            #EEF2F7 30%,
+            #F4F7FB 55%,
+            #F0F5FA 80%,
+            #F8FAFC 100%
+        );
+    color: var(--text);
+    text-align: center;
+    padding: 95px 20px 72px;
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Floating Blobs ===== */
+.prod-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.prod-blob.blob-1 {
+    top: 5%;
+    left: -8%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.14),
+        transparent 65%
+    );
+    filter: blur(80px);
+    animation: prodBlob1 14s ease-in-out infinite;
+}
+
+.prod-blob.blob-2 {
+    bottom: 5%;
+    right: -8%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+        circle,
+        rgba(6, 182, 212, 0.12),
+        transparent 65%
+    );
+    filter: blur(90px);
+    animation: prodBlob2 18s ease-in-out infinite;
+}
+
+.prod-blob.blob-3 {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.05),
+        transparent 70%
+    );
+    filter: blur(60px);
+    animation: prodBlob3 10s ease-in-out infinite;
+}
+
+@keyframes prodBlob1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(45px, 30px) scale(1.08); }
+    66% { transform: translate(-25px, 45px) scale(0.94); }
+}
+
+@keyframes prodBlob2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-40px, -28px) scale(1.10); }
+    66% { transform: translate(30px, -45px) scale(0.92); }
+}
+
+@keyframes prodBlob3 {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-45%, -55%) scale(1.15);
+    }
+}
+
+/* ===== Hero Content ===== */
+.products-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* ===== Badge - Liquid Glass Pill ===== */
+.products-hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    color: var(--primary);
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+        0 4px 18px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    animation: prodBadgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes prodBadgeGlow {
+    0%, 100% {
+        box-shadow:
+            0 4px 18px rgba(37, 99, 235, 0.10),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+        border-color: rgba(255, 255, 255, 0.75);
+    }
+    50% {
+        box-shadow:
+            0 6px 26px rgba(37, 99, 235, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.90);
+        border-color: rgba(37, 99, 235, 0.20);
+    }
+}
+
+/* ===== Hero Title ===== */
+.products-hero-content h1 {
+    font-size: 46px;
+    font-weight: 900;
+    margin-bottom: 14px;
+    line-height: 1.15;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.products-hero-content h1 span {
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--cyan) 50%,
+        var(--primary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: prodGradient 4s ease infinite;
+}
+
+@keyframes prodGradient {
+    0%   { background-position: 0% center; }
+    50%  { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+/* ===== Description ===== */
+.products-hero-content > p {
+    font-size: 16px;
+    color: var(--soft);
+    max-width: 480px;
+    margin: 0 auto 26px;
+    line-height: 1.8;
+}
+
+/* ===== Category Tags - Liquid Glass ===== */
+.products-hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+/* Base tag */
+.prod-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 999px;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: var(--transition);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+/* Top reflection */
+.prod-tag::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Tag color variants */
+.prod-tag.print {
+    background: rgba(37, 99, 235, 0.07);
+    color: var(--primary);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+.prod-tag.design {
+    background: rgba(99, 102, 241, 0.07);
+    color: #6366F1;
+    border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+.prod-tag.photo {
+    background: rgba(239, 68, 68, 0.07);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.18);
+}
+
+.prod-tag.packaging {
+    background: rgba(249, 115, 22, 0.07);
+    color: #F97316;
+    border: 1px solid rgba(249, 115, 22, 0.18);
+}
+
+.prod-tag.special {
+    background: rgba(6, 182, 212, 0.07);
+    color: var(--cyan);
+    border: 1px solid rgba(6, 182, 212, 0.18);
+}
+
+/* Hover all tags */
+.prod-tag:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 22px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+}
+
+.prod-tag.print:hover {
+    background: rgba(37, 99, 235, 0.12);
+    border-color: rgba(37, 99, 235, 0.28);
+}
+
+.prod-tag.design:hover {
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.28);
+}
+
+.prod-tag.photo:hover {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.28);
+}
+
+.prod-tag.packaging:hover {
+    background: rgba(249, 115, 22, 0.12);
+    border-color: rgba(249, 115, 22, 0.28);
+}
+
+.prod-tag.special:hover {
+    background: rgba(6, 182, 212, 0.12);
+    border-color: rgba(6, 182, 212, 0.28);
+}
+
+/* ===== Product Count Cards ===== */
+.products-hero-counts {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+}
+
+/* ===== Count Card - Liquid Glass ===== */
+.prod-count-card {
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    padding: 16px 26px;
+    text-align: center;
+    min-width: 95px;
+    transition: var(--transition);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 16px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+}
+
+/* Top reflection */
+.prod-count-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.98),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Blue bottom accent */
+.prod-count-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--cyan),
+        transparent
+    );
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.30s ease;
+}
+
+.prod-count-card:hover::after {
+    opacity: 1;
+}
+
+.prod-count-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow:
+        0 14px 36px rgba(37, 99, 235, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.prod-count-card h3 {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.prod-count-card p {
+    font-size: 11.5px;
+    color: var(--soft);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+/* ===== Breadcrumb - Liquid Glass Pill ===== */
+.products-hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    padding: 7px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    box-shadow:
+        0 3px 12px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.products-hero-breadcrumb a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.products-hero-breadcrumb a:hover {
+    color: var(--cyan);
+}
+
+/* ===== Bottom Animated Shimmer ===== */
+.products-hero-shimmer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--primary) 25%,
+        var(--cyan) 50%,
+        var(--primary) 75%,
+        transparent 100%
+    );
+    background-size: 200% auto;
+    z-index: 1;
+    animation: prodShimmerMove 3s linear infinite;
+}
+
+@keyframes prodShimmerMove {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* ========================================
+   PRODUCTS HERO RESPONSIVE
+======================================== */
+@media (max-width: 1024px) {
+    .products-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .products-hero-content > p {
+        font-size: 15.5px;
+    }
+
+    .products-hero-counts {
+        gap: 12px;
+    }
+
+    .prod-count-card {
+        min-width: 85px;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-hero {
+        padding: 80px 18px 60px;
+        min-height: 390px;
+    }
+
+    .products-hero-content h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+    }
+
+    .products-hero-content > p {
+        font-size: 14.5px;
+        margin-bottom: 22px;
+    }
+
+    .products-hero-badge {
+        font-size: 12px;
+        padding: 8px 20px;
+        margin-bottom: 16px;
+    }
+
+    .products-hero-tags {
+        gap: 8px;
+        margin-bottom: 22px;
+    }
+
+    .prod-tag {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .products-hero-counts {
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .prod-count-card {
+        min-width: 78px;
+        padding: 12px 16px;
+        border-radius: 14px;
+    }
+
+    .prod-count-card h3 {
+        font-size: 22px;
+    }
+
+    .prod-count-card p {
+        font-size: 10.5px;
+    }
+
+    .prod-blob.blob-1 {
+        width: 260px;
+        height: 260px;
+    }
+
+    .prod-blob.blob-2 {
+        width: 290px;
+        height: 290px;
+    }
+
+    .prod-blob.blob-3 {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero {
+        padding: 70px 15px 55px;
+        min-height: 360px;
+    }
+
+    .products-hero-content h1 {
+        font-size: 26px;
+    }
+
+    .products-hero-content > p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .products-hero-badge {
+        font-size: 11px;
+        padding: 7px 16px;
+        margin-bottom: 14px;
+    }
+
+    .products-hero-tags {
+        gap: 7px;
+        margin-bottom: 18px;
+    }
+
+    .prod-tag {
+        padding: 7px 14px;
+        font-size: 11.5px;
+        gap: 5px;
+    }
+
+    .products-hero-counts {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .prod-count-card {
+        min-width: 70px;
+        padding: 10px 14px;
+        border-radius: 12px;
+    }
+
+    .prod-count-card h3 {
+        font-size: 20px;
+    }
+
+    .prod-count-card p {
+        font-size: 10px;
+    }
+
+    .products-hero-breadcrumb {
+        padding: 6px 16px;
+        font-size: 11.5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .products-hero-content h1 {
+        font-size: 22px;
+    }
+
+    .prod-tag {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .prod-count-card {
+        min-width: 62px;
+        padding: 9px 12px;
+    }
+
+    .prod-count-card h3 {
+        font-size: 18px;
+    }
+
+    .products-hero-breadcrumb {
+        padding: 5px 14px;
+        font-size: 11px;
+    }
+}
+
 .filter-section {
     padding: 22px 50px 18px;
     background: rgba(255, 255, 255, 0.60);

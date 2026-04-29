@@ -88,16 +88,87 @@
     </nav>
 </header>
 
-    <!-- ========== PAGE BANNER ========== -->
-    <section class="page-banner" aria-label="Gallery Banner">
-        <h2>Our <span>Gallery</span></h2>
-        <p>See Our Shop, Equipment & Work</p>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+   <!-- ========== GALLERY HERO - UNIQUE ========== -->
+<section class="gallery-hero" aria-label="Gallery Hero">
+
+    <!-- Floating Blobs -->
+    <div class="gal-blob blob-1" aria-hidden="true"></div>
+    <div class="gal-blob blob-2" aria-hidden="true"></div>
+    <div class="gal-blob blob-3" aria-hidden="true"></div>
+
+    <div class="gallery-hero-content">
+
+        <!-- Badge -->
+        <div class="gallery-hero-badge">
+            📸 Our Shop, Equipment & Work
+        </div>
+
+        <h1>Our <span>Gallery</span></h1>
+
+        <p>Take a look at our shop, machines,
+            printing work and much more from
+            Abhishek Xerox, Vejalpur.</p>
+
+        <!-- Gallery Category Pills -->
+        <div class="gallery-hero-pills">
+            <div class="gal-pill">
+                🏪 Shop
+            </div>
+            <div class="gal-pill">
+                🖨️ Printing
+            </div>
+            <div class="gal-pill">
+                📄 Scanning
+            </div>
+            <div class="gal-pill">
+                🗂️ Lamination
+            </div>
+            <div class="gal-pill">
+                📚 Binding
+            </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="gallery-hero-stats">
+            <div class="gal-stat">
+                <h3>12+</h3>
+                <p>Photos</p>
+            </div>
+            <div class="gal-stat-divider"
+                aria-hidden="true"></div>
+            <div class="gal-stat">
+                <h3>5</h3>
+                <p>Categories</p>
+            </div>
+            <div class="gal-stat-divider"
+                aria-hidden="true"></div>
+            <div class="gal-stat">
+                <h3>3</h3>
+                <p>Branches</p>
+            </div>
+            <div class="gal-stat-divider"
+                aria-hidden="true"></div>
+            <div class="gal-stat">
+                <h3>10+</h3>
+                <p>Years</p>
+            </div>
+        </div>
+
+        <!-- Breadcrumb -->
+        <nav class="gallery-hero-breadcrumb"
+            aria-label="Breadcrumb">
             <a href="index.html">Home</a>
-            <span aria-hidden="true"> &rarr; </span>
+            <span aria-hidden="true">→</span>
             <span>Gallery</span>
         </nav>
-    </section>
+
+    </div>
+
+    <!-- Bottom shimmer -->
+    <div class="gallery-hero-shimmer"
+        aria-hidden="true"></div>
+
+</section>
 
     <!-- ========== FILTER BUTTONS ========== -->
     <section class="filter-section"
@@ -151,325 +222,313 @@
     </section>
 
     <!-- ========== GALLERY GRID ========== -->
-    <section class="gallery-section"
-        aria-label="Gallery Images">
-        <div class="gallery-grid" id="galleryGrid"
-            role="list">
+<section class="gallery-section"
+    aria-label="Gallery Images">
+    <div class="gallery-grid" id="galleryGrid"
+        role="list">
 
-            <!-- 1. Shop -->
-            <article class="gallery-item"
-                data-category="shop"
-                role="listitem"
-                tabindex="0"
-                aria-label="Our Shop - Front View">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#1a1a1a,#2d2d2d);"
-                    aria-hidden="true">
-                    <span>🏪</span>
+        <!-- 1. Shop -->
+        <article class="gallery-item"
+            data-category="shop"
+            role="listitem"
+            tabindex="0"
+            aria-label="Our Shop - Front View">
+            <div class="gallery-img"
+                style="background: rgba(37, 99, 235, 0.06);"
+                aria-hidden="true">
+                <span>🏪</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Our Shop</h3>
+                    <p>Front View</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Our Shop</h3>
-                        <p>Front View</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 2. Printing -->
-            <article class="gallery-item"
-                data-category="printing"
-                role="listitem"
-                tabindex="0"
-                aria-label="Printing Machine - Color Printer">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#1a3a1a,#2d5a2d);"
-                    aria-hidden="true">
-                    <span>🖨️</span>
+        <!-- 2. Printing -->
+        <article class="gallery-item"
+            data-category="printing"
+            role="listitem"
+            tabindex="0"
+            aria-label="Printing Machine - Color Printer">
+            <div class="gallery-img"
+                style="background: rgba(16, 185, 129, 0.06);"
+                aria-hidden="true">
+                <span>🖨️</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Printing Machine</h3>
+                    <p>Color Printer</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Printing Machine</h3>
-                        <p>Color Printer</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 3. Scanning -->
-            <article class="gallery-item"
-                data-category="scanning"
-                role="listitem"
-                tabindex="0"
-                aria-label="Document Scanning - Fast Scanning">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#1a1a3a,#2d2d5a);"
-                    aria-hidden="true">
-                    <span>📄</span>
+        <!-- 3. Scanning -->
+        <article class="gallery-item"
+            data-category="scanning"
+            role="listitem"
+            tabindex="0"
+            aria-label="Document Scanning - Fast Scanning">
+            <div class="gallery-img"
+                style="background: rgba(99, 102, 241, 0.06);"
+                aria-hidden="true">
+                <span>📄</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Document Scanning</h3>
+                    <p>Fast Scanning</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Document Scanning</h3>
-                        <p>Fast Scanning</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 4. Lamination -->
-            <article class="gallery-item"
-                data-category="lamination"
-                role="listitem"
-                tabindex="0"
-                aria-label="Lamination Work - Glossy Lamination">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#3a1a1a,#5a2d2d);"
-                    aria-hidden="true">
-                    <span>🗂️</span>
+        <!-- 4. Lamination -->
+        <article class="gallery-item"
+            data-category="lamination"
+            role="listitem"
+            tabindex="0"
+            aria-label="Lamination Work - Glossy Lamination">
+            <div class="gallery-img"
+                style="background: rgba(239, 68, 68, 0.06);"
+                aria-hidden="true">
+                <span>🗂️</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Lamination Work</h3>
+                    <p>Glossy Lamination</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Lamination Work</h3>
-                        <p>Glossy Lamination</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 5. Binding -->
-            <article class="gallery-item"
-                data-category="binding"
-                role="listitem"
-                tabindex="0"
-                aria-label="Book Binding - Spiral Binding">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#2a1a3a,#4a2d5a);"
-                    aria-hidden="true">
-                    <span>📚</span>
+        <!-- 5. Binding -->
+        <article class="gallery-item"
+            data-category="binding"
+            role="listitem"
+            tabindex="0"
+            aria-label="Book Binding - Spiral Binding">
+            <div class="gallery-img"
+                style="background: rgba(168, 85, 247, 0.06);"
+                aria-hidden="true">
+                <span>📚</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Book Binding</h3>
+                    <p>Spiral Binding</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Book Binding</h3>
-                        <p>Spiral Binding</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 6. Shop -->
-            <article class="gallery-item"
-                data-category="shop"
-                role="listitem"
-                tabindex="0"
-                aria-label="Computer Section - Typing Work">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#3a3a1a,#5a5a2d);"
-                    aria-hidden="true">
-                    <span>🖥️</span>
+        <!-- 6. Shop -->
+        <article class="gallery-item"
+            data-category="shop"
+            role="listitem"
+            tabindex="0"
+            aria-label="Computer Section - Typing Work">
+            <div class="gallery-img"
+                style="background: rgba(245, 158, 11, 0.06);"
+                aria-hidden="true">
+                <span>🖥️</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Computer Section</h3>
+                    <p>Typing Work</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Computer Section</h3>
-                        <p>Typing Work</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 7. Printing -->
-            <article class="gallery-item"
-                data-category="printing"
-                role="listitem"
-                tabindex="0"
-                aria-label="Color Printing - High Quality">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#1a2a3a,#2d4a5a);"
-                    aria-hidden="true">
-                    <span>🎨</span>
+        <!-- 7. Printing -->
+        <article class="gallery-item"
+            data-category="printing"
+            role="listitem"
+            tabindex="0"
+            aria-label="Color Printing - High Quality">
+            <div class="gallery-img"
+                style="background: rgba(6, 182, 212, 0.07);"
+                aria-hidden="true">
+                <span>🎨</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Color Printing</h3>
+                    <p>High Quality</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Color Printing</h3>
-                        <p>High Quality</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 8. Scanning -->
-            <article class="gallery-item"
-                data-category="scanning"
-                role="listitem"
-                tabindex="0"
-                aria-label="Photo Scanning - High Resolution">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#2a3a1a,#4a5a2d);"
-                    aria-hidden="true">
-                    <span>🔍</span>
+        <!-- 8. Scanning -->
+        <article class="gallery-item"
+            data-category="scanning"
+            role="listitem"
+            tabindex="0"
+            aria-label="Photo Scanning - High Resolution">
+            <div class="gallery-img"
+                style="background: rgba(16, 185, 129, 0.07);"
+                aria-hidden="true">
+                <span>🔍</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Photo Scanning</h3>
+                    <p>High Resolution</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Photo Scanning</h3>
-                        <p>High Resolution</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 9. Lamination -->
-            <article class="gallery-item"
-                data-category="lamination"
-                role="listitem"
-                tabindex="0"
-                aria-label="ID Card Lamination - Card Lamination">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#3a2a1a,#5a4a2d);"
-                    aria-hidden="true">
-                    <span>💳</span>
+        <!-- 9. Lamination -->
+        <article class="gallery-item"
+            data-category="lamination"
+            role="listitem"
+            tabindex="0"
+            aria-label="ID Card Lamination - Card Lamination">
+            <div class="gallery-img"
+                style="background: rgba(249, 115, 22, 0.06);"
+                aria-hidden="true">
+                <span>💳</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>ID Card Lamination</h3>
+                    <p>Card Lamination</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>ID Card Lamination</h3>
-                        <p>Card Lamination</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
+            </div>
+        </article>
+
+        <!-- 10. Binding -->
+        <article class="gallery-item"
+            data-category="binding"
+            role="listitem"
+            tabindex="0"
+            aria-label="Hard Binding - Premium Binding">
+            <div class="gallery-img"
+                style="background: rgba(99, 102, 241, 0.07);"
+                aria-hidden="true">
+                <span>📖</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Hard Binding</h3>
+                    <p>Premium Binding</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 10. Binding -->
-            <article class="gallery-item"
-                data-category="binding"
-                role="listitem"
-                tabindex="0"
-                aria-label="Hard Binding - Premium Binding">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#1a3a2a,#2d5a4a);"
-                    aria-hidden="true">
-                    <span>📖</span>
+        <!-- 11. Shop -->
+        <article class="gallery-item"
+            data-category="shop"
+            role="listitem"
+            tabindex="0"
+            aria-label="Photo Printing - Passport Photos">
+            <div class="gallery-img"
+                style="background: rgba(37, 99, 235, 0.07);"
+                aria-hidden="true">
+                <span>🖼️</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Photo Printing</h3>
+                    <p>Passport Photos</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Hard Binding</h3>
-                        <p>Premium Binding</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
+            </div>
+        </article>
+
+        <!-- 12. Printing -->
+        <article class="gallery-item"
+            data-category="printing"
+            role="listitem"
+            tabindex="0"
+            aria-label="Visiting Cards - Business Cards">
+            <div class="gallery-img"
+                style="background: rgba(6, 182, 212, 0.07);"
+                aria-hidden="true">
+                <span>📮</span>
+            </div>
+            <div class="gallery-overlay"
+                aria-hidden="true">
+                <div class="overlay-content">
+                    <h3>Visiting Cards</h3>
+                    <p>Business Cards</p>
+                    <span class="overlay-icon">🔍</span>
                 </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 11. Shop -->
-            <article class="gallery-item"
-                data-category="shop"
-                role="listitem"
-                tabindex="0"
-                aria-label="Photo Printing - Passport Photos">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#2d1a1a,#4a2d2d);"
-                    aria-hidden="true">
-                    <span>🖼️</span>
-                </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Photo Printing</h3>
-                        <p>Passport Photos</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+    </div>
 
-            <!-- 12. Printing -->
-            <article class="gallery-item"
-                data-category="printing"
-                role="listitem"
-                tabindex="0"
-                aria-label="Visiting Cards - Business Cards">
-                <div class="gallery-img"
-                    style="background:linear-gradient(
-                        135deg,#1a1a2d,#2d2d4a);"
-                    aria-hidden="true">
-                    <span>📮</span>
-                </div>
-                <div class="gallery-overlay"
-                    aria-hidden="true">
-                    <div class="overlay-content">
-                        <h3>Visiting Cards</h3>
-                        <p>Business Cards</p>
-                        <span class="overlay-icon">🔍</span>
-                    </div>
-                </div>
-            </article>
+    <!-- No Results -->
+    <div class="no-results" id="noResults"
+        aria-live="polite">
+        <p>No images found in this category.</p>
+    </div>
 
-        </div>
+</section>
 
-        <!-- No Results -->
-        <div class="no-results" id="noResults"
-            aria-live="polite">
-            <p>No images found in this category.</p>
-        </div>
+<!-- ========== LIGHTBOX ========== -->
+<div class="lightbox" id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image Lightbox"
+    aria-labelledby="lightboxTitle">
 
-    </section>
+    <div class="lightbox-overlay"
+        id="lightboxOverlay"
+        aria-hidden="true"></div>
 
-    <!-- ========== LIGHTBOX ========== -->
-    <div class="lightbox" id="lightbox"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Image Lightbox"
-        aria-labelledby="lightboxTitle">
+    <div class="lightbox-content"
+        role="document">
+        <button class="lightbox-close"
+            id="lightboxClose"
+            aria-label="Close lightbox"
+            type="button">✕</button>
 
-        <div class="lightbox-overlay"
-            id="lightboxOverlay"
+        <div class="lightbox-img"
+            id="lightboxImg"
             aria-hidden="true"></div>
 
-        <div class="lightbox-content"
-            role="document">
-            <button class="lightbox-close"
-                id="lightboxClose"
-                aria-label="Close lightbox"
-                type="button">✕</button>
+        <div class="lightbox-info">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxDesc"></p>
+        </div>
 
-            <div class="lightbox-img"
-                id="lightboxImg"
-                aria-hidden="true"></div>
-
-            <div class="lightbox-info">
-                <h3 id="lightboxTitle"></h3>
-                <p id="lightboxDesc"></p>
-            </div>
-
-            <div class="lightbox-nav">
-                <button class="nav-btn" id="prevBtn"
-                    aria-label="Previous image"
-                    type="button">❮</button>
-                <span class="lightbox-counter"
-                    id="lightboxCounter"
-                    aria-live="polite">1 / 12</span>
-                <button class="nav-btn" id="nextBtn"
-                    aria-label="Next image"
-                    type="button">❯</button>
-            </div>
+        <div class="lightbox-nav">
+            <button class="nav-btn" id="prevBtn"
+                aria-label="Previous image"
+                type="button">❮</button>
+            <span class="lightbox-counter"
+                id="lightboxCounter"
+                aria-live="polite">1 / 12</span>
+            <button class="nav-btn" id="nextBtn"
+                aria-label="Next image"
+                type="button">❯</button>
         </div>
     </div>
+</div>
 
     <!-- ========== CTA ========== -->
     <section class="cta-section">
